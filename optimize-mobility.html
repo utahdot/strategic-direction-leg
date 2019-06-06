@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Optimize Mobility</title>
+    <!-- Bootstrap core CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://use.typekit.net/wls4dcr.css" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      rel="stylesheet"
+    />
+    <!-- Morris Charts css  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"
+    />
+    <!-- Custom styles for this template -->
+    <link href="css/udotsd.css" rel="stylesheet" />
+    <link rel="stylesheet" href="icomoon/style.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-16502188-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-16502188-1");
+    </script>
+  </head>
+  <body id="page-top">
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-0"
+      id="sideNav"
+    >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger p-0" href="index.html">
+              <div class="overlay-container">
+                <span class="iconspan"><i class="icon-Home icon"></i></span>
+                <div class="overlay">
+                  <div class="overlay-text">Home</div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link js-scroll-trigger p-0"
+              href="zero-fatalities.html"
+            >
+              <div class="overlay-container">
+                <span class="iconspan"
+                  ><i class="icon-zero-fatalities icon"></i
+                ></span>
+                <div class="overlay">
+                  <div class="overlay-text">Zero Fatalities</div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger p-0 active" href="#page-top">
+              <div class="overlay-container">
+                <span class="iconspan"><i class="icon-mobility icon"></i></span>
+                <div class="overlay">
+                  <div class="overlay-text">Optimize Mobility</div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link js-scroll-trigger p-0"
+              href="preserve-infrastructure.html"
+            >
+              <div class="overlay-container">
+                <span class="iconspan"
+                  ><i class="icon-infrastructure icon"></i
+                ></span>
+                <div class="overlay">
+                  <div class="overlay-text">Preserve Infrastructure</div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger p-0" href="#strategies">
+              <div class="overlay-container">
+                <span class="iconspan"
+                  ><i class="fas fa-lightbulb icon"></i
+                ></span>
+                <div class="overlay">
+                  <div class="overlay-text">Strategies</div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link js-scroll-trigger p-0"
+              href="#performanceMeasures"
+            >
+              <div class="overlay-container">
+                <span class="iconspan"
+                  ><i class="fas fa-chart-pie icon"></i
+                ></span>
+                <div class="overlay">
+                  <div class="overlay-text">Performance Measures</div>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid p-0">
+      <header class="masthead om-bg-img">
+        <div id="stateheader">
+          <script
+            type="text/javascript"
+            src="https://www.utah.gov/nav/navheader.js"
+          ></script>
+        </div>
+        <div class="container-fluid">
+          <div class="row h-25 align-items-center mt-5">
+            <div class="col-12">
+              <h2 class="goal-page-header-title bg-light text-dark">
+                Optimize Mobility
+              </h2>
+            </div>
+          </div>
+          <div class="row pt-5">
+            <div class="col-sm-6 text-center h-100 px-0">
+              <div class="col-sm-12 h-50 pb-3">
+                <div class="card udot-bg-gray h-100">
+                  <div class="card-body h-100 p-0">
+                    <h6>Mobility Performance Measures</h6>
+                    <div class="goal-chart-container">
+                      <canvas id="om-kpi-chart"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 h-50">
+                <div class="card udot-bg-gray h-100">
+                  <div class="card-body h-100 p-0">
+                    <h6>Historical Mobility Index</h6>
+                    <div class="goal-chart-container">
+                      <canvas id="om-line-chart"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 text-center pl-0">
+              <div class="card udot-bg-gray p-0">
+                <div class="card-body">
+                  <h6>Mobility Index</h6>
+                  <div class="goal-chart-container">
+                    <canvas id="om-goalpage-doughut-chart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="scrollArrow js-scroll-trigger" href="#strategies"
+          ><span></span>Scroll</a
+        >
+      </header>
+      <hr class="m-0" />
+      <!--Strategies Section wit Tabs -->
+      <section
+        class="udotsd-section d-flex flex-column udot-bg-2 position-relative"
+        id="strategies"
+      >
+        <!--Section wrapper -->
+        <div class="my-auto w-100">
+          <!--Strategies First row-->
+          <div class="container-fluid text-center pb-5" id="strategies-tabs">
+            <div class="content-section-heading">
+              <h2 class="mb-1 text-center font-weight-bold">Strategies</h2>
+            </div>
+            <ul class="nav mb-3 nav-fill" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active show"
+                  id="pills-1-tab"
+                  data-toggle="pill"
+                  href="#pills-1"
+                  role="tab"
+                  aria-controls="pills-1"
+                  aria-selected="true"
+                >
+                  <h4 class="text-transform-none py-4 text-primary">
+                    Capacity Improvements
+                  </h4>
+                  <div class="slide-me-up">
+                    <div class="slide-me-text">
+                      Strategic capacity Improvements
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="pills-2-tab"
+                  data-toggle="pill"
+                  href="#pills-2"
+                  role="tab"
+                  aria-controls="pills-2"
+                  aria-selected="false"
+                >
+                  <h4 class="text-transform-none py-4 text-primary">
+                    Efficient Operations
+                  </h4>
+                  <div class="slide-me-up">
+                    <div class="slide-me-text">Efficient operations</div>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="pills-3-tab"
+                  data-toggle="pill"
+                  href="#pills-3"
+                  role="tab"
+                  aria-controls="pills-3"
+                  aria-selected="false"
+                >
+                  <h4 class="text-transform-none py-4 text-primary">
+                    Enable Travel Choices
+                  </h4>
+                  <div class="slide-me-up">
+                    <div class="slide-me-text">Enable travel choices</div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content pb-5" id="pills-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="pills-1"
+                role="tabpanel"
+                aria-labelledby="pills-1-tab"
+              >
+                <div class="row">
+                  <div class="col-12">
+                    <h4 class="text-center">Strategic Capacity Improvements</h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 my-4">
+                    <div class="card h-100">
+                      <p class="lead-lg p-2 text-left">
+                        Through a data driven prioritization process, capacity
+                        projects are selected that add new lanes or roads to the
+                        state’s roadway system. Each project is evaluated by the
+                        volume of traffic, amount of congestion, and safety.
+                        Improvements can include widening existing facilities,
+                        new interchanges on existing freeways, or additional
+                        passing lanes. Click
+                        <a
+                          href="http://uplan.maps.arcgis.com/apps/MapSeries/index.html?appid=e4c059b700554780a7de0f081c6a94ae"
+                          >here</a
+                        >
+                        to view an interactive map of these projects and more
+                        information on our prioritization process.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 my-4">
+                    <div class="card h-100">
+                      <img
+                        class="card-img"
+                        src="img/capacity-improvements.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-2"
+                role="tabpanel"
+                aria-labelledby="pills-2-tab"
+              >
+                <div class="row">
+                  <div class="col-12">
+                    <h4 class="text-center">Efficient Operations</h4>
+                    <p class="lead-lg p-2">
+                      With Utah’s population expected to double by 2040, it is
+                      important that UDOT help the traveling public make more
+                      informed decisions and work with community partners and
+                      agencies to improve access to travel choices. We seek
+                      solutions that fit community, environmental and economic
+                      needs to improve mobility through a reducing congestion on
+                      our roadways and extending the life of our assets.
+                    </p>
+                  </div>
+                </div>
+                <div class="row text-left">
+                  <div class="col-md-4 ">
+                    <div class="card h-100">
+                      <img
+                        class="card-img-top"
+                        src="img/Public Messages.jpg"
+                        alt=""
+                      />
+                      <div class="card-body p-2">
+                        <h4 class="card-title text-center">
+                          Public Information
+                        </h4>
+                        <p class="text-left lead">
+                          UDOT employs several tactics to inform the public of
+                          roadway construction, incidents, and other important
+                          safety information. We use variable message signs
+                          (VMS) informing drivers of expected travel times,
+                          weather conditions, and safety messages to remind
+                          travelers of our goal to reach Zero Fatalities on our
+                          roadways.
+                        </p>
+                        <p class="text-left lead">
+                          For updates and stories of how UDOT is keeping Utah
+                          moving, connect with us on social media
+                          <a href="https://www.facebook.com/utahdot">Facebook</a
+                          >, <a href="https://twitter.com/utahdot">Twitter</a>,
+                          <a
+                            href="https://www.instagram.com/utahtransportation/"
+                            >Instagram</a
+                          >, or
+                          <a href="http://www.youtube.com/UtahDOT">YouTube</a>
+                          for updates and stories. Travelers can also get
+                          up-to-date roadway information by downloading the UDOT
+                          Traffic app featuring a statewide map of current
+                          traffic conditions, traffic camera images, and road
+                          weather forecasts.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card h-100">
+                      <img
+                        class="card-img-top"
+                        src="img/Signal optimization.jpg"
+                        alt="Traffic Signals"
+                      />
+                      <div class="card-body p-2">
+                        <h4 class="card-title text-center">
+                          Signal Optimization
+                        </h4>
+                        <p class="text-left lead">
+                          Utah is leader in the nation when it comes to signal
+                          optimization. More than 95 percent of signals in the
+                          entire state are connected to one shared system
+                          managed at UDOT’s Traffic Operations Center (TOC).This
+                          enables our engineers to develop adaptive signals to
+                          adjust cycle length times to accommodate motorist and
+                          pedestrian traffic. We are also able to reduce stops,
+                          delays, gasoline consumption and air pollution by up
+                          to 25 percent by synchronizing traffic lights.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card h-100">
+                      <img
+                        class="card-img-top"
+                        src="img/Snow Removal.jpg"
+                        alt=""
+                      />
+                      <div class="card-body p-2">
+                        <h4 class="card-title text-center">Snow Removal</h4>
+                        <p class="text-left lead">
+                          Here in Utah, we’re known for the greatest snow on
+                          earth. When winter storms occur, the public,
+                          businesses, and the economy are dependent on clear
+                          roads to safely travel to their destinations. We
+                          operate a fleet of more than 500 snow plows to remove
+                          more than 65 million tons of snow and ice on Utah’s
+                          roads every year.
+                        </p>
+                        <p class="text-left lead">
+                          UDOT also harnesses Road Weather Information Systems
+                          (RWIS), a technology that allows us assess conditions
+                          such as road temperature, wind speed, and visibility.
+                          This improves our ability to inform the public of
+                          potentially hazardous roadways conditions and
+                          strategically deploy snow plows and apply salt brines
+                          to roads.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-3"
+                role="tabpanel"
+                aria-labelledby="pills-3-tab"
+              >
+                <div class="row">
+                  <div class="col-12">
+                    <h4 class="text-center">Enable Travel Choices</h4>
+                  </div>
+                </div>
+                <div class="row text-left">
+                  <div class="col-md-6">
+                    <div class="card h-100">
+                      <div class="card-body p-0">
+                        <p class="lead-lg p-2">
+                          Offering alternative modes of transportation will
+                          improve mobility on roadways and extend the life of
+                          our assets. By working with our community partners, we
+                          encourage and facilitate the development of an
+                          integrated transportation system that fit community,
+                          environmental, economic and transportation conditions.
+                        </p>
+                        <p class="lead-lg p-2">
+                          The TravelWise program encourages residents to rethink
+                          the way they travel to reduce congestion on roadways.
+                          Actions such as shifting travel times to avoid primary
+                          commute periods, taking transit, or combining errands
+                          also known as trip chaining.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card h-100">
+                      <img
+                        class="card-img"
+                        src="img/enable-travel-choices---travel.png"
+                        alt="Enable Travel Choices Image"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--./Strategies First Row ends -->
+        </div>
+        <hr class="m-5 no-border" />
+        <a class="scrollArrow js-scroll-trigger" href="#performanceMeasures"
+          ><span></span>Scroll</a
+        >
+        <!--/.Section Wrapper -->
+      </section>
+      <!--./Strategies Section with Tabs end -->
+      <hr class="m-0" />
+      <!-- Section on Performance Measures -->
+      <section
+        class="udotsd-section p-3 d-flex flex-column udot-bg-3"
+        id="performanceMeasures"
+      >
+        <!--Section Wrapper -->
+        <!--Performance Measures -->
+        <div class="container-fluid my-auto w-100 py-4">
+          <div class="content-section-heading">
+            <h2 class="mb-1 text-white text-center">
+              Mobility Performance Measures
+            </h2>
+          </div>
+          <!--Dealy, Reliability, -->
+          <div class="row">
+            <div class="col-lg-6 my-4">
+              <div
+                class="card h-100"
+                data-aos="fade-down"
+                data-aos-duration="3000"
+              >
+                <div class="card-body">
+                  <h4 class="card-title text-center">Delay</h4>
+                  <p>Delay is measured as the difference between and free-flow travel time and the actual travel time. UDOT defines free-flow travel time on an arterial as the 30th percentile travel time from 7 am to 10 pm, Monday through Friday. The free-flow travel time for freeways is the time it takes to travel at 50 mph.
+                  </p>
+                  <ul style="list-style:square inside">
+                    <li>Monthly delay: Delay is calculated for all vehicles in both directions of major roads in the state for all hours every day.</li>
+                  </ul>
+                  <h6 class="card-title text-center">Target Delay</h6>
+                  <p>The target delay established for January 2016 is equal to the average delay (vehicle hours of delay) experienced on a monthly basis between January 2016 and December 2016. This target delay was grown linearly by 4% to reflect historic traffic growth.</p>
+                  <div id="delaygraph" style="height: 400px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 my-4">
+              <div
+                class="card h-100"
+                data-aos="fade-up"
+                data-aos-duration="3000"
+              >
+                <div class="card-body">
+                  <h4 class="card-title text-center">Reliability</h4>
+                  <p>Reliability is both the measure of how consistent and how fast traffic conditions are on each roadway. There are four categories of reliability: Reliably Fast, Reliably Slow, Unreliably Fast and Unreliably Slow.</p>
+                  <ul style="list-style:square inside">
+                    <li>How Fast? UDOT measures reliability on all of Utah’s state roads, each of which have different speed limits. The
+                      Travel Time Index (TTI) is used rather than the speed limit to determine if traffic is fast or slow because
+                      the threshold needs to be dynamic. The TTI is the ratio of the rush hour travel time to the free-flow
+                      travel time. UDOT defines free-flow travel time on an arterial as the 30 th percentile travel time from 7
+                      am to 10 pm, Monday through Friday.</li>
+                    <li>How Consistent? The Buffer Time Index is used to determine how consistent traffic is, which we call Reliable or
+                      Unreliable. The buffer time index describes the amount of extra buffer time travelers would need to be
+                      on time 95 percent of the time.</li>
+                  </ul>
+                  <div id="reliabilitygraph" style="height: 400px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Mode Split, Snow and Ice Removal, Snow and Ice Month to month -->
+          <div class="row">
+            <div class="col-lg-4 my-4">
+              <div
+                class="card h-100"
+                data-aos="fade-down"
+                data-aos-duration="3000"
+              >
+                <div class="card-body">
+                  <h4 class="card-title text-center">Mode split</h4>
+                  <p>
+                    The graph on Mode Split below shows person trips from
+                    current volumes and UTA ridership as percentage of goal in
+                    Salt Lake County I-15 corridor during PM peak period. The
+                    normalized mode split score on the graph is determined by
+                    the dividing the percentage of transit ridership by the
+                    target of 10 percent. The maximum normalized mode split
+                    value is 100.
+                  </p>
+                  <div id="modeSplit" style="height: 400px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 my-4">
+              <div
+                class="card h-100"
+                data-aos="fade-up"
+                data-aos-duration="3000"
+              >
+                <div class="card-body">
+                  <h4 class="card-title text-center">
+                    Snow and Ice Removal Efficiency
+                  </h4>
+                  <p>
+                    The pie chart on Snow and Ice Removal Efficiency shows how
+                    effectively UDOT was able to remove snow and ice from
+                    roadways around the state in 2017. Additional information on
+                    current road conditions can be found on the
+                    <a href="https://udottraffic.utah.gov/"
+                      >UDOT Traffic Website</a
+                    >.
+                  </p>
+                  <div id="snowIcePie" style="height: 400px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 my-4">
+              <div
+                class="card h-100"
+                data-aos="fade-down"
+                data-aos-duration="3000"
+              >
+                <div class="card-body">
+                  <h4 class="card-title text-center">
+                    Snow and Ice Removal Month to Month
+                  </h4>
+                  <p>
+                    The bar on Snow and Ice Removal on a month to month basis
+                    compares snow and ice removal since November 2015. The graph
+                    compares Snow Removal over two winters.
+                  </p>
+                  <div id="snowIceBar" style="height: 400px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--./Explain Measures -->
+        </div>
+        <!--./Section Wrapper -->
+      </section>
+      <!--./Section on Performance Measures ends -->
+    </div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Plugin for Charts.js -->
+    <!-- alt cdn https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.bundle.min.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <!--Plotly Charts cdn -->
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+    <!-- Plugin Morris chart -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/udotsd.min.js"></script>
+    <script src="js/sdcharts.js"></script>
+    <script>
+      drawOMCharts();
+      //Performance Masure charts
+      optimizeMobilityCharts();
+      // var waypoint = new Waypoint({
+      //     element: document.getElementById('strategicGoals'),
+      //     handler: function(direction) {
+      //       drawGoalCharts();
+      //     }
+      //   })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>UDOT Preserve Infrastructure</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://use.typekit.net/wls4dcr.css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/udotsd.css" rel="stylesheet">
+    <link rel="stylesheet" href="icomoon/style.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-16502188-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-16502188-1');
+    </script>
+  </head>
+  <body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-0" id="sideNav">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger p-0" href="index.html">
+              <div class="overlay-container">
+                <span class="iconspan"><i class="icon-Home icon"></i></span>
+                <div class="overlay">
+                  <div class="overlay-text">Home</div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger p-0" href="zero-fatalities.html">
+              <div class="overlay-container">
+                <span class="iconspan"><i class="icon-zero-fatalities icon"></i></span>
+                <div class="overlay">
+                  <div class="overlay-text">Zero Fatalities</div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger p-0" href="optimize-mobility.html">
+              <div class="overlay-container">
+                <span class="iconspan"><i class="icon-mobility icon"></i></span>
+                <div class="overlay">
+                  <div class="overlay-text">Optimize Mobility</div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger p-0" href="#page-top">
+              <div class="overlay-container">
+                <span class="iconspan"><i class="icon-infrastructure icon"></i></span>
+                <div class="overlay">
+                  <div class="overlay-text">Preserve Infrastructure</div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger p-0" href="#strategies">
+              <div class="overlay-container">
+                <span class="iconspan"><i class="fas fa-lightbulb icon"></i></span>
+                <div class="overlay">
+                  <div class="overlay-text">Strategies</div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger p-0" href="#performanceMeasures">
+              <div class="overlay-container">
+                <span class="iconspan"><i class="fas fa-chart-pie icon"></i></span>
+                <div class="overlay">
+                  <div class="overlay-text">Performance Measures</div>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid p-0">
+        <header class="masthead">
+          <div id="stateheader">
+              <script type="text/javascript" src="https://www.utah.gov/nav/navheader.js"></script>
+          </div>
+          <div class="container-fluid">
+            <div class="row h-25 align-items-center mt-5">
+                <div class="col-12">
+                  <h2 class="goal-page-header-title bg-light text-dark">Preserve Infrastructure</h2>
+                </div>
+            </div>
+            <div class="row pt-5">
+                <div class="col-sm-6 text-center h-100 px-0">
+                  <div class="col-sm-12 h-50 pb-3">
+                    <div class="card udot-bg-gray h-100">
+                      <div class="card-body h-100 p-0">
+                        <h6>Infrastructure Performance Measures</h6>
+                        <div class="goal-chart-container">
+                            <canvas id="pi-kpi-chart"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 h-50">
+                    <div class="card udot-bg-gray h-100">
+                      <div class="card-body h-100 p-0">
+                        <h6>Historical Infrastructure Index</h6>
+                        <div class="goal-chart-container">
+                            <canvas id="pi-line-chart"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 text-center pl-0">
+                  <div class="card udot-bg-gray p-0">
+                    <div class="card-body">
+                      <h6>Infrastructure Index</h6>
+                      <div class="goal-chart-container">
+                          <canvas id="pi-goalpage-doughut-chart"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <a class="scrollArrow js-scroll-trigger" href="#strategies"><span></span>Scroll</a>
+        </header>
+      <hr class="m-0">
+      <!--Strategies Section wit Tabs -->
+      <section class="udotsd-section d-flex flex-column udot-bg-2 position-relative" id="strategies">
+        <!--Section wrapper -->
+        <div class="my-auto w-100">
+          <!--Strategies First row-->
+          <div class="container-fluid text-center" id="strategies-tabs">
+            <div class="content-section-heading">
+                <h2 class="mb-1 text-center font-weight-bold">Strategies</h2>
+            </div>
+            <ul class="nav mb-3 nav-fill" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="pills-pavement-tab" data-toggle="pill" href="#pills-pavement" role="tab" aria-controls="pills-pavement" aria-selected="true">
+                  <h4 class="text-transform-none py-4 text-primary">Pavement Management</h4>
+                  <div class="slide-me-up"><div class="slide-me-text">Pavement Management Strategies</div></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="pills-bridge-tab" data-toggle="pill" href="#pills-bridge" role="tab" aria-controls="pills-bridge" aria-selected="false">
+                  <h4 class="text-transform-none py-4 text-primary">Bridge Management</h4>
+                  <div class="slide-me-up"><div class="slide-me-text">Bridge Management Strategies</div></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="pills-trafsigs-tab" data-toggle="pill" href="#pills-trafsigs" role="tab" aria-controls="pills-trafsigs" aria-selected="false">
+                  <h4 class="text-transform-none py-3 text-primary">Signals &amp; Advanced<br>Traffic Management Systems</h4>
+                  <div class="slide-me-up"><div class="slide-me-text">Traffic Signals &amp; ATMS Management Strategies</div></div>
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="pills-pavement" role="tabpanel" aria-labelledby="pills-pavement-tab">
+                <div class="row">
+                  <div class="col-12">
+                    <h4 class="text-center">Pavement Management</h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="card h-100">
+                      <div class="card-body thumb-img-wrapper p-0">
+                        <p class="card-text text-left lead-lg p-2">Under the philosophy, “good roads cost less,” UDOT manages more than 16,000 lane miles of pavement throughout the state. We take a proactive approach to preserve and rehabilitate these vital assets to avoid <a href="" class="position-relative thumb-image" data-toggle="modal" data-target="#goodRoads">costly reconstruction treatments.<img src="img/pavement-mangement.png"></a> Pavement is prioritized in two categories based on the volume of daily vehicle usage and the volume of freight:</p>
+                        <ul class="card-text text-left lead">
+                          <li>High volume system: Interstate (such as I-15 or I-80), most of our National Highway System and other roads experiencing over 1,000 vehicles a day. These roads carry 98 percent of traffic so our goal is to maintain the current condition levels with over 60 percent in good condition and less than 5 percent in poor condition.</li>
+                          <li>Low volume system: Includes roads primarily in the rural portions of our state with less than 1,000 vehicles a day. Our goal is to improve our current condition levels to previous levels with over 30 percent of mileage in good condition and less than 20 percent in poor condition.</li>
+                        </ul>
+                        <!-- Good Roads Modal -->
+                        <div class="modal fade bd-example-modal-lg" id="goodRoads" tabindex="-1" role="dialog" aria-labelledby="GoodRoadsModal" aria-hidden="true">
+                          <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Good Roads Cost Less</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <div class="card">
+                                        <img class="card-img-top" src="img/pavement-mangement.png">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="card h-100">
+                        <img class="card-img-top h-100" src="img/high-volume-low-volume-map.jpg">
+                        <div class="card-footer">
+                            <a href="https://uplan.maps.arcgis.com/apps/Embed/index.html?webmap=ecd00bc32796452d89ecdadc66a53aff&extent=-115.9057,37.9204,-107.7923,41.9125&zoom=true&scale=true&disable_scroll=true&theme=dark" class="card-link" target="_blank">View interactive map</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="pills-bridge" role="tabpanel" aria-labelledby="pills-bridge-tab">
+                <div class="row">
+                  <div class="col-12">
+                    <h4 class="text-center">Bridge Management</h4>
+                    <p class="text-center lead-lg p-2">The condition of bridges in our inventory is the envy of the country. We strategically invest our funding to proactively preserve, rehabilitate and reconstruct our structures. UDOT uses the Bridge Health Index (BHI) which measures and tracks the overall structural condition of the three categories of bridges in our system.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="card">
+                      <div class="card-body position-relative pb-card h-100">
+                        <div class="content-overlay"></div>
+                        <i class="icon-NHS-bridge fa-10x card-img-top"></i>
+                        <h4 class="card-title">National Highway System</h4>
+                        <div class="content-details fadeIn-bottom">
+                          <p class="content-text lead-lg p-2">National Highway System: Bridges along the Interstate Highway System and roads serving airports, rail or truck terminals, and other facilities.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="card">
+                      <div class="card-body position-relative pb-card h-100">
+                        <div class="content-overlay"></div>
+                        <i class="icon-Utah-bridge fa-10x card-img-top"></i>
+                        <h4 class="card-title">State Owned Bridges</h4>
+                        <div class="content-details fadeIn-bottom">
+                          <p class="content-text lead-lg p-2">State Owned Bridges: These bridges are owned by the state and include pedestrian and rail bridges.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="card">
+                      <div class="card-body position-relative pb-card h-100">
+                        <div class="content-overlay"></div>
+                        <i class="icon-local-bridge fa-10x card-img-top"></i>
+                        <h4 class="card-title">Locally Owned Bridges</h4>
+                        <div class="content-details fadeIn-bottom">
+                          <p class="content-text lead-lg p-2">Locally Owned Bridges: All bridges not owned by state and national system that carry traffic on public routes. </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="pills-trafsigs" role="tabpanel" aria-labelledby="pills-trafsigs-tab">
+                <div class="row">
+                  <div class="col-12">
+                    <h4 class="text-center">Signals &amp; Advanced Traffic Management Systems</h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="card h-100 my-auto">
+                      <div class="card-body p-0">
+                        <p class="card-text text-left lead-lg p-2">Ongoing monitoring of our traffic signals and advanced traffic management systems ensures consistent reliability and extends the life-cycle of these devices. This proactive approach determines if devices are in good working condition or when they need to be replaced, upgraded, or decommissioned.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="card h-100 my-auto">
+                        <img class="card-img-top" src="img/traffic signals.jpg">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--./Strategies First Row ends -->
+        </div>
+        <hr class="m-5 no-border">
+        <a class="scrollArrow js-scroll-trigger" href="#performanceMeasures"><span></span>Scroll</a>
+        <!--/.Section Wrapper -->
+      </section>
+      <!--./Strategies Section with Tabs end -->
+      <hr class="m-0">
+      <!-- Section on Performance Measures -->
+      <section class="udotsd-section p-3 d-flex flex-column udot-bg-3" id="performanceMeasures">
+        <!--Section Wrapper -->
+        <div class="my-auto w-100 container-fluid py-4">
+          <!--Performance Measures Rows-->
+              <div class="content-section-heading">
+                  <h2 class="mb-1 text-center font-weight-bold text-white">Infrastructure Performance Measures</h2>
+              </div>
+              <!--Pavement Condition text and graph -->
+              <div class="row">
+                  <div class="col-lg-12 mx-auto">
+                      <div class="card">
+                          <div class="card-body" data-aos="fade-down" data-aos-duration="3000">
+                              <h4 class="card-title text-center">Pavement Condition</h4>
+                              <p class="lead text-center">Data on pavement condition is collected every year.</p>
+                              <p class="text-danger text-center">Target: Utah’s overall roadway condition is 80% fair or good.</p>
+                              <div id="pavementPlotlyChart" style="height: 450px;"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!--Bridge Condition text and graphs -->
+              <div class="row">
+                  <div class="col-sm-12 my-4 mx-auto">
+                      <div class="card">
+                          <div class="card-body" data-aos="fade-up" data-aos-duration="3000">
+                              <h4 class="card-title text-center">Bridge Condition</h4>
+                              <p class="lead">Bridge inspection is occurring year-round resulting in a frequency of every structure every two years. In March of each year, the BHI score of each structure inspected in the previous 12 months is updated. In March of each year, each structure is inspected and scored out of 100 using the Bridge Health Index (BHI).</p>
+                              <p class="lead">The Bridge Health Index of the National Highway System (NHS), State, and Local Governments and Municipalities is tracked.</p>
+                              <div class="row">
+                                <div class="col-lg-4 p-0 m-0">
+                                  <div class="card">
+                                    <div class="card-body p-0 m-0">
+                                      <div id="nhsBridgeCondition" style="height: 350px;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-lg-4 p-0 m-0">
+                                  <div class="card">
+                                    <div class="card-body p-0 m-0">
+                                      <div id="stateBridgeCondition" style="height: 350px;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-lg-4 p-0 m-0">
+                                  <div class="card">
+                                    <div class="card-body p-0 m-0">
+                                      <div id="lgBridgeCondition" style="height: 350px;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!--Bridge Condition text and graphs -->
+              <div class="row">
+                  <div class="col-sm-12 my-4 mx-auto">
+                      <div class="card">
+                          <div class="card-body">
+                              <h4 class="card-title text-center">Automated Traffic Signal System Condition</h4>
+                              <p class="lead">These devices and signals are key infrastructure measurements to manage traffic, and provide a safe, and reliable movement of goods, services and people. The department tracks the health of these through ongoing preventative maintenance and performance monitoring.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="card h-100">
+                          <div class="card-body" data-aos="fade-up" data-aos-duration="3000">
+                              <h4 class="card-title text-center">ATMS</h4>
+                              <p class="lead">This number is determined by the percentage of operational devices.</p>
+                              <p class="text-danger">Target: 95 percent of devices in operation</p>
+                              <div id="atmsOperationalChart" style="height: 400px;"></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="card h-100">
+                          <div class="card-body" data-aos="fade-down" data-aos-duration="3000">
+                              <h4 class="card-title text-center">Signal Condition</h4>
+                              <p class="lead">This number is determined through an annual assessment that includes all electronics and physical infrastructure.</p>
+                              <p class="text-danger">Target: 95 percent of signals in average condition or above</p>
+                              <div id="signalsPlotlyChart" style="height: 400px;"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          <!--./Performance Measures Rows -->
+        </div>
+        <!--./Section Wrapper -->
+      </section>
+      <!--./Section on Performance Measures ends -->
+    </div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Plugin for Charts.js -->
+    <!-- alt cdn https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.bundle.min.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <!--Plotly Charts cdn -->
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/udotsd.min.js"></script>
+    <script src="js/sdcharts.js"></script>
+    <script>
+      drawPICharts();
+      //Performance Masure charts
+      pavementPlotlyChart2();
+      bridgeConditionChart();
+      atmsOperationalChart();
+      signalsPlotlyChart();
+      // var waypoint = new Waypoint({
+      //     element: document.getElementById('strategicGoals'),
+      //     handler: function(direction) {
+      //       drawGoalCharts();
+      //     }
+      //   })
+    </script>
+  </body>
+
+</html>
