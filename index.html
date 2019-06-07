@@ -112,13 +112,21 @@
                 
           </div>
           <div class="floating-card-left no-gutters">
-            <div class="col-lg-12 h-100">
-              <div class="card h-100 text-center no-border">
-                <div class="card-body p-0">
+            <div class="col-lg-12 h-100" data-toggle="modal" data-target="#roadMapModal">
+              <div class="card mb-2 text-center no-border udot-bg-blue">
+                <div class="card-body p-1">
                   <h6 class="card-title m-0 p-0 text-white font-weight-bold">UDOT's ROAD MAP</h6>
-                    <h6 class="card-title mb-0">VISION</h6>
+                </div>
+              </div>
+              <div class="card mb-2 text-center no-border udot-bg-gray">
+                <div class="card-body p-0 pb-1">
+                    <h6 class="card-title">VISION</h6>
                     <p class="card-text">KEEPING UTAH MOVING</p>
-                    <h6 class="card-title mb-0">MISSION</h6>
+                </div>
+              </div>
+              <div class="card mb-2">
+                <div class="card-body text-center no-border udot-bg-gray p-0 pb-1">
+                    <h6 class="card-title">MISSION</h6>
                     <p class="card-text">Innovating transportation solutions that strengthen Utah’s economy and enhance quality of life</p>
                 </div>
               </div>
@@ -130,7 +138,7 @@
                 <img class="card-img-top" src="https://media.licdn.com/dms/image/C4D03AQHBkWeITQpw5g/profile-displayphoto-shrink_200_200/0?e=1565222400&v=beta&t=tUyD-Dtbo1nL5_AMcV1OpP1jJUcXjwrWfFlnOPkT7uI" alt="Carlos Braceras">
                 <div class="card-body p-0">
                   <h6 class="card-title m-0 p-0">Carlos Braceras</h6>
-                  <p class="card-text p-0 m-0">Message from the executive directo</p>
+                  <p class="card-text p-0 m-0">Executive Director</p>
                 </div>
               </div>
             </div>
@@ -157,6 +165,47 @@
               </div>
             </div>
           </div>
+          <!-- Road Map Modal -->
+          <div class="modal fade" id="roadMapModal" tabindex="-1" role="dialog" aria-labelledby="roadMapModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="roadMapModalLabel">UDOT's Road Map</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="card mb-2 text-center no-border udot-bg-blue">
+                    <div class="card-body p-1">
+                      <h6 class="card-title m-0 p-0 text-white font-weight-bold">Strategic Goals</h6>
+                    </div>
+                  </div>
+                  <div class="card mb-2 text-center no-border udot-bg-gray">
+                    <div class="card-body p-0 pb-1">
+                        <h6 class="card-title">Zero Crashes, Injuries, and Fatalities</h6>
+                        <p class="card-text">UDOT is committed to safety, and we won't rest until we achieve zero crashes, zero injuries and zero fatalities.</p>
+                    </div>
+                  </div>
+                  <div class="card mb-2">
+                    <div class="card-body text-center no-border udot-bg-gray p-0 pb-1">
+                        <h6 class="card-title">Preserve Infrastructure</h6>
+                        <p class="card-text">We believe good roads cost less, and through proactive preservation we maximize the value of our infrastructure Investment for today and for the future.</p>
+                    </div>
+                  </div>
+                  <div class="card mb-2">
+                    <div class="card-body text-center no-border udot-bg-gray p-0 pb-1">
+                        <h6 class="card-title">Optimzie Mobility</h6>
+                        <p class="card-text">UDOT optimizes traffic mobility by adding roadway capacity and incorporating innovative design and traffic management strategies.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <a class="scrollArrow js-scroll-trigger" href="#aboutUDOT"><span></span>Scroll</a>
         </header>
       <hr class="m-0">
@@ -169,20 +218,6 @@
             <div class="col-12">
               <h2 class="text-white font-weight-bold">Mission</h2>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card h-100">
-                <div class="card-body udot-bg-gray">
-                  <h5 class="card-title">Message from Director</h5>
-                  <blockquote class="blockquote mb-0">
-                    <p>For many years, UDOT produced an annual Strategic Direction Report as a way of transparently reporting to the taxpayers of Utah, how we are investing funds allocated to us by the Utah State Legislature. We have taken advantage of the latest in online technology to provide a live, data and performance driven report that is constantly updated to reflect how we are reaching our strategic goals. The data we share here helps us make cost-effective decisions that help us meet the transportation challenges of today and the future. I hope that this live, dynamic report will be both interesting and useful as you continue to hold us accountable of our promise to Keep Utah Moving.</p>
-                    <footer class="blockquote-footer">Carlos Braceras, P.E. <cite title="UDOT Director">Executive Director of UDOT</cite></footer>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-            <!--./About UDOT first Part end as row -->
           </div>
           <hr class="m-2 no-border">
           <!--About UDOT Part 2 with Stories as row -->
@@ -546,7 +581,13 @@
                 <div class="card-body" id="ul-tabs">
                   <ul class="nav nav-pills mb-3 nav-fill" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link active show" id="pills-tif-tab" data-toggle="pill" href="#pills-tif" role="tab" aria-controls="pills-tif" aria-selected="false">
+                      <a class="nav-link active show" id="pills-landing-tab" data-toggle="pill" href="#pills-landing" role="tab" aria-controls="pills-landing" aria-selected="false">
+                        <h4 class="h-25 font-weight-bold text-transform-none flapjack-white text-orange">Roll up <br />Fund</h4>
+                        <h2 class="fundingPercent text-white">100%</h2>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="pills-tif-tab" data-toggle="pill" href="#pills-tif" role="tab" aria-controls="pills-tif" aria-selected="false">
                         <h4 class="h-25 font-weight-bold text-transform-none flapjack-white text-orange">Transportation <br />Investment Fund</h4>
                         <h2 class="fundingPercent text-white">51%</h2>
                       </a>
@@ -577,8 +618,13 @@
                     </li>
                   </ul>
                   <div class="tab-content" id="pills-tabContent">
+                    <!--Tab zero with landing content-->
+                    <div class="tab-pane fade show active" id="pills-landing" role="tabpanel" aria-labelledby="pills-tif-tab">
+                      <div class="row">100%</div>
+                    </div>
+                    <!--./Tab zero with landing content-->
                     <!-- Tab Two with TIF Data -->
-                    <div class="tab-pane fade show active" id="pills-tif" role="tabpanel" aria-labelledby="pills-tif-tab">
+                    <div class="tab-pane fade" id="pills-tif" role="tabpanel" aria-labelledby="pills-tif-tab">
                       <div class="row">
                         <div class="col-12">
                           <nav>
