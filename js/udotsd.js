@@ -25,6 +25,12 @@
     target: '#sideNav'
   });
 
+  //Activate modal on hover
+  $('.hover-modal-show').hover(function() {
+    var modalId = $(this).data('target');
+    $(modalId).modal('show');
+  })
+
 })(jQuery); // End of use strict
 
 //function to slide through modals

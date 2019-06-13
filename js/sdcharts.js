@@ -1000,12 +1000,12 @@ function drawZFCharts() {
               ];
               var kpiChartData = {
                 labels: [
-                  [["UDOT"],["Equip"],["Dam: 5%"]],
-                  [["UDOT"],["Fatal"],["Inj 28%"]],
-                  [["UDOT"], ["Inj: 10%"]],
-                  [["Traffic"], ["Crashes: 8%"]],
-                  [["Traffic"],["Fatals: 29%"]],
-                  [["Traffic"],["Inj: 20%"]]
+                  [["Equip"],["Damage"],["5%"]],
+                  [["Emp"],["Fatalities"],["28%"]],
+                  [["Emp"],["Injuries"], ["10%"]],
+                  [["Traffic"],["Crashes"],["8%"]],
+                  [["Traffic"],["Fatals"],["29%"]],
+                  [["Traffic"],["Injuries"],["20%"]]
                 ],
                 datasets: [
                   {
@@ -1452,8 +1452,8 @@ function drawOMCharts() {
                 labels: [
                   [["Delay"],["30%"]],
                   [["Reliability"],["35%"]],
-                  [["Mode"],["Split 11%"]],
-                  [["Snow"],["Removal 24%"]]
+                  [["Mode"],["11%"]],
+                  [["Snow"],["24%"]]
                 ],
                 datasets: [
                   {

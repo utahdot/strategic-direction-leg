@@ -582,7 +582,7 @@ text-align: right;
   left: 0%;
   z-index: 2;
   display: inline-block;
-  height: 25vh;
+  
   width: 30%;
 }
 .floating-card-right {
@@ -591,7 +591,6 @@ text-align: right;
   right: 0%;
   z-index: 2;
   display: inline-block;
-  height: 25vh;
   width: 30%;
 }
 @media (min-width: 768px) {
@@ -609,6 +608,9 @@ text-align: right;
   .floating-card-right {
     width: 15%;
   }
+}
+.link-pointer {
+  cursor: pointer
 }
 /*End Floating Cards*/
 .goal-chart-container {
