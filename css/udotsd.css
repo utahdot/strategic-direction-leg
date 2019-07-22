@@ -120,6 +120,17 @@ h6 {
   z-index: 1;
 }
 
+#edModal .modal-body{
+  /*display: flex;*/
+}
+
+#edModal.modal .modal-body img{
+  /*height: 200px;*/
+  float: right;
+  width: 30%;
+  padding: 5px;
+}
+
 @media (pointer: coarse) and (hover: none) {
   .mastheadvideo {
     background: url('../img/Tech Corridor Version 2.png') black no-repeat center center scroll;
