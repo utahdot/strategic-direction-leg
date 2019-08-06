@@ -37,23 +37,272 @@ h6 {
 .text-transform-none {
   text-transform: none;
 }
-#sd-infographic svg {
-  background-image: url('../img/sd-infographic.png') !important;
+#roadMapModal.modal .modal-dialog{
+  max-width: 900px;
+}
+#roadMapModal.modal .modal-dialog .modal-header h4, #roadMapModal.modal .modal-header .close, #roadMapModal.modal .modal-footer h4{
+  color:#fff;
+}
+#roadMapModal.modal .modal-dialog .modal-header, #roadMapModal.modal .modal-footer{
+  background-color: #5a87c5;
+  max-height: 70px;
+}
+#roadMapModal.modal .modal-dialog .modal-header hr{
+  border-bottom: 3px solid #fff;
+  z-index: 9999;
+  width: 90%;
+  position: absolute;
+  left: 2%;
+  z-index: 0;
+}
+#roadMapModal.modal .modal-dialog .modal-header h4{
+  position: absolute;
+  z-index: 1;
+  background-color: #5a87c5;
+  left: 50%;
+  margin-left: -120px;
+  padding: 0 5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+#roadMapModal.modal .modal-dialog .modal-footer img{
+  height: 80px;
+  position: absolute;
+  left: 35px;
+}
+#roadMapModal.modal .modal-dialog .modal-body{
+  display: flex;
+  padding: 0;
+}
+#roadMapModal.modal .modal-dialog .modal-body .section{
+  margin: 3px;
+  padding: 3px;
+  width: 40%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#roadMapModal.modal .modal-dialog .modal-body .section.strategicgoals{
+  background-color: #ececec;
+  margin: 9px 0;
+  padding: 6px 5px 0 5px;
+  width: 50%;
+}
+#roadMapModal.modal .modal-dialog .modal-body .section h5{
+  font-weight: 700;
+}
+#roadMapModal.modal .modal-dialog .modal-body .section h6{
+  color:#5a87c5;
+  font-weight: 700;
+}
+#roadMapModal.modal .modal-dialog .modal-body .section .section{
+  background-color: #ececec;
+  margin: 3px 3px 3px 0;
+  padding: 5px 5px 0 3px;
+  min-width: 100%;
+  max-width: 300px;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#roadMapModal.modal .modal-dialog .modal-body .section .section ul{
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 10%;
+}
+#roadMapModal.modal .modal-dialog .modal-body .section .section ul li{
+  flex-basis: 50%;
+  line-height: 1.2em;
+  padding: 3px 0;
+}
+#udotvision.modal .modal-dialog{
+  max-width: 700px;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat{
+  margin: 5px;
+  width: 25%;
+}
+#udotvision.modal .modal-dialog .modal-body{
+  display:flex;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat img{
+  width: 50px;
+  float: left;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat h5{
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 1.1em;
+  height: 50px;
+  padding: 10px 10px 10px 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat ul{
+  list-style-type: none;
+  padding: 0;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat ul li{
+  border-bottom: none;
+  height: 90px;  
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat.goodhealth h5, #udotvision.modal .modal-dialog .modal-body .udotvisioncat.goodhealth img{
+  background-color: #c00000;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat.goodhealth ul li{
+  border: 7px solid #c00000;
+  border-bottom: none;
+  color:#c00000;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat.goodhealth ul li:last-child{
+  border: 7px solid #c00000;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat.strongeconomy h5, #udotvision.modal .modal-dialog .modal-body .udotvisioncat.strongeconomy img{
+  background-color: #0070c0;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat.strongeconomy ul li{
+  border: 7px solid #0070c0;
+  border-bottom: none;
+  color:#0070c0;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat.strongeconomy ul li:last-child{
+  border: 7px solid #0070c0;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat.bettermobility h5, #udotvision.modal .modal-dialog .modal-body .udotvisioncat.bettermobility img{
+  background-color: #ff8021;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat.bettermobility ul li{
+  border: 7px solid #ff8021;
+  border-bottom: none;
+  color:#ff8021;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat.bettermobility ul li:last-child{
+  border: 7px solid #ff8021;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat.connectedcommunities h5, #udotvision.modal .modal-dialog .modal-body .udotvisioncat.connectedcommunities img{
+  background-color: #5ba9c0;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat.connectedcommunities ul li{
+  border: 7px solid #5ba9c0;
+  border-bottom: none;
+  color:#5ba9c0;
+}
+#udotvision.modal .modal-dialog .modal-body .udotvisioncat.connectedcommunities ul li:last-child{
+  border: 7px solid #5ba9c0;
+}
+#sd-infographic .card .udot-bg-1{
+  width: 100%;
+  background-image: url('../img/sdinfographicbackground.png') !important;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  max-width: 900px;
-  width: 100%;
+  display: flex;
+  min-height: 450px;
 }
-#sd-infographic path {
+#sd-infographic .card .card-body .udotvision{
+  display: flex;
+  max-width: 420px;
+  min-width: 410px;
+  flex-wrap: wrap;
+  background-color: #fff;
+  align-items: center;
+  padding: 20px;
+  margin-right: 20px;
+}
+#sd-infographic .card .card-body .udotvision img{
+  width:20% /*28%*/;
+  margin: 5px;
+}
+#sd-infographic .card .card-body .udotvision h3{
+  color:#2b266dff;
+  font-weight: 900;
+  font-size: 1.2em;
+  margin: 0 auto;
+}
+#sd-infographic .card .card-body .udotvision h3 span{
+  font-size: .8em;
+  text-transform: capitalize;
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 300;
+  display: block;
+}
+#sd-infographic .card .card-body .udotvision p{
+  color:#2b266dff;
+  font-weight: 600;
+  margin:10px;
+  flex-basis: 18%;
+}
+#sd-infographic .card .card-body #utahregionmap{
+  text-align: left;
+  min-width: 250px;
+  overflow: hidden;
+}
+#sd-infographic .card .card-body #utahregionmap h3{
+  color: #fff;
+  margin-left:20px;
+  font-size: 1.3em;
+}
+#sd-infographic .card .card-body #utahregionmap h3 span{
+  color:rgba(238,118,35, 1);
+  display: block;
+  font-size: 2.5em;
+}
+#sd-infographic .card .card-body #utahregionmap svg{
+  background: url("../img/utahregionmap.png") 1% 1% no-repeat;
+  background-size: 34%;
+  height: 400px;
+  position: absolute;
+}
+#sd-infographic .card .card-body #utahregionmap svg path {
   fill: transparent;
 }
-#sd-infographic svg a:focus,svg a:hover {
+#sd-infographic .card .card-body #utahregionmap svg a:focus,svg a:hover {
   outline: none;
   cursor: pointer;
 }
-#sd-infographic svg a:focus path, #sd-infographic svg a:hover path {
+#sd-infographic .card .card-body #utahregionmap svg a:focus path, #sd-infographic .card-body #utahregionmap svg a:hover path {
   fill: rgba(238,118,35, 0.5);
   cursor: pointer;
+}
+#sd-infographic .card .card-body #asseticons{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 999;
+  justify-content: space-between
+}
+#sd-infographic .card .card-body #asseticons item{
+  width: 30%;
+  padding: 3%;
+}
+#sd-infographic .card .card-body #asseticons item img{
+  height: 70px;
+  max-width: 100px;
+}
+#sd-infographic .card .card-body #asseticons item p{
+  text-transform: uppercase;
+  color:#fff;
+  font-size:1em;
+  line-height: 20px;
+}
+#sd-infographic .card .card-body #asseticons item p span{
+  color:rgba(238,118,35, 1);
+  display: block;
+  font-size: 1.7em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 10px 0;
 }
 .masthead {
   height: 100vh;
@@ -946,4 +1195,54 @@ transition-delay:.2s;
   width: 50%;
   border-top-left-radius: calc(.25rem - 1px);
   border-top-right-radius: calc(.25rem - 1px);
+}
+@media only screen and (max-width: 1310px) {
+  #sd-infographic .card .card-body .udotvision {
+    min-width: 210px;
+    max-width: 220px;
+  }
+  #sd-infographic .card .card-body .udotvision img {
+    width: 25%;
+  }
+}
+@media only screen and (max-width: 1117px) {
+  #sd-infographic .card .udot-bg-1 {
+    display: block;
+  }
+  #sd-infographic .card .card-body .udotvision {
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 200px;
+  }
+  #sd-infographic .card .card-body .udotvision img {
+    max-width: 50px;
+    margin-right: 0;
+    margin-left:0;
+  }
+  #sd-infographic .card .card-body .udotvision p {
+    margin-right: 0;
+    margin-left:0;
+  }
+  #sd-infographic .card .card-body .udotvision h3 {
+    width:100%;
+  }
+  #sd-infographic .card .card-body #utahregionmap svg {
+    position: static;
+    margin-left: 20%;
+  }
+  #sd-infographic .card .card-body #utahregionmap h3 {
+    margin-left: 22%;
+  }
+  #sd-infographic .card .card-body #asseticons {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #sd-infographic .card .card-body .udotvision p {
+    flex-basis: 40%;
+}
+@media only screen and (max-width: 585px) {
+  #sd-infographic .card .card-body .udotvision p {
+    flex-basis: 0;
 }
