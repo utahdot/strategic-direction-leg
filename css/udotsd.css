@@ -221,6 +221,12 @@ section.udotsd-section {
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
 }
+section.udotsd-section div.tab-content#pills-tabContent div.tab-pane#pills-landing div.row{
+  padding: 0 1rem; 
+}
+section.udotsd-section ul.nav.nav-pills.mb-3.nav-fill#pills-tab li.nav-item{
+  width:20%;
+}
 section.udotsd-section .udotsd-item .udotsd-date {
   min-width: none;
 }
