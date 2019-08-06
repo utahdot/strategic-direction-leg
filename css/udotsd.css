@@ -28,6 +28,81 @@ h2 {
 h3 {
   font-size: 2rem;
 }
+a {
+  color: #5588cc;
+  outline: 0;
+}
+a:hover, a:focus, a:active {
+  color: #ee7623;
+  outline: 0;
+}
+.icon {
+  display: inline;
+  margin: 0 auto;
+  color: #fff;
+  vertical-align: middle;
+  font-size: 9vh;
+}
+.active div span .icon {
+  color: #5a87c5 !important;
+}
+.iconspan{
+  font-size: 12vh;
+}
+.text-primary {
+  color: #5588cc !important;
+}
+.text-udotblue {
+  color: #5a87c5 !important;
+}
+.orange-list {
+  list-style: none;
+}
+.text-orange {
+  color: #d58e61 !important;
+}
+.orange-list li::before {
+  content: "\2022";
+  color: #d58e61;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+.no-border {
+  border: none !important;
+}
+.vh-90 {
+  height: 90vh;
+}
+.vh-80 {
+  height: 80vh;
+}
+.vh-50 {
+  height: 50vh;
+}
+.vh-70 {
+  height: 70vh;
+}
+.h-90 {
+  height: 90%;
+}
+.op-7{
+  opacity: 1;
+}
+.alt-link {
+  cursor: pointer;
+}
+.alt-link:hover, .alt-link:focus, .alt-link:active {
+  color: #ee7623;
+  outline: 0;
+  text-decoration: underline;
+}
+.shrink:hover {
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+}
 .scrollArrow {
   position: absolute;
   bottom: -20px;
@@ -99,6 +174,71 @@ p.lead {
   font-size: 1.15rem;
   font-weight: 400;
 }
+#sideNav .navbar-nav .nav-item .nav-link {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+#sideNav .navbar-toggler:focus {
+  outline-color: #d48a6e;
+}
+#sideNav .nav-item {
+  height: 16.66vh;
+}
+.overlay-container {
+  position: relative;
+  width: 100%;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  background-color: #5a87c5;
+  overflow: hidden;
+  width: 0;
+  height: 16.66vh;
+  transition: .5s ease;
+}
+.overlay-container:hover .overlay {
+  width: 100%;
+  left: 0;
+}
+.overlay-text {
+  color: white;
+  font-size: 1em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.active .overlay{
+  width:100%;
+  left: 0;
+}
+section.udotsd-section {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+section.udotsd-section .udotsd-item .udotsd-date {
+  min-width: none;
+}
+#ul-tabs ul li a {
+  color: #fff
+}
+#ul-tabs ul li a:hover {
+  color: black;
+}
+.row div nav .nav-tabs a {
+  color: #fff;
+}
+.row div nav .nav-tabs a:hover {
+  color: black;
+}
+.tab-pane.active {
+  animation: slide-down 1s ease-out;
+}
 .masthead {
   height: 100vh;
   min-height: 500px;
@@ -149,7 +289,6 @@ p.lead {
   opacity: 1;
   font-size: 5em;
 }
-/*./end mast head video styles*/
 .goal-page-header-title {
   font-size: 4em;
 }
@@ -230,6 +369,150 @@ p.lead {
 }
 .pb-icon {
   font-size: 9rem;
+}
+.bg-primary {
+  background-color: #5588cc !important;
+}
+.udot-bg-1 {
+  background-color: #515051 !important;
+}
+.udot-bg-2 {
+  background-color: #ececec !important;
+}
+.udot-bg-3 {
+  background-color: #5a87c5 !important;
+}
+.udot-bg-4 {
+  background-color: #474747 !important;
+}
+.udot-bg-blue {
+  background-color: #5a87c5 !important;
+}
+.udot-bg-gray {
+  background-color: #F3F2F3 !important;
+}
+.udot-bg-orange {
+  background-color: #ee7623 !important;
+}
+/*financial tables*/
+.finance table {
+  border-collapse: collapse;
+  width: 100%;
+}
+#sd-infographic .card .udot-bg-1{
+  width: 100%;
+  background-image: url('../img/sdinfographicbackground.png') !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  min-height: 450px;
+}
+#sd-infographic .card .card-body .udotvision{
+  display: flex;
+  max-width: 420px;
+  min-width: 410px;
+  flex-wrap: wrap;
+  background-color: #fff;
+  align-items: center;
+  padding: 20px;
+  margin-right: 20px;
+}
+#sd-infographic .card .card-body .udotvision:hover{
+  cursor: pointer;
+}
+#sd-infographic .card .card-body .udotvision img{
+  width:20% /*28%*/;
+  margin: 5px;
+}
+#sd-infographic .card .card-body .udotvision h3{
+  color:#2b266dff;
+  font-weight: 900;
+  font-size: 1.2em;
+  margin: 0 auto;
+}
+#sd-infographic .card .card-body .udotvision h3 span{
+  font-size: .8em;
+  text-transform: capitalize;
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 300;
+  display: block;
+}
+#sd-infographic .card .card-body .udotvision p{
+  color:#2b266dff;
+  font-weight: 600;
+  margin:10px;
+  flex-basis: 18%;
+}
+#sd-infographic .card .card-body #utahregionmap{
+  text-align: left;
+  min-width: 250px;
+  overflow: hidden;
+}
+#sd-infographic .card .card-body #utahregionmap h3{
+  color: #fff;
+  margin-left:20px;
+  font-size: 1.3em;
+}
+#sd-infographic .card .card-body #utahregionmap h3 span{
+  color:rgba(238,118,35, 1);
+  display: block;
+  font-size: 2.5em;
+}
+#sd-infographic .card .card-body #utahregionmap svg{
+  background: url("../img/utahregionmap.png") 1% 1% no-repeat;
+  background-size: 34%;
+  height: 400px;
+  position: absolute;
+}
+#sd-infographic .card .card-body #utahregionmap svg path {
+  fill: transparent;
+}
+#sd-infographic .card .card-body #utahregionmap svg a:focus, svg a:hover {
+  outline: none;
+  cursor: pointer;
+}
+#sd-infographic .card .card-body #utahregionmap svg a:focus path, #sd-infographic .card-body #utahregionmap svg a:hover path {
+  fill: rgba(238,118,35, 0.5);
+  cursor: pointer;
+}
+#sd-infographic .card .card-body #asseticons{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 999;
+  justify-content: space-between
+}
+#sd-infographic .card .card-body #asseticons item{
+  width: 30%;
+  padding: 3%;
+}
+#sd-infographic .card .card-body #asseticons item img{
+  height: 70px;
+  max-width: 100px;
+}
+#sd-infographic .card .card-body #asseticons item img:hover{
+  cursor: pointer;
+}
+#sd-infographic .card .card-body #asseticons item p{
+  text-transform: uppercase;
+  color:#fff;
+  font-size:1em;
+  line-height: 20px;
+}
+#sd-infographic .card .card-body #asseticons item p span{
+  color:rgba(238,118,35, 1);
+  display: block;
+  font-size: 1.7em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 10px 0;
+}
+#edModal.modal .modal-body img{
+  float: right;
+  width: 30%;
+  padding: 5px;
 }
 #roadMapModal.modal .modal-dialog{
   max-width: 900px;
@@ -395,116 +678,17 @@ p.lead {
 #udotvision.modal .modal-dialog .modal-body .udotvisioncat.connectedcommunities ul li:last-child{
   border: 7px solid #5ba9c0;
 }
-#sd-infographic .card .udot-bg-1{
-  width: 100%;
-  background-image: url('../img/sdinfographicbackground.png') !important;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: flex;
-  min-height: 450px;
-}
-#sd-infographic .card .card-body .udotvision{
-  display: flex;
-  max-width: 420px;
-  min-width: 410px;
-  flex-wrap: wrap;
-  background-color: #fff;
-  align-items: center;
-  padding: 20px;
-  margin-right: 20px;
-}
-#sd-infographic .card .card-body .udotvision img{
-  width:20% /*28%*/;
-  margin: 5px;
-}
-#sd-infographic .card .card-body .udotvision h3{
-  color:#2b266dff;
-  font-weight: 900;
-  font-size: 1.2em;
-  margin: 0 auto;
-}
-#sd-infographic .card .card-body .udotvision h3 span{
-  font-size: .8em;
-  text-transform: capitalize;
-  font-style: italic;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: 300;
-  display: block;
-}
-#sd-infographic .card .card-body .udotvision p{
-  color:#2b266dff;
-  font-weight: 600;
-  margin:10px;
-  flex-basis: 18%;
-}
-#sd-infographic .card .card-body #utahregionmap{
+.finance td {
   text-align: left;
-  min-width: 250px;
-  overflow: hidden;
+  padding: 0px;
+  font-size: 0.8rem;
 }
-#sd-infographic .card .card-body #utahregionmap h3{
-  color: #fff;
-  margin-left:20px;
-  font-size: 1.3em;
+.finance td:nth-child(2){
+text-align: right;
 }
-#sd-infographic .card .card-body #utahregionmap h3 span{
-  color:rgba(238,118,35, 1);
-  display: block;
-  font-size: 2.5em;
+.finance thead td {
+  font-weight: bold;
 }
-#sd-infographic .card .card-body #utahregionmap svg{
-  background: url("../img/utahregionmap.png") 1% 1% no-repeat;
-  background-size: 34%;
-  height: 400px;
-  position: absolute;
-}
-#sd-infographic .card .card-body #utahregionmap svg path {
-  fill: transparent;
-}
-#sd-infographic .card .card-body #utahregionmap svg a:focus,svg a:hover {
-  outline: none;
-  cursor: pointer;
-}
-#sd-infographic .card .card-body #utahregionmap svg a:focus path, #sd-infographic .card-body #utahregionmap svg a:hover path {
-  fill: rgba(238,118,35, 0.5);
-  cursor: pointer;
-}
-#sd-infographic .card .card-body #asseticons{
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 999;
-  justify-content: space-between
-}
-#sd-infographic .card .card-body #asseticons item{
-  width: 30%;
-  padding: 3%;
-}
-#sd-infographic .card .card-body #asseticons item img{
-  height: 70px;
-  max-width: 100px;
-}
-#sd-infographic .card .card-body #asseticons item p{
-  text-transform: uppercase;
-  color:#fff;
-  font-size:1em;
-  line-height: 20px;
-}
-#sd-infographic .card .card-body #asseticons item p span{
-  color:rgba(238,118,35, 1);
-  display: block;
-  font-size: 1.7em;
-  font-weight: 700;
-  letter-spacing: 2px;
-  padding: 10px 0;
-}
-#edModal.modal .modal-body img{
-  float: right;
-  width: 30%;
-  padding: 5px;
-}
-
 .social-icons a {
   display: inline-block;
   height: 3.5rem;
@@ -517,207 +701,18 @@ p.lead {
   line-height: 3.5rem;
   margin-right: 1rem;
 }
-
 .social-icons a:last-child {
   margin-right: 0;
 }
-
 .social-icons a:hover {
   background-color: #5588cc;
 }
-
 .dev-icons {
   font-size: 3rem;
 }
-
 .dev-icons .list-inline-item i:hover {
   color: #5588cc;
 }
-
-#sideNav .navbar-nav .nav-item .nav-link {
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-#sideNav .navbar-toggler:focus {
-  outline-color: #d48a6e;
-}
-#sideNav .nav-item {
-  height: 16.66vh;
-}
-section.udotsd-section {
-  padding-top: 5rem !important;
-  padding-bottom: 5rem !important;
-}
-section.udotsd-section .udotsd-item .udotsd-date {
-  min-width: none;
-}
-#ul-tabs ul li a {
-  color: #fff
-}
-#ul-tabs ul li a:hover {
-  color: black;
-}
-.row div nav .nav-tabs a {
-  color: #fff;
-}
-.row div nav .nav-tabs a:hover {
-  color: black;
-}
-.bg-primary {
-  background-color: #5588cc !important;
-}
-.udot-bg-1 {
-  background-color: #515051 !important;
-}
-.udot-bg-2 {
-  background-color: #ececec !important;
-}
-.udot-bg-3 {
-  background-color: #5a87c5 !important;
-}
-.udot-bg-4 {
-  background-color: #474747 !important;
-}
-.udot-bg-blue {
-  background-color: #5a87c5 !important;
-}
-.udot-bg-gray {
-  background-color: #F3F2F3 !important;
-}
-.udot-bg-orange {
-  background-color: #ee7623 !important;
-}
-.text-primary {
-  color: #5588cc !important;
-}
-.text-udotblue {
-  color: #5a87c5 !important;
-}
-.orange-list {
-  list-style: none;
-}
-.text-orange {
-  color: #d58e61 !important;
-}
-.orange-list li::before {
-  content: "\2022";
-  color: #d58e61;
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-}
-a {
-  color: #5588cc;
-  outline: 0;
-}
-a:hover, a:focus, a:active {
-  color: #ee7623;
-  outline: 0;
-}
-/*Menu Overlay Styles*/
-.overlay-container {
-  position: relative;
-  width: 100%;
-}
-.icon {
-  display: inline;
-  margin: 0 auto;
-  color: #fff;
-  vertical-align: middle;
-  font-size: 9vh;
-}
-.active div span .icon {
-  color: #5a87c5 !important;
-}
-.iconspan{
-  font-size: 12vh;
-}
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 100%;
-  right: 0;
-  background-color: #5a87c5;
-  overflow: hidden;
-  width: 0;
-  height: 16.66vh;
-  transition: .5s ease;
-}
-.overlay-container:hover .overlay {
-  width: 100%;
-  left: 0;
-}
-.overlay-text {
-  color: white;
-  font-size: 1em;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-.active .overlay{
-  width:100%;
-  left: 0;
-}
-.no-border {
-  border: none !important;
-}
-.vh-90 {
-  height: 90vh;
-}
-.vh-80 {
-  height: 80vh;
-}
-.vh-50 {
-  height: 50vh;
-}
-.vh-70 {
-  height: 70vh;
-}
-.h-90 {
-  height: 90%;
-}
-/*financial tables*/
-.finance table {
-  border-collapse: collapse;
-  width: 100%;
-}
-.finance td {
-  text-align: left;
-  padding: 0px;
-  font-size: 0.8rem;
-}
-.finance td:nth-child(2){
-text-align: right;
-}
-.finance thead td {
-  font-weight: bold;
-}
-.tab-pane.active {
-  animation: slide-down 1s ease-out;
-}
-.op-7{
-  opacity: 1;
-}
-.alt-link {
-  cursor: pointer;
-}
-.alt-link:hover, .alt-link:focus, .alt-link:active {
-  color: #ee7623;
-  outline: 0;
-  text-decoration: underline;
-}
-.shrink:hover {
-        -webkit-transform: scale(0.8);
-        -ms-transform: scale(0.8);
-        transform: scale(0.8);
-}
-
-/*end arrow scroll styles*/
 /*Floating Cards */
 .floating-card-left {
   position: absolute;
