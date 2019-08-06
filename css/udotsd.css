@@ -488,12 +488,12 @@ section.udotsd-section .udotsd-item .udotsd-date {
   width: 30%;
   padding: 3%;
 }
+#sd-infographic .card .card-body #asseticons item:hover{
+  cursor: pointer;
+}
 #sd-infographic .card .card-body #asseticons item img{
   height: 70px;
   max-width: 100px;
-}
-#sd-infographic .card .card-body #asseticons item img:hover{
-  cursor: pointer;
 }
 #sd-infographic .card .card-body #asseticons item p{
   text-transform: uppercase;
