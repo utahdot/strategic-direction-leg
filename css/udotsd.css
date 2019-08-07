@@ -227,6 +227,10 @@ section.udotsd-section div.tab-content#pills-tabContent div.tab-pane#pills-landi
 section.udotsd-section ul.nav.nav-pills.mb-3.nav-fill#pills-tab li.nav-item{
   width:20%;
 }
+section.udotsd-section ul.nav.nav-pills.mb-3.nav-fill#pills-tab li.nav-item.pillslanding{
+  display: block;
+  width: 100%;
+}
 section.udotsd-section .udotsd-item .udotsd-date {
   min-width: none;
 }
