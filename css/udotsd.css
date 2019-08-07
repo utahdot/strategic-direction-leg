@@ -699,6 +699,14 @@ text-align: right;
 .finance thead td {
   font-weight: bold;
 }
+div.row.initiatives div.card.udot-bg-gray{
+  width: 20%; 
+  margin: 0 auto;
+}
+div.row.initiatives div.card.udot-bg-gray img{
+  height: 100%;
+  border-radius: 0;
+}
 .social-icons a {
   display: inline-block;
   height: 3.5rem;
