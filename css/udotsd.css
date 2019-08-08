@@ -702,13 +702,17 @@ text-align: right;
 .finance thead td {
   font-weight: bold;
 }
-div.row.initiatives div.card.udot-bg-gray{
+div.row.initiatives div.card.udot-bg-black{
   width: 20%; 
   margin: 0 auto;
+  background-color: #000;
 }
-div.row.initiatives div.card.udot-bg-gray img{
+div.row.initiatives div.card.udot-bg-black img{
   height: 100%;
   border-radius: 0;
+}
+img[src="img/rucutah.jpg"]{
+  opacity: .5;
 }
 .social-icons a {
   display: inline-block;
