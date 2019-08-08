@@ -519,6 +519,9 @@ section.udotsd-section .udotsd-item .udotsd-date {
   letter-spacing: 2px;
   padding: 10px 0;
 }
+.modal img{
+  max-width: 100%;
+}
 #edModal.modal .modal-body img{
   float: right;
   width: 30%;
