@@ -711,11 +711,12 @@ div.row.initiatives div.card.udot-bg-black img{
   height: 100%;
   border-radius: 0;
 }
+div.row.initiatives div.card.udot-bg-black div.card-img-overlay#ructitle{
+  background-image: url("../img/logo-rucutah.svg");
+  background-repeat: no-repeat;
+}
 img[src="img/rucutah.jpg"]{
   opacity: .3;
-}
-img[src="img/logo-rucutah.svg"]{
-  margin-top: -1rem;
 }
 .social-icons a {
   display: inline-block;
