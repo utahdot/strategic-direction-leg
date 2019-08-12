@@ -702,6 +702,9 @@ text-align: right;
 .finance thead td {
   font-weight: bold;
 }
+div.row.initiatives{
+  padding: 50px 0;
+}
 div.row.initiatives div.card.udot-bg-black{
   width: 20%; 
   margin: 0 auto;
