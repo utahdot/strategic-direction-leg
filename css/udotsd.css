@@ -427,6 +427,10 @@ section.udotsd-section .udotsd-item .udotsd-date {
   align-items: center;
   padding: 20px;
   margin-right: 20px;
+  background-image: url("../img/rucutah-legislature.png");
+  background-size: 50px;
+  background-position: left 0 top 0;
+  background-repeat: no-repeat; 
 }
 #sd-infographic .card .card-body .udotvision:hover{
   cursor: pointer;
