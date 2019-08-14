@@ -304,9 +304,9 @@ section.udotsd-section .udotsd-item .udotsd-date {
   opacity: 0.4;
   z-index: 1;
 }
-.mastheadvideo div {
+/* .mastheadvideo div {
   z-index: 100;
-}
+} */
 .mastheadvideo h1.bigtitle{
   color:#5588cc;
 }
@@ -534,6 +534,13 @@ section.udotsd-section .udotsd-item .udotsd-date {
   font-weight: 700;
   letter-spacing: 2px;
   padding: 10px 0;
+}
+.modal .modal-header{
+  background-image: url(../img/rucutah-legislature.png);
+  background-size: 50px;
+  background-position: left 0 top 0;
+  background-repeat: no-repeat;
+  padding-left: 50px;
 }
 .modal img{
   max-width: 100%;
