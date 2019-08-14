@@ -304,6 +304,12 @@ section.udotsd-section .udotsd-item .udotsd-date {
   opacity: 0.4;
   z-index: 1;
 }
+.mastheadvideo div {
+  z-index: 100;
+}
+.mastheadvideo h1.bigtitle{
+  color:#5588cc;
+}
 #masthead-message{
   opacity: 1;
   font-size: 5em;
@@ -314,9 +320,6 @@ section.udotsd-section .udotsd-item .udotsd-date {
 .display-2-custom {
   font-size: 5.5rem;
   line-height: 1.2;
-}
-#stateheader div {
-  z-index: 100;
 }
 .subheading {
   text-transform: uppercase;
