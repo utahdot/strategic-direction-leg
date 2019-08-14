@@ -538,6 +538,9 @@ section.udotsd-section .udotsd-item .udotsd-date {
 .modal img{
   max-width: 100%;
 }
+.modal img.float-right{
+  max-width: 40%;
+}
 #edModal.modal .modal-body img{
   float: right;
   width: 30%;
