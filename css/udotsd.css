@@ -267,6 +267,15 @@ section.udotsd-section .udotsd-item .udotsd-date {
   width: 100%;
   overflow: hidden;
 }
+.mastheadvideo h4{
+  z-index: 999;
+  position: absolute;
+  color: #fff;
+  text-transform: capitalize;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
 .mastheadvideo video {
   position: absolute;
   top: 50%;
