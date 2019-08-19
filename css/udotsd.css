@@ -736,7 +736,7 @@ section.udotsd-section {
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
 }
-section.udotsd-section h5{
+section.udotsd-section div.card.h-100.no-border.udot-bg-3 h5{
   color: #fff;
   text-align: center;
 }
