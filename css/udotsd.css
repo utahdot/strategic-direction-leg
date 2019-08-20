@@ -548,6 +548,9 @@ section.udotsd-section .udotsd-item .udotsd-date {
 .modal img.float-right{
   max-width: 40%;
 }
+.modal img.float-right#purchasingpowerimage:hover{
+  max-width:100%;
+}
 #edModal.modal .modal-body img{
   float: right;
   width: 30%;
