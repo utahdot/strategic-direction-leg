@@ -765,8 +765,11 @@ section.udotsd-section table tr td:last-child{
 section.udotsd-section table tr td:last-child:before{
   content: "$";
 }
-section.udotsd-section table tr.highlight{
-  background-color:greenyellow;
+section.udotsd-section table tr.highlight-positive{
+  background-color:#65ac2a;
+}
+section.udotsd-section table tr.highlight-negative{
+  background-color:#d14334;
 }
 div.row.initiatives{
   padding: 50px 0;
