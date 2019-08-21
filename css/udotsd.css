@@ -762,6 +762,9 @@ section.udotsd-section table tr td:first-child{
 section.udotsd-section table tr td:last-child{
   text-align: right;
 }
+section.udotsd-section table tr td:last-child:before{
+  content: "$";
+}
 section.udotsd-section table tr.highlight{
   background-color:greenyellow;
 }
