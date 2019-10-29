@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>UDOT Optimize Mobility</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="css/business-frontpage.css" rel="stylesheet">
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <!-- Morris Charts css  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <!-- Animate on Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <div class="container-fluid fixed-top bg-dark p-0">
+    <nav>
+        <script type="text/javascript" src="https://www.utah.gov/nav/navheader.js"></script>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+        <a class="navbar-brand" href="index.html">UDOT Strategic Direction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home Page
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="zero-fatalities.html">Zero Fatalities</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="optimize-mobility.html">Optimize Mobility</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="preserve-infrastructure.html">Preserve Infrastructure</a>
+            </li>
+            <li class="nav-item">
+              <a class="fb-ic nav-link" href="https://www.facebook.com/utahdot"><i class="fab fa-facebook fa-lg white-text mr-4"> </i></a>
+            </li>
+            <li class="nav-item">
+              <a class="tw-ic nav-link" href="https://twitter.com/utahdot"><i class="fab fa-twitter fa-lg white-text mr-4"> </i></a>
+            </li>
+            <li class="nav-item">
+              <a class="gplus-ic nav-link" href="http://www.youtube.com/UtahDOT"><i class="fab fa-youtube-square  fa-lg white-text mr-4"> </i></a>
+            </li>
+            <li class="nav-item">
+             <a class="gplus-ic nav-link" href="http://www.flickr.com/UtahDOT"><i class="fab fa-flickr   fa-lg white-text mr-4"> </i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </div>
+    <!-- Header with Background Image -->
+    <header class="masthead d-flex bk-image-mob">
+      <div class="container text-center my-auto">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="h1-custom-heading-white bg-dark">Goal: Optimize Mobility</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--Content Section 1 -->
+    <div class="container-fluid bg-light text-center">
+        <div class="content-section-heading">
+            <h2 class="p-3">Mobility Dashboard</h2>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="lead text-left">A composite metric for optimize mobility is based on key performance measures. The individual criteria are weighted as follows:</p>
+                        <ul style="list-style:square inside" class="lead text-left">
+                            <li>Reliability (35%)</li>
+                            <li>Snow and ice removal (24%)</li>
+                            <li>Delay (30%)</li>
+                            <li>Mode Split (11%)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2500">
+                        <div class="child">
+                        <div id="index" class="text-center"><span class="indexMetric" id="indexNumOM"></span><span class="percent">%</span></div>
+                        </div>
+                        <div class="card-title text-center">
+                            <center>Current Overall Performance</center>
+                            <br />
+                            <a href="https://dashboard.udot.utah.gov/stories/s/SD-_-How-Do-Composite-Metrics-Work-/2j6i-dvzv" class="btn btn-primary">Read more about composite indices</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content Section 2 with graph -->
+    <div class="container content-section p-3">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="card">
+                    <div class="card-body" data-aos="zoom-out-right" data-aos-duration="2500">
+                        <h4 class="card-title">Mobility Performance Measures <span id="filter"></span></h4>
+                        <div id="stacked2" style="height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content Section 3 with how are we doing -->
+    <section class="content-section bg-dark text-center p-3">
+        <div class="container-fluid">
+        <h2 class="text-center text-white">How are we doing?</h2>
+        <div class="row">
+          <div class="col-lg-5 mx-auto">
+              <div class="card text-left">
+                  <div class="card-body">
+                    <p class="lead">Historical data for optimize mobility is limited in comparison to the other two strategic goals. We have fewer years of available data and the information displayed is limited to I-15 along the Wasatch Front.</p>
+                <p class="lead">Previously, delay data was expensive and difficult to collect. With new technologies, greater volumes and accuracy of data are available across the system. Reliability is an emerging performance measure nationally, and we have established new measures for mode split and snow and ice removal. We are in the process of establishing baseline data for this index.</p>
+                  </div>
+              </div>
+
+          </div>
+          <div class="col-lg-5 mx-auto">
+              <div class="card">
+                  <div class="card-body" data-aos="zoom-out-right" data-aos-duration="2500" data-aos-easing="ease-out-cubic">
+                    <div id="omMorrisChart" style="height: 250px;"></div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        </div>
+    </section>
+<!-- Content Section 3 with strategies -->
+    <section class="content-section text-center py-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                   <div class="card">
+                       <div class="card-body">
+                            <h2 class="text-center">UDOT Strategies to Optimize Mobility</h2>
+                            <p class="lead text-left">UDOT’s goal to optimize mobility ensures the public has safe and reliable transportation options. Tactics to achieve this goal include:</p>
+                            <ul style="list-style:square inside" class="text-left lead">
+                              <li><a href="#capacity" style="text-decoration:none; color:black">Strategic Capacity Improvements</a></li>
+                              <li><a href="#operations" style="text-decoration:none; color:black">Efficient Operations</a></li>
+                              <li><a href="#choices" style="text-decoration:none; color:black">Enable Travel Choices</a></li>
+                            </ul>
+                       </div>
+                   </div>
+               </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card no-border">
+                        <div class="card-body">
+                            <h3 class="text-center my-4" id="capacity">Strategic Capacity Improvements</h3>
+                            <p class=" text-left lead">Through a data driven prioritization process, capacity projects are selected that add new lanes or roads to the state’s roadway system. Improvements can include major capacity projects and chokepoint projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                        <div class="card no-border">
+                            <div class="card-body">
+                                <h4 class="text-center"><strong>2018 Capacity Projects in Action</strong></h4>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card no-border">
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="http://www.udot.utah.gov/techcorridor/" style="text-decoration: none">The Point project - I-15 from SR-92 to 12300 South</a></h4>
+                            <ul style="list-style:square inside" class="text-left">
+                                <li>Widened to six lanes in each direction</li>
+                                <li>Reduced Congestion</li>
+                                <li>Improved merge with express lane between SR-92 and 2100 North in Lehi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card no-border">
+                        <div class="card-body">
+                            <h4 class="card-title">I-15 Northbound Auxiliary Lane from Farmington to Kaysville</h4>
+                            <ul style="list-style:square inside" class="text-left">
+                                <li>Reduced congestion at US-90/I-15</li>
+                                <li>Improved merge between 200 North and Layton Hill Parkway</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <h2 class="text-center my-4" id="partners">Efficient Operations</h2>
+        <p class="text-left">With Utah’s population expected to double by 2040, it is important that UDOT help the traveling public make more informed decisions and work with community partners and agencies to improve access to travel choices. We seek solutions that fit community, environmental and economic needs to improve mobility through a reducing congestion on our roadways and extending the life of our assets.</p>
+        <div class="row">
+            <div class="col-md-4 my-4">
+                <div class="card">
+                  <img class="card-img-top" src="img/Public Messages.jpg" alt="">
+                  <div class="card-body p-1">
+                      <h4 class="card-title text-center">Public Information</h4>
+                      <p class="text-left">Informing the Public of potential impacts and delays, as well as sharing safety messages.</p>
+                      <ul style="list-style:square inside" class="text-left">
+                            <li>Efficient use of overhead signs, also known as Variable Message Signs, to inform drivers of expected travel times, upcoming construction, weather conditions, and other safety messages.</li>
+                            <li>Social Media: UDOT uses Facebook, Twitter, Instagram and YouTube to inform the traveling public of accidents, closures, and upcoming projects.</li>
+                            <li>UDOT Traffic website and phone app public can visit this website or phone app to access more information about traffic conditions, accidents, construction activities, and more.</li>
+                      </ul>
+                  </div>
+                  <div class="card-footer px-0">
+                    <a href="https://udottraffic.utah.gov/" class="btn btn-primary">UDOT Traffic Website</a>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 my-4">
+                <div class="card">
+                  <img class="card-img-top" src="img/Signal optimization.jpg" alt="Traffic Signals">
+                  <div class="card-body p-1">
+                      <h4 class="card-title text-center">Signal Optimization</h4>
+                      <ul style="list-style:square inside" class="text-left">
+                            <li>Connected traffic signal system: Utah is a leader in that 88 percent of the signals in the entire state are connected to one shared system managed at UDOT’s Traffic Operations Center (TOC). allowing us to be more responsive and a more optimized traffic system</li>
+                            <li>Adaptive signal control plans: Using a new capability in traffic signal controllers, UDOT engineers developed adaptive signals to adjust cycle length times to accommodate motorist and pedestrian traffic.</li>
+                            <li>Comprehensive Incident Management: The Incident Management Program’s goal is to increase first responder safety, improve reliability, and reduce delay and secondary crashes. Activities include assisting stranded motorists, removing debris and providing traffic control at crash scenes. The chart to the right highlights the activities our incident management team does to safely clear roads and optimize mobility.</li>
+                      </ul>
+                      <h6 class="text-center card-title">Activities Performed by Incident Management Team</h6>
+                      <div id="incidentManagement" class="card-img-bottom" style="height: 250px;"></div>
+                  </div>
+                  <div class="card-footer px-0">
+                    <a href="https://blog.udot.utah.gov/2010/05/incident-management-teams-udots-angels-in-white-trucks-provide-assistance-to-stranded-motorists/" class="btn btn-primary">UDOT Incident Management</a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4 my-4">
+                <div class="card">
+                  <img class="card-img-top" src="img/Snow Removal.jpg" alt="">
+                  <div class="card-body p-1">
+                      <h4 class="card-title text-center">Snow Removal</h4>
+                      <p class="text-left">When winter storms occur, the public, businesses, and the economy are dependent on clear roads to safely travel to their destinations. We operate a fleet of more than 500 snowplows to manage an average of 25 winter storms and remove more than 65 million tons of snow and ice on Utah’s roads. UDOT continues to make the snow and ice removal process more efficient by:</p>
+                      <ul style="list-style:square inside" class="text-left">
+                            <li>Using technology such as the Road Weather Information Systems to assess conditions and strategically deploy plows</li>
+                            <li>Saving more than 20,000 gallons of diesel fuel per year by training drivers on proper acceleration, deceleration, idle reduction and travel speeds using a snowplow simulator</li>
+                            <li>Applying brine before storms and using salt more efficiently</li>
+                            <li>Using equipment such as wing plows and tow plows that allow greater efficiency</li>
+                            <li>Pre-wetting the salt with a brine or other liquid to kick start the melting process saving the department 18,000 tons of salt annually</li>
+                      </ul>
+                  </div>
+                  <div class="card-footer px-0">
+                    <a href="http://udottraffic.utah.gov/RoadWeatherForecast.aspx" class="btn btn-primary">Road Weather Information</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="text-center  my-4" id="empsafety">Enable Travel Choices</h2>
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="lead text-left">Offering alternative modes of transportation will improve mobility on roadways and extend the life of our assets. By working with our community partners, we encourage and facilitate the development of an integrated transportation system that fit community, environmental, economic and transportation conditions.</p>
+                        <p class="lead text-left">The TravelWise program encourages residents to rethink the way they travel to reduce congestion on roadways. Actions such as shifting travel times to avoid primary commute periods, taking transit, or combining errands also known as trip chaining.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!--Performance Measures -->
+    <section class="content-section bg-dark p-3">
+        <div class="container-fluid">
+        <h1 class="my-4 text-center text-white">Mobility Performance Measures
+        </h1>
+        <!--Explain Measures -->
+        <div class="row">
+            <div class="col-lg-6 my-4">
+                <div class="card" data-aos="fade-down" data-aos-duration="3000">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Delay</h4>
+                        <p>Delay is defined as the additional travel time experienced by a driver, passenger or pedestrian, due to circumstances that impede the desirable movement of traffic such as bottlenecks, car accidents or weather conditions. It is measured as the time difference between congested travel time, the travel time at 50 mph, which is the optimal speed to maximize traffic flow.</p>
+                        <ul style="list-style:square inside">
+                            <li>Monthly delay: Delay is calculated for all vehicles in both directions of I-15 between Payson and Brigham City, as well as Southern Utah for all hours every day</li>
+                            <li>Annual delay</li>
+                        </ul>
+                        <p>Today, the performance measures for delay and reliability are for I-15 in urbanized areas. In the future, we will be able to show these on a full system basis.</p>
+                        <div id="i15delaygraph" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 my-4">
+                <div class="card" data-aos="fade-up" data-aos-duration="3000">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Reliability</h4>
+                        <p>The four reliability categories listed in the graphs below are determined by comparing the average speed of vehicles (50 mph) and extra time required for travelers to ensure on-time arrival 95% of the time, also known as Buffer Time Index (BTI).</p>
+                        <ul style="list-style:square inside">
+                            <li>Reliability score: The Reliability Score is determined by the percentage of reliably fast 1-mile segments. Reliably slow and unreliable segments get a score of 0. The freeway segment values are weighted by their Vehicle Miles Traveled (VMT). Our target is 85% of 1-mile segments on I-15, which is considered reliably fast.</li>
+                            <li>Normalized reliability score: The normalized reliability score is determined by dividing the reliability score by the target of 85%. This results in a maximum normalized reliability score is 100 which can then be used to support the overall composite metric. Composite metric of 100 can be used to support the overall composite metric. See graph in dashboard below.</li>
+                        </ul>
+                        <div id="i15reliabilitygraph" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 my-4">
+                <div class="card" data-aos="fade-down" data-aos-duration="3000">
+                  <div class="card-body">
+                      <h4 class="card-title text-center">Mode split</h4>
+                      <p>The graph on Mode Split below shows person trips from current volumes and UTA ridership as percentage of goal in Salt Lake County I-15 corridor during PM peak period. The normalized mode split score on the graph is determined by the dividing the percentage of transit ridership by the target of 10 percent. The maximum normalized mode split value is 100.</p>
+                      <div id="modeSplit" style="height: 400px;"></div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-4 my-4">
+                <div class="card" data-aos="fade-up" data-aos-duration="3000">
+                  <div class="card-body">
+                      <h4 class="card-title text-center">Snow and Ice Removal Efficiency</h4>
+                      <p>The pie chart on Snow and Ice Removal Efficiency shows how effectively UDOT was able to remove snow and ice from roadways around the state in 2017. Additional information on current road conditions can be found on the <a href="https://udottraffic.utah.gov/">UDOT Traffic Website</a>.</p>
+                      <div id="snowIcePie" style="height: 400px;"></div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-4 my-4">
+                <div class="card" data-aos="fade-down" data-aos-duration="3000">
+                  <div class="card-body">
+                      <h4 class="card-title text-center">Snow and Ice Removal Month to Month</h4>
+                      <p>The bar on Snow and Ice Removal on a month to month basis compares snow and ice removal since November 2015. The graph compares Snow Removal over two winters.</p>
+                      <div id="snowIceBar" style="height: 400px;"></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <!--./Explain Measures -->
+        </div>
+    </section>
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="text-center">
+                <img src="img/udotlogo.png"/>
+            </div>
+            <!-- Grid row-->
+            <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="index.html">Home</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="https://dashboard.udot.utah.gov/browse">Data Catalog</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="https://dashboard.udot.utah.gov/admin/analytics">Metrics</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="http://www.socrata.com/terms-of-service/">Data Policy</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="http://www.socrata.com/accessibility/">Accessibility</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="http://www.socrata.com/privacy">Privacy Policy</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+            </div>
+            <!--./end row-->
+            <!-- Grid row-->
+            <div class="row pb-3 text-center">
+              <!-- Grid column -->
+                <div class="col-md-12">
+                    <div class="mb-5 flex-center">
+                        <!-- Facebook -->
+                        <a class="fb-ic"><i class="fab fa-facebook fa-lg white-text mr-4"> </i></a>
+                        <!-- Twitter -->
+                        <a class="tw-ic"><i class="fab fa-twitter fa-lg white-text mr-4"> </i></a>
+                        <!-- You Tube +-->
+                        <a class="gplus-ic"><i class="fab fa-youtube-square  fa-lg white-text mr-4"> </i></a>
+                        <!--Flicker -->
+                        <a class="gplus-ic"><i class="fab fa-flickr   fa-lg white-text mr-4"> </i></a>
+                    </div>
+                </div>
+              <!-- Grid column -->
+            </div>
+            <!-- Grid row-->
+                <script type="text/javascript" src="https://www.utah.gov/nav/navfooter.js"></script>
+        </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- Animate on scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        mobilityMetricChart("Statewide");
+        optimizeMobilityCharts();
+        incidentManagement();
+        AOS.init();
+    </script>
+</body>
+</html>

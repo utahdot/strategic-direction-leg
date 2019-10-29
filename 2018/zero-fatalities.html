@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>UDOT Zero Fatalities</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="css/business-frontpage.css" rel="stylesheet">
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <!-- Morris Charts css  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <!-- Animate on Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <div class="container-fluid fixed-top bg-dark p-0">
+    <nav>
+        <script type="text/javascript" src="https://www.utah.gov/nav/navheader.js"></script>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+        <a class="navbar-brand" href="index.html">UDOT Strategic Direction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home Page
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="zero-fatalities.html">Zero Fatalities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="optimize-mobility.html">Optimize Mobility</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="preserve-infrastructure.html">Preserve Infrastructure</a>
+            </li>
+            <li class="nav-item">
+              <a class="fb-ic nav-link" href="https://www.facebook.com/utahdot"><i class="fab fa-facebook fa-lg white-text mr-4"> </i></a>
+            </li>
+            <li class="nav-item">
+              <a class="tw-ic nav-link" href="https://twitter.com/utahdot"><i class="fab fa-twitter fa-lg white-text mr-4"> </i></a>
+            </li>
+            <li class="nav-item">
+              <a class="gplus-ic nav-link" href="http://www.youtube.com/UtahDOT"><i class="fab fa-youtube-square  fa-lg white-text mr-4"> </i></a>
+            </li>
+            <li class="nav-item">
+             <a class="gplus-ic nav-link" href="http://www.flickr.com/UtahDOT"><i class="fab fa-flickr   fa-lg white-text mr-4"> </i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </div>
+    <!-- Header with Background Image -->
+    <header class="masthead d-flex bk-image-zf">
+      <div class="container text-center my-auto">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="h1-custom-heading">Goal: Zero Crashes, Injuries, and Fatalities</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--Content Section 1 -->
+    <div class="container-fluid bg-light text-center">
+        <div class="content-section-heading">
+            <h2 class="p-3">Safety Dashboard</h2>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="lead text-left">A composite metric for zero fatalities is based on key performance measures. The individual criteria are weighted as follows:</p>
+                        <ul style="list-style:square inside" class="text-left lead">
+                            <li>Traffic Fatalities (29%)</li>
+                            <li>Traffic Serious Injuries (20%)</li>
+                            <li>Traffic Crashes (8%)</li>
+                            <li>Internal Fatalities (28%)</li>
+                            <li>Internal Injuries (10%)</li>
+                            <li>Internal Equipment Damage (5%)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2500">
+                        <div id="index" class="text-center"><span class="indexMetric" id="indexNumZF"></span><span class="percent">%</span></div>
+                        <div class="card-title text-center">
+                            <center>Current Overall Performance</center>
+                            <br />
+                            <a href="https://dashboard.udot.utah.gov/stories/s/SD-_-How-Do-Composite-Metrics-Work-/2j6i-dvzv" class="btn btn-primary">Read more about composite indices</a>
+                        </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+    </div>
+    <!--/Section 1 -->
+    <!-- Content Section 2 with graph -->
+    <div class="container content-section p-3">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="card" data-aos="zoom-out-right" data-aos-duration="2500">
+                    <div class="card-body">
+                        <h4 class="card-title">Safety Performance Measures <span id="filter"></span></h4>
+                        <div id="stacked" style="height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content Section 2 with how are we doing -->
+    <section class="content-section bg-dark text-center p-3">
+        <div class="container-fluid">
+        <h2 class="text-center text-white">How are we doing?</h2>
+        <div class="row">
+          <div class="col-lg-5 mx-auto">
+              <div class="card text-left">
+                  <div class="card-body">
+                    <p class="lead">For many years, our goal has been - and continues to be - zero fatalities on Utah roads. Aggressive targets for this goal reflect our intense dedication to achieve zero crashes, injuries and fatalities.</p>
+                    <p class="lead">While these targets will be very challenging to meet, they will push the department to put the necessary resources towards protecting lives on our roads.</p>
+                    <p class="lead">While employee safety has always been a priority, our data collection efforts have been ramped up in recent years allowing us to more accurately measure our performance.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-5 mx-auto">
+              <div class="card" data-aos="zoom-out-right" data-aos-duration="2500">
+                  <div class="card-body">
+                    <div id="zfMorrisChart" style="height: 250px;"></div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        </div>
+    </section>
+    <!--/Content Section 2 with how are we doing -->
+    <!-- Content Section 3 with strategies -->
+    <section class="content-section text-center py-5">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+               <div class="card">
+                   <div class="card-body">
+                    <h2 class="card-title text-center">Strategies</h2>
+                    <ul style="list-style:square inside" class="lead text-left">
+                      <li><a href="#infrastructure" style="text-decoration:none; color:black">Safety infrastructure improvement</a></li>
+                      <li><a href="#partners" style="text-decoration:none; color:black">Partner with law enforcement and emergency services</a></li>
+                      <li><a href="#empsafety" style="text-decoration:none; color:black">Improve employee safety</a></li>
+                      <li><a href="#outreach" style="text-decoration:none; color:black">Public outreach and education</a></li>
+                    </ul>
+                   </div>
+               </div>
+           </div>
+        </div>
+        <h2 class="text-center my-4" id="infrastructure">Safety Infrastructure Improvement</h2>
+	<div class="row">
+            <div class="col-sm-6">
+                <div class="card no-border">
+                    <div class="card-body">
+                    <p class="lead text-left">Every project and maintenance activity we work on represents an opportunity to improve the safety of Utah’s roadways. UDOT utilizes technology to help us identify potential improvements by accessing and analyzing crash data and roadway inventory information to make better informed decisions about installing new safety infrastructure.</p>
+                    <p class="lead text-left">The tools merge multiple data sets including crash, traffic and roadway data from a variety of sources to help our engineers quickly identify crash patterns, analyze roadway segments for areas of concern, and develop benefit-cost analyses for potential roadway projects.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card no-border">
+                    <div class="card-body">
+                    <p class="lead">To reach our goals we will look for opportunities to improve roadway safety with specific emphasis on improving:</p>
+                    <ul style="list-style:square inside" class="lead text-left">
+                      <li>Intersections</li>
+                      <li>Barriers and guardrails</li>
+                      <li>Medians and rumble strips</li>
+                      <li>Signing and striping</li>
+                      <li>Active transportation solutions for pedestrians and cyclists</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="text-center my-4" id="partners">Partner with Law Enforcement and Emergency Services</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card no-border">
+                    <div class="card-body">
+                        <p class="lead text-left">UDOT supports other agencies in their efforts to improve safety on Utah’s highway system and help us reach our goal of Zero Fatalities. We accomplish this by providing support in the following areas:</p>
+                        <ul style="list-style:square inside" class="lead text-left">
+                          <li>Prevent secondary crashes through Incident Management Team (IMT) and a queue protection program which proactively alerts approaching drivers of a traffic incident</li>
+                          <li>Provide traffic signal priority to emergency responders to improve medical response times and reduce fatalities</li>
+                          <li>Support law enforcement through IMT activities to reduce crashes, injuries and fatalities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="text-center my-4" id="empsafety">Improve Employee Safety</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card no-border">
+                    <div class="card-body">
+                        <p class="lead text-left">UDOT is committed to creating a workplace culture focused on safety. We are committed to creating a safe environment by encouraging our employees to think about safety in every element of their work as well as in their personal lives.</p>
+                        <h4 class="text-center">Recognizing, Observing, and Achieving Department Safety (ROADS) Program</h4>
+                        <p class="lead text-left">The Recognizing, Observing and Achieving Department Safety (ROADS) program gives employees an opportunity to respectfully observe and engage peers on safety hazards and report safety incidents as they happen. To further implement the ROADS philosophy into our organization, we developed an employee committee to discuss and evaluate opportunities for improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+	<h2 class="text-center my-4" id="outreach">Public Outreach and Education</h2>
+	<div class="row">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <a href="http://ut.zerofatalities.com/"><img class="card-img-top" src="img/zero-fatalities.png" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title text-center">
+                            <a href="http://ut.zerofatalities.com/">Zero Fatalities</a>
+                        </h4>
+                        <p class="card-text text-left">Zero Fatalities is about eliminating all fatalities on our roadways. More than half (56 percent) of those who are aware of Zero Fatalities say this program has influenced them to avoid the top five behaviors responsible for deaths on roads.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <a href="http://ut.zerofatalities.com/heads-up/"><img class="card-img-top" src="img/headsup.png" alt=""></a>
+                    <div class="card-body">
+                      <h4 class="card-title text-center">
+                            <a href="http://ut.zerofatalities.com/heads-up/">Heads Up</a>
+                      </h4>
+                      <p class="card-text text-left">Almost 100 pedestrians, bicyclists and motorcyclists are killed on Utah roads everywhere. UDOT believes the road belongs to all users and that each of us must take responsibility to keep each other safe.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <a href="http://udot.utah.gov/trucksmart"><img class="card-img-top" src="img/trucksmart.png" alt=""></a>
+                    <div class="card-body">
+                      <h4 class="card-title text-center">
+                            <a href="http://udot.utah.gov/trucksmart">Truck Smart</a>
+                      </h4>
+                      <p class="card-text text-left">The Truck Smart program partners with local driver education programs and the Utah Trucking Association to teach teens, and the public, about driving safely around trucks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!--Performance Measures -->
+    <div class="container-fluid bg-dark text-center">
+        <div class="content-section-heading">
+            <h2 class="mb-1 text-white">Safety Performance Measures</h2>
+        </div>
+        <!--Fatalities, injuries, crashes -->
+        <div class="row">
+            <div class="col-lg-4 my-4">
+                <div class="card" data-aos="fade-down" data-aos-duration="3000">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Traffic Fatalities</h4>
+                        <p class="lead">The number of deaths on Utah’s roads.</p>
+                        <p class="text-warning">Target: Reduce fatality number by 2.5 percent below the three-year average.</p>
+                        <div id="trafficFatalities" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 my-4">
+                <div class="card" data-aos="fade-up" data-aos-duration="3000">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Serious Traffic Injuries</h4>
+                        <p class="lead">The number of life altering injuries, such as severe laceration, broken or distorted limb, and crush injuries.</p>
+                        <p class="text-warning">Target: Reduce by 2.5 percent below the three year average.</p>
+                        <div id="trafficInjuries" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 my-4">
+                <div class="card" data-aos="fade-down" data-aos-duration="3000">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Traffic Crashes</h4>
+                        <p class="lead">The number of vehicle-involved crashes.</p>
+                        <p class="text-warning">Target: Reduce by 2.5 percent below the three year average.</p>
+                        <div id="trafficCrashes" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Internal Fatalities, injury rate, equipment damage -->
+        <div class="row">
+            <div class="col-lg-4 my-4">
+                <div class="card" data-aos="fade-up" data-aos-duration="3000">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Internal Fatalities</h4>
+                        <p class="lead">The number of UDOT employee deaths.</p>
+                        <p class="text-warning">Target: Achieve zero employee fatalities.</p>
+                        <div id="internalFatalities" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 my-4">
+                <div class="card" data-aos="fade-down" data-aos-duration="3000">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Internal Injury Rate</h4>
+                        <p class="lead">The number of injuries per 200,000 hours.</p>
+                        <p class="text-warning">Target: Achieve a rate of less than 4.29 injuries per 200,000 working hours.</p>
+                        <div id="injuryRate" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 my-4">
+                <div class="card" data-aos="fade-up" data-aos-duration="3000">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Equipment Damage</h4>
+                        <p class="lead">The number of reported equipment damages that occur per 200,000 hours.</p>
+                        <p class="text-warning">Target: Achieve a rate of 6.85 incident per 200,000 working hours.</p>
+                        <div id="equipmentDamage" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--./Explain Measures -->
+    </div>
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="text-center">
+                <img src="img/udotlogo.png"/>
+            </div>
+            <!-- Grid row-->
+            <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="index.html">Home</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="https://dashboard.udot.utah.gov/browse">Data Catalog</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="https://dashboard.udot.utah.gov/admin/analytics">Metrics</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="http://www.socrata.com/terms-of-service/">Data Policy</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="http://www.socrata.com/accessibility/">Accessibility</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="http://www.socrata.com/privacy">Privacy Policy</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+            </div>
+            <!--./end row-->
+            <!-- Grid row-->
+            <div class="row pb-3 text-center">
+              <!-- Grid column -->
+                <div class="col-md-12">
+                    <div class="mb-5 flex-center">
+                        <!-- Facebook -->
+                        <a class="fb-ic"><i class="fab fa-facebook fa-lg white-text mr-4"> </i></a>
+                        <!-- Twitter -->
+                        <a class="tw-ic"><i class="fab fa-twitter fa-lg white-text mr-4"> </i></a>
+                        <!-- You Tube +-->
+                        <a class="gplus-ic"><i class="fab fa-youtube-square  fa-lg white-text mr-4"> </i></a>
+                        <!--Flicker -->
+                        <a class="gplus-ic"><i class="fab fa-flickr   fa-lg white-text mr-4"> </i></a>
+                    </div>
+                </div>
+              <!-- Grid column -->
+            </div>
+            <!-- Grid row-->
+                <script type="text/javascript" src="https://www.utah.gov/nav/navfooter.js"></script>
+        </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- Animate on scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        safetyMetricChart("Statewide");
+        zeroFatalitiesPM("Statewide");
+        AOS.init();
+    </script>
+</body>
+</html>

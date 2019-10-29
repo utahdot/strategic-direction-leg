@@ -1,0 +1,99 @@
+/*Custom css
+*/
+
+.indexMetric {
+  font-size: 6em;
+  color: #698fca;
+  text-decoration: none;
+}
+@media (max-width: 992px) {
+  .indexMetric{
+    font-size: 4.5em;
+  }
+}
+
+.percent {
+  font-size: 200%;
+  color: #698fca;
+  text-decoration: none;
+}
+
+html,
+body {
+  height: 95%;
+}
+
+.parent {
+  width: 100%;
+  height: 100%;
+  display: table;
+  text-align: center;
+}
+
+.parent > .child {
+  display: table-cell;
+  vertical-align: middle;
+}
+.inline-block {
+  display: inline-block;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  vertical-align: top;
+}
+.bk-image-zf {
+    background-image: url('../img/red rocks backrground.jpg');
+}
+.bk-image-mob {
+    background-image: url('../img/mobility-hero.jpg')
+}
+.bk-image-pi {
+    background-image: url('../img/Preserve Infrastructure Here.jpg')
+}
+.portfolio-item {
+    margin-bottom: 30px;
+}
+.largeiframe {
+    width: 100%;
+    height: 800px;
+}
+.smalliframe {
+    width: 100%;
+    height: 400px;
+}
+.no-border{
+    border: none;
+}
+.bg-image1{
+  background-image: url('../img/Bridge Demolition.jpg')
+}
+.pb-icon{
+  width: 30%;
+  margin: 100px 0px 0px 0px;
+}
+.bg-none {
+  background: none !important;
+}
+.alt-link {
+  cursor: pointer;
+}
+.spin {
+  animation: spin 3s linear infinite;
+  /*Set our animation play state to paused initially */
+  animation-play-state: paused;
+}
+.spin:hover{
+  animation-play-state: running;
+}
+@keyframes spin {
+  100% {transform: rotate(1turn); }
+}
+.rotate:hover {
+  -webkit-transform: rotateZ(-30deg);
+  -ms-transform: rotateZ(-30deg);
+  transform: rotateZ(30deg);
+}
+.shrink:hover {
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+}
