@@ -730,10 +730,13 @@ section.udotsd-section .udotsd-item .udotsd-date {
   font-size: 0.8rem;
 }
 .finance td:nth-child(2){
-text-align: right;
+  text-align: right;
 }
 .finance thead td {
   font-weight: bold;
+}
+#nav-revenue p{
+  color: #fff;
 }
 section.udotsd-section {
   padding-top: 3rem !important;
