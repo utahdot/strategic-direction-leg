@@ -24,8 +24,7 @@ Chart.plugins.register({
           var model =
             dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
           var scaleMax =
-            dataset._meta[Object.keys(dataset._meta)[0]].data[i]._yScale
-              .maxHeight;
+            dataset._meta[Object.keys(dataset._meta)[0]].data[i]._yScale.maxHeight;
           var yPos =
             (scaleMax - model.y) / scaleMax >= 0.93
               ? model.y + 20
@@ -97,7 +96,7 @@ function drawGoalCharts() {
           defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
             "proxima-nova, sans-serif"),
           legend: { display: false },
-          responsive: true,
+          responsive: false,
           animation: {
             duration: 3000,
             animateScale: true,
@@ -135,7 +134,7 @@ function drawGoalCharts() {
           defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
             "proxima-nova, sans-serif"),
           legend: { display: false },
-          responsive: true,
+          responsive: false,
           animation: {
             duration: 3000,
             animateScale: true,
@@ -173,7 +172,7 @@ function drawGoalCharts() {
           defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
             "proxima-nova, sans-serif"),
           legend: { display: false },
-          responsive: true,
+          responsive: false,
           animation: {
             duration: 3000,
             animateScale: true,
@@ -231,7 +230,7 @@ function drawGoalCharts() {
             ]
           };
           var chartOptions = {
-            responsive: true,
+            responsive: false,
             animation: {
               duration: 3000,
               animateScale: true,
@@ -353,7 +352,7 @@ function drawPICharts() {
           defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
             "proxima-nova, sans-serif"),
           legend: { display: false },
-          responsive: true,
+          responsive: false,
           animation: {
             duration: 3000,
             animateScale: true,
@@ -404,7 +403,7 @@ function drawPICharts() {
             ]
           };
           var chartOptions = {
-            responsive: true,
+            responsive: false,
             animation: {
               duration: 3000,
               animateScale: true,
@@ -486,7 +485,7 @@ function drawPICharts() {
                     xAxes: [{ stacked: true,ticks: { fontSize: 9,autoSkip: false, maxRotation: 0}  }],
                     yAxes: [{ stacked: true }]
                   },
-                  responsive: true,
+                  responsive: false,
                   animation: {
                     duration: 3000,
                     animateScale: true,
@@ -888,7 +887,7 @@ function drawZFCharts() {
           defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
             "proxima-nova, sans-serif"),
           legend: { display: false },
-          responsive: true,
+          responsive: false,
           animation: {
             duration: 3000,
             animateScale: true,
@@ -939,7 +938,7 @@ function drawZFCharts() {
             ]
           };
           var chartOptions = {
-            responsive: true,
+            responsive: false,
             animation: {
               duration: 3000,
               animateScale: true,
@@ -1023,7 +1022,7 @@ function drawZFCharts() {
                     xAxes: [{ stacked: true, ticks: { fontSize: 9,autoSkip: false, maxRotation: 0} }],
                     yAxes: [{ stacked: true }]
                   },
-                  responsive: true,
+                  responsive: false,
                   animation: {
                     duration: 3000,
                     animateScale: true,
@@ -1327,7 +1326,7 @@ function drawOMCharts() {
           defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
             "proxima-nova, sans-serif"),
           legend: { display: false },
-          responsive: true,
+          responsive: false,
           animation: {
             duration: 3000,
             animateScale: true,
@@ -1379,7 +1378,7 @@ function drawOMCharts() {
             ]
           };
           var chartOptions = {
-            responsive: true,
+            responsive: false,
             animation: {
               duration: 3000,
               animateScale: true,
@@ -1472,7 +1471,7 @@ function drawOMCharts() {
                     xAxes: [{ stacked: true, ticks: { fontSize: 10, maxRotation: 0, autoSkip: false } }],
                     yAxes: [{ stacked: true }]
                   },
-                  responsive: true,
+                  responsive: false,
                   animation: {
                     duration: 3000,
                     animateScale: true,

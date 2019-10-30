@@ -846,9 +846,7 @@ img[src="img/rucutah.jpg"]{
 /*End Floating Cards*/
 .goal-chart-container {
   position: relative;
-  margin: auto;
-  height: 90%;
-  width: 90%;
+  margin: -7px;
 }
 #strategies-tabs ul .nav-item {
   position: relative;
