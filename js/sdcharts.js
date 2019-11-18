@@ -1127,7 +1127,7 @@ function zeroFatalitiesPM(region) {
           tickfont: { size: 10, family: "proxima-nova, sans-serif" }
         }
       };
-      Plotly.newPlot("trafficFatalities", data, layout);
+      //Plotly.newPlot("trafficFatalities", data, layout);
       actual = [];
       actual = {
         x: x, //xbr = Year
