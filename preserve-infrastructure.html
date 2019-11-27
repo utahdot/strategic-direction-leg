@@ -320,11 +320,35 @@
                           <div class="card-body" data-aos="fade-down" data-aos-duration="3000">
                               <h4 class="card-title text-center">Pavement Condition</h4>
                               <p class="lead text-center">Data on pavement condition is collected every year.</p>
-                              <p class="text-danger text-center">Target: Utah’s overall roadway condition is 80% fair or good.</p>
-                              <div id="pavementPlotlyChart" style="height: 900px;"></div>
+                              <!-- <p class="text-danger text-center">Target: Utah’s overall roadway condition is 100% fair or good.</p> -->
+                              <p class="text-danger text-center">Utah's roadway targets in fair or good condition: Low Volume 80%, High Volume 95%.</p>
+
+                              <div class="row">
+                                  <div class="col-lg-6">
+                                    <div class="card">
+                                      <div class="card-body p-0 m-0">
+                                        <div id="pavementPlotlyChartHV" style="height: 500px;"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-lg-6">
+                                    <div class="card">
+                                      <div class="card-body p-0 m-0">
+                                        <div id="pavementPlotlyChartLV" style="height: 500px;"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+
+                              <!-- <div id="pavementPlotlyChartLV" style="height: 900px;"></div>
+                              <br>
+                              <div id="pavementPlotlyChartHV" style="height: 900px;"></div> -->
                           </div>
                       </div>
                   </div>
+
+
               </div>
               <!--Bridge Condition text and graphs -->
               <div class="row" name="bridges">
@@ -334,6 +358,7 @@
                               <h4 class="card-title text-center">Bridge Condition</h4>
                               <p class="lead">Bridge inspection is occurring year-round resulting in a frequency of every structure every two years. In March of each year, the BHI score of each structure inspected in the previous 12 months is updated. In March of each year, each structure is inspected and scored out of 100 using the Bridge Health Index (BHI).</p>
                               <p class="lead">The Bridge Health Index of the National Highway System (NHS), State, and Local Governments and Municipalities is tracked.</p>
+
                               <div class="row">
                                 <div class="col-lg-4 p-0 m-0">
                                   <div class="card">
@@ -357,6 +382,7 @@
                                   </div>
                                 </div>
                               </div>
+
                           </div>
                       </div>
                   </div>
@@ -378,7 +404,7 @@
                           <div class="card-body" data-aos="fade-up" data-aos-duration="3000">
                               <h4 class="card-title text-center">ATMS</h4>
                               <p class="lead">This number is determined by the percentage of operational devices.</p>
-                              <p class="text-danger">Target: 95 percent of devices in operation</p>
+                              <p class="text-danger">Target: 100 percent of devices in operation</p>
                               <div id="atmsOperationalChart" style="height: 400px;"></div>
                           </div>
                       </div>
@@ -388,7 +414,7 @@
                           <div class="card-body" data-aos="fade-down" data-aos-duration="3000">
                               <h4 class="card-title text-center">Signal Condition</h4>
                               <p class="lead">This number is determined through an annual assessment that includes all electronics and physical infrastructure.</p>
-                              <p class="text-danger">Target: 95 percent of signals in average condition or above</p>
+                              <p class="text-danger">Target: 100 percent of signals in average condition or above</p>
                               <div id="signalsPlotlyChart" style="height: 400px;"></div>
                           </div>
                       </div>
@@ -418,7 +444,8 @@
     <script>
       drawPICharts();
       //Performance Masure charts
-      pavementPlotlyChart2();
+      pavementPlotlyChartLV2();
+      pavementPlotlyChartHV2();
       bridgeConditionChart();
       atmsOperationalChart();
       signalsPlotlyChart();

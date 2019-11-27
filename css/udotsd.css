@@ -43,12 +43,6 @@ a:hover, a:focus, a:active {
   vertical-align: middle;
   font-size: 9vh;
 }
-.active div span .icon {
-  color: #5a87c5 !important;
-}
-.iconspan{
-  font-size: 12vh;
-}
 .text-primary {
   color: #5588cc !important;
 }
@@ -181,8 +175,52 @@ p.lead {
 #sideNav .navbar-toggler:focus {
   outline-color: #d48a6e;
 }
-#sideNav .nav-item {
+#sideNav .navbar-collapse .navbar-nav li.nav-item{
+  font-size: 1.5em;
   height: 16.66vh;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#sideNav .navbar-collapse .navbar-nav li.nav-item:after{
+  font-family: 'icomoon' !important;
+  position: absolute;
+  margin: 0 10%;
+  opacity: .2;
+  font-size: 5em;
+  font-weight: 100;
+}
+#sideNav .navbar-collapse .navbar-nav li.nav-item:hover, #sideNav .navbar-collapse .navbar-nav .active li.nav-item{
+  background-color:#5a87c5;
+  color:#fff;
+}
+#sideNav .navbar-collapse .navbar-nav a:hover{
+  text-decoration: none;
+  color:#fff;
+}
+#sideNav .navbar-collapse .navbar-nav li.home:after{
+  content: "\e919";
+}
+#sideNav .navbar-collapse .navbar-nav li.udot:after{
+  content: "\e921";
+}
+#sideNav .navbar-collapse .navbar-nav li.goal:after{
+  content: "\e918";
+}
+#sideNav .navbar-collapse .navbar-nav li.funding:after{
+  content: "\e900";
+}
+#sideNav .navbar-collapse .navbar-nav li.programbriefing:after{
+  content: "\e91e";
+}
+#sideNav .navbar-collapse .navbar-nav li.tactical:after{
+  content: "\e920";
+}
+#sideNav .navbar-collapse .navbar-nav li.nav-item:hover:after, #sideNav .navbar-collapse .navbar-nav .active li.nav-item:after{
+  content:none;
 }
 .overlay-container {
   position: relative;
@@ -223,6 +261,9 @@ section.udotsd-section {
 }
 section.udotsd-section div.tab-content#pills-tabContent div.tab-pane#pills-landing div.row{
   padding: 0 1rem; 
+}
+section.udotsd-section ul.nav.nav-pills.mb-3.nav-fill#pills-tab{
+  align-items: center;
 }
 section.udotsd-section ul.nav.nav-pills.mb-3.nav-fill#pills-tab li.nav-item{
   width:20%;
@@ -1265,9 +1306,6 @@ transition-delay:.2s;
     -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
-  }
-  #sideNav .navbar-collapse .navbar-nav .nav-item {
-    display: block;
   }
   #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
     display: block;

@@ -24,7 +24,8 @@ Chart.plugins.register({
           var model =
             dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
           var scaleMax =
-            dataset._meta[Object.keys(dataset._meta)[0]].data[i]._yScale.maxHeight;
+            dataset._meta[Object.keys(dataset._meta)[0]].data[i]._yScale
+              .maxHeight;
           var yPos =
             (scaleMax - model.y) / scaleMax >= 0.93
               ? model.y + 20
@@ -96,7 +97,7 @@ function drawGoalCharts() {
           defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
             "proxima-nova, sans-serif"),
           legend: { display: false },
-          responsive: false,
+          responsive: true,
           animation: {
             duration: 3000,
             animateScale: true,
@@ -134,7 +135,7 @@ function drawGoalCharts() {
           defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
             "proxima-nova, sans-serif"),
           legend: { display: false },
-          responsive: false,
+          responsive: true,
           animation: {
             duration: 3000,
             animateScale: true,
@@ -172,7 +173,7 @@ function drawGoalCharts() {
           defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
             "proxima-nova, sans-serif"),
           legend: { display: false },
-          responsive: false,
+          responsive: true,
           animation: {
             duration: 3000,
             animateScale: true,
@@ -193,6 +194,8 @@ function drawGoalCharts() {
         .getElementById("preserve-infrastructure-doughut-chart")
         .getContext("2d");
       var myChart = new Chart(ctx, config);
+
+
       //From here on down draw historical charts.
       url =
         "https://dashboard.udot.utah.gov/resource/b8iq-pg44.json?$select=year,avg(safety),avg(mobility),avg(infrastructure)&$group=year&$order=year";
@@ -230,7 +233,7 @@ function drawGoalCharts() {
             ]
           };
           var chartOptions = {
-            responsive: false,
+            responsive: true,
             animation: {
               duration: 3000,
               animateScale: true,
@@ -325,6 +328,7 @@ function drawGoalCharts() {
       console.log("{*_*} if you see me there is problem..." + err);
     });
 }
+
 //Chart for individual goal pages
 //Preserve Infrastructure Charts
 function drawPICharts() {
@@ -335,7 +339,10 @@ function drawPICharts() {
       return response.json();
     })
     .then(function(data) {
-      var dataIndex = data[0].infrastructure;
+      //********** hard coded data, change when table available **********
+      // var dataIndex = data[0].infrastructure
+      var dataIndex = 90.5 ;
+
       var indexLabel = ["", "Infrastructure Index"];
       var config = {
         type: "doughnut",
@@ -352,7 +359,7 @@ function drawPICharts() {
           defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
             "proxima-nova, sans-serif"),
           legend: { display: false },
-          responsive: false,
+          responsive: true,
           animation: {
             duration: 3000,
             animateScale: true,
@@ -373,6 +380,8 @@ function drawPICharts() {
         .getElementById("pi-goalpage-doughut-chart")
         .getContext("2d");
       var myChart = new Chart(ctx, config);
+
+
       //Second fetch for historical line charts
       url =
         "https://dashboard.udot.utah.gov/resource/b8iq-pg44.json?$select=year,avg(safety),avg(mobility),avg(infrastructure)&$group=year&$order=year";
@@ -381,7 +390,10 @@ function drawPICharts() {
           return response.json();
         })
         .then(function(j) {
-          var piData = [];
+          //********** hard coded data, change when table available **********
+          // var piData = [];
+          var piData = [89.4, 89.4, 89.8, 90, 90.1, 90.4, 90.5];
+
           var years = [];
           for (var i = 0; i < j.length; i++) {
             piData.push(parseInt(j[i]["avg_infrastructure"]));
@@ -403,7 +415,7 @@ function drawPICharts() {
             ]
           };
           var chartOptions = {
-            responsive: false,
+            responsive: true,
             animation: {
               duration: 3000,
               animateScale: true,
@@ -447,6 +459,7 @@ function drawPICharts() {
             data: linechartData,
             options: chartOptions
           });
+
           //Third fetch for stacked KPI Charts charts
           url =
             "https://dashboard.udot.utah.gov/resource/rqv9-ry2j.json?$select=pavement,bridges,atms,signals&entity=Statewide";
@@ -455,12 +468,16 @@ function drawPICharts() {
               return response.json();
             })
             .then(function(j) {
-              var targetMet = [
-                parseFloat(j[0]["atms"]),
-                parseFloat(j[0]["bridges"]),
-                parseFloat(j[0]["pavement"]),
-                parseFloat(j[0]["signals"])
-              ];
+              // var targetMet = [
+              //   parseFloat(j[0]["atms"]),
+              //   parseFloat(j[0]["bridges"]),
+              //   parseFloat(j[0]["pavement"]),
+              //   parseFloat(j[0]["signals"])
+              // ];
+
+              var targetMet = [96, 82.3, 93.12, 100];
+              //console.log(targetMet);
+
               var kpiChartData = {
                 labels: [
                   [["ATMS"],[" 9%"]],
@@ -485,7 +502,7 @@ function drawPICharts() {
                     xAxes: [{ stacked: true,ticks: { fontSize: 9,autoSkip: false, maxRotation: 0}  }],
                     yAxes: [{ stacked: true }]
                   },
-                  responsive: false,
+                  responsive: true,
                   animation: {
                     duration: 3000,
                     animateScale: true,
@@ -522,11 +539,13 @@ function drawPICharts() {
       );
     });
 }
+
 //Strategic Direction Peformance Measure charts
 //Preserve infrastructure//Infrastructure Metrics Chart,Page specific excecute on page
+
 //Pavement pltly Chart
 //With Forcasted Numbers
-function pavementPlotlyChart2() {
+function pavementPlotlyChartLV2() {
   var todaydate = new Date();
   var year = todaydate.getFullYear();
   fetch(
@@ -547,29 +566,54 @@ function pavementPlotlyChart2() {
         poor.push(parseFloat(j[i]["poor"]));
         fair.push(parseFloat(j[i]["fair"]));
       }
+
+      //********** hard coded data, change when table available **********
+      // var trace1 = {
+      //   x: x,
+      //   y: good,
+      //   name: "% Good: IRI < 95 in/mi",
+      //   type: "bar",
+      //   marker: { color: "rgb(40, 167, 69)" }
+      // };
+      // var trace3 = {
+      //   x: x,
+      //   y: fair,
+      //   name: "% Fair: IRI {95,170} in/mi",
+      //   type: "bar",
+      //   marker: { color: "rgb(255, 193, 7)" }
+      // };
+      // var trace5 = {
+      //   x: x,
+      //   y: poor,
+      //   name: "% Poor: IRI > 170 in/mi",
+      //   type: "bar",
+      //   marker: { color: "rgb(220, 53, 69)" }
+      // };
       var trace1 = {
-        x: x,
-        y: good,
+        x: [2013, 2014, 2015, 2016, 2017, 2018, 2019],
+        y: [18, 18.69, 19.74, 23, 25.83, 31.61, 30],
         name: "% Good: IRI < 95 in/mi",
         type: "bar",
         marker: { color: "rgb(40, 167, 69)" }
       };
       var trace3 = {
-        x: x,
-        y: fair,
+          x: [2013, 2014, 2015, 2016, 2017, 2018, 2019],
+          y: [56, 56.72, 59.51, 57.5, 55.53, 51.96, 54.9],
         name: "% Fair: IRI {95,170} in/mi",
         type: "bar",
         marker: { color: "rgb(255, 193, 7)" }
       };
       var trace5 = {
-        x: x,
-        y: poor,
+        x: [2013, 2014, 2015, 2016, 2017, 2018, 2019],
+        y: [26, 24.59, 20.75, 19.5, 18.64, 16.43, 15.10],
         name: "% Poor: IRI > 170 in/mi",
         type: "bar",
         marker: { color: "rgb(220, 53, 69)" }
       };
+
       var data = [trace1, trace3, trace5];
       var layout = {
+        title: "Low Volume Pavement",
         barmode: "stack",
         shapes: [
           {
@@ -593,9 +637,110 @@ function pavementPlotlyChart2() {
           tickfont: { size: 10 }
         }
       };
-      Plotly.newPlot("pavementPlotlyChart", data, layout, { responsive: true });
+      Plotly.newPlot("pavementPlotlyChartLV", data, layout, { responsive: true });
     });
 }
+
+
+// High Volume HV
+function pavementPlotlyChartHV2() {
+  var todaydate = new Date();
+  var year = todaydate.getFullYear();
+  fetch(
+    "https://dashboard.udot.utah.gov/resource/hyep-ccu9.json?$where=year<=" +
+      year
+  )
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(j) {
+      var x = new Array();
+      var good = new Array();
+      var poor = new Array();
+      var fair = new Array();
+      for (var i = 0; i < j.length; i++) {
+        x.push(parseInt(j[i]["year"]));
+        good.push(parseFloat(j[i]["good"]));
+        poor.push(parseFloat(j[i]["poor"]));
+        fair.push(parseFloat(j[i]["fair"]));
+      }
+      //********** hard coded data, change when table available **********
+      // var trace1 = {
+      //   x: x,
+      //   y: good,
+      //   name: "% Good: IRI < 95 in/mi",
+      //   type: "bar",
+      //   marker: { color: "rgb(40, 167, 69)" }
+      // };
+      // var trace3 = {
+      //   x: x,
+      //   y: fair,
+      //   name: "% Fair: IRI {95,170} in/mi",
+      //   type: "bar",
+      //   marker: { color: "rgb(255, 193, 7)" }
+      // };
+      // var trace5 = {
+      //   x: x,
+      //   y: poor,
+      //   name: "% Poor: IRI > 170 in/mi",
+      //   type: "bar",
+      //   marker: { color: "rgb(220, 53, 69)" }
+      // };
+      var trace1 = {
+        x: [2013, 2014, 2015, 2016, 2017, 2018, 2019],
+        y: [60, 59.43, 61.89, 61.50, 61.26, 63.4, 62.03],
+        name: "% Good: IRI < 95 in/mi",
+        type: "bar",
+        marker: { color: "rgb(40, 167, 69)" }
+      };
+      var trace3 = {
+          x: [2013, 2014, 2015, 2016, 2017, 2018, 2019],
+          y: [34.0, 34.48, 32.52, 33.0, 33.61, 31.99, 33.43],
+        name: "% Fair: IRI {95,170} in/mi",
+        type: "bar",
+        marker: { color: "rgb(255, 193, 7)" }
+      };
+      var trace5 = {
+        x: [2013, 2014, 2015, 2016, 2017, 2018, 2019],
+        y: [6, 6.09, 5.59, 5.5, 5.13, 4.61, 4.54],
+        name: "% Poor: IRI > 170 in/mi",
+        type: "bar",
+        marker: { color: "rgb(220, 53, 69)" }
+      };
+
+      var data = [trace1, trace3, trace5];
+      var layout = {
+        title: "High Volume Pavement",
+        barmode: "stack",
+        shapes: [
+          {
+            type: "line",
+            xref: "paper",
+            x0: 0,
+            y0: 95,
+            x1: 1,
+            y1: 95,
+            line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
+          }
+        ],
+        legend: {
+          showlegend: true,
+          legend: { orientation: "h" },
+          y: -0.5,
+          x: 0.3
+        },
+        xaxis: {
+          autotick: false,
+          tickfont: { size: 10 }
+        }
+      };
+      // console.log(data);
+      Plotly.newPlot("pavementPlotlyChartHV", data, layout, { responsive: true });
+    });
+}
+
+
+
 //Bridge Plotly Charts
 function bridgeConditionChart() {
   fetch(
@@ -617,19 +762,19 @@ function bridgeConditionChart() {
         type: "bar",
         name: "Average BHI of NHS Bridges",
         text: [
-          "Target: 85",
-          "Target: 85",
-          "Target: 85",
-          "Target: 85",
-          "Target: 85",
-          "Target: 85",
-          "Target: 85",
-          "Target: 85",
-          "Target: 85",
-          "Target: 85",
-          "Target: 85",
-          "Target: 85",
-          "Target: 85"
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100"
         ],
         marker: {
           color: "#f1c232"
@@ -643,9 +788,9 @@ function bridgeConditionChart() {
             type: "line",
             xref: "paper",
             x0: 0,
-            y0: 85,
+            y0: 100,
             x1: 1,
-            y1: 85,
+            y1: 100,
             line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
           }
         ],
@@ -665,19 +810,19 @@ function bridgeConditionChart() {
         y: y,
         name: "Average BHI of State Bridges",
         text: [
-          "Target: 80",
-          "Target: 80",
-          "Target: 80",
-          "Target: 80",
-          "Target: 80",
-          "Target: 80",
-          "Target: 80",
-          "Target: 80",
-          "Target: 80",
-          "Target: 80",
-          "Target: 80",
-          "Target: 80",
-          "Target: 80"
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100"
         ],
         type: "bar",
         marker: {
@@ -694,9 +839,9 @@ function bridgeConditionChart() {
             type: "line",
             xref: "paper",
             x0: 0,
-            y0: 80,
+            y0: 100,
             x1: 1,
-            y1: 80,
+            y1: 100,
             line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
           }
         ],
@@ -715,19 +860,19 @@ function bridgeConditionChart() {
         y: y,
         name: "Average BHI of State Bridges",
         text: [
-          "Target: 75",
-          "Target: 75",
-          "Target: 75",
-          "Target: 75",
-          "Target: 75",
-          "Target: 75",
-          "Target: 75",
-          "Target: 75",
-          "Target: 75",
-          "Target: 75",
-          "Target: 75",
-          "Target: 75",
-          "Target: 75"
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100",
+            "Target: 100"
         ],
         type: "bar",
         marker: {
@@ -744,9 +889,9 @@ function bridgeConditionChart() {
             type: "line",
             xref: "paper",
             x0: 0,
-            y0: 75,
+            y0: 100,
             x1: 1,
-            y1: 75,
+            y1: 100,
             line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
           }
         ],
@@ -756,8 +901,10 @@ function bridgeConditionChart() {
       Plotly.newPlot("lgBridgeCondition", data, layout, { responsive: true });
     });
 }
+
 //Operational ATMS charts
 function atmsOperationalChart() {
+  // fetch("UDOT_Reliability_HERE_2018_TOC_Routes.csv.json?$order=year")
   fetch("https://dashboard.udot.utah.gov/resource/59ex-6nx9.json?$order=year")
     .then(function(response) {
       return response.json();
@@ -774,7 +921,7 @@ function atmsOperationalChart() {
         y: y,
         mode: "lines+markers",
         name: "% of ATMS Devices in Operation",
-        text: ["Target: 90"],
+        text: ["Target: 100"],
         type: "scatter",
         line: { shape: "spline" }
       };
@@ -792,7 +939,8 @@ function atmsOperationalChart() {
       });
     });
 }
-//Signal Condition Bart Stacked Chart
+
+//Signal Condition Bar Stacked Chart
 function signalsPlotlyChart() {
   fetch(
     "https://dashboard.udot.utah.gov/resource/cqny-q9v6.json?$select=percent_average_all,percent_good_all,percent_poor_all,year&$order=year"
@@ -844,9 +992,9 @@ function signalsPlotlyChart() {
             type: "line",
             xref: "paper",
             x0: 0,
-            y0: 95,
+            y0: 100,
             x1: 1,
-            y1: 95,
+            y1: 100,
             line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
           }
         ],
@@ -887,7 +1035,7 @@ function drawZFCharts() {
           defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
             "proxima-nova, sans-serif"),
           legend: { display: false },
-          responsive: false,
+          responsive: true,
           animation: {
             duration: 3000,
             animateScale: true,
@@ -938,7 +1086,7 @@ function drawZFCharts() {
             ]
           };
           var chartOptions = {
-            responsive: false,
+            responsive: true,
             animation: {
               duration: 3000,
               animateScale: true,
@@ -997,19 +1145,33 @@ function drawZFCharts() {
                 parseFloat(j[0]["tf_index"]),
                 parseFloat(j[0]["tsi_index"])
               ];
+              var targetRem = [
+                100 - parseFloat(j[0]["ed_index"]),
+                100 - parseFloat(j[0]["if_index"]),
+                100 - parseFloat(j[0]["ii_index"]),
+                100 - parseFloat(j[0]["tc_index"]),
+                100 - parseFloat(j[0]["tf_index"]),
+                100 - parseFloat(j[0]["tsi_index"])
+              ];
               var kpiChartData = {
                 labels: [
-                  [["Equip"],["Damage"],["5%"]],
-                  [["Emp"],["Fatalities"],["28%"]],
-                  [["Emp"],["Injuries"], ["10%"]],
-                  [["Traffic"],["Crashes"],["8%"]],
-                  [["Traffic"],["Fatals"],["29%"]],
-                  [["Traffic"],["Injuries"],["20%"]]
+                  "UDOT Equip Dam: 5%",
+                  "UDOT Fatalities: 28%",
+                  "UDOT Injuries: 10%",
+                  "Traffic Crashes: 8%",
+                  "Traffic Fatalities: 29%",
+                  "Traffic Injuries: 20%"
                 ],
                 datasets: [
                   {
+                    label: "Target Met",
                     data: targetMet,
                     backgroundColor: "#5b87c6"
+                  },
+                  {
+                    label: "Target Remaining",
+                    data: targetRem,
+                    backgroundColor: "#eb7523"
                   }
                 ]
               };
@@ -1019,10 +1181,10 @@ function drawZFCharts() {
                 data: kpiChartData,
                 options: {
                   scales: {
-                    xAxes: [{ stacked: true, ticks: { fontSize: 9,autoSkip: false, maxRotation: 0} }],
+                    xAxes: [{ stacked: true, ticks: { fontSize: 9 } }],
                     yAxes: [{ stacked: true }]
                   },
-                  responsive: false,
+                  responsive: true,
                   animation: {
                     duration: 3000,
                     animateScale: true,
@@ -1031,7 +1193,6 @@ function drawZFCharts() {
                   },
                   maintainAspectRatio: false,
                   legend: {
-                    display: false,
                     position: "bottom",
                     labels: {
                       boxWidth: 20
@@ -1127,7 +1288,7 @@ function zeroFatalitiesPM(region) {
           tickfont: { size: 10, family: "proxima-nova, sans-serif" }
         }
       };
-      //Plotly.newPlot("trafficFatalities", data, layout);
+      Plotly.newPlot("trafficFatalities", data, layout);
       actual = [];
       actual = {
         x: x, //xbr = Year
@@ -1326,7 +1487,7 @@ function drawOMCharts() {
           defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
             "proxima-nova, sans-serif"),
           legend: { display: false },
-          responsive: false,
+          responsive: true,
           animation: {
             duration: 3000,
             animateScale: true,
@@ -1378,7 +1539,7 @@ function drawOMCharts() {
             ]
           };
           var chartOptions = {
-            responsive: false,
+            responsive: true,
             animation: {
               duration: 3000,
               animateScale: true,
@@ -1411,9 +1572,7 @@ function drawOMCharts() {
                     beginAtZero: true,
                     steps: 10,
                     stepValue: 5,
-                    max: 100,
-                    maxRotation: 0,
-                    autoSkip: false
+                    max: 100
                   }
                 }
               ]
@@ -1449,16 +1608,21 @@ function drawOMCharts() {
               ];
               var kpiChartData = {
                 labels: [
-                  [["Delay"],["30%"]],
-                  [["Reliability"],["35%"]],
-                  [["Mode"],["11%"]],
-                  [["Snow"],["24%"]]
+                  "Delay: 30%",
+                  "Reliability: 35%",
+                  "Mode Split: 11%",
+                  "Snow Removal: 24%"
                 ],
                 datasets: [
                   {
                     label: "Target Met",
                     data: targetMet,
                     backgroundColor: "#5b87c6"
+                  },
+                  {
+                    label: "Target Remaining",
+                    data: targetRem,
+                    backgroundColor: "#eb7523"
                   }
                 ]
               };
@@ -1468,10 +1632,10 @@ function drawOMCharts() {
                 data: kpiChartData,
                 options: {
                   scales: {
-                    xAxes: [{ stacked: true, ticks: { fontSize: 10, maxRotation: 0, autoSkip: false } }],
+                    xAxes: [{ stacked: true, ticks: { fontSize: 10 } }],
                     yAxes: [{ stacked: true }]
                   },
-                  responsive: false,
+                  responsive: true,
                   animation: {
                     duration: 3000,
                     animateScale: true,
@@ -1480,7 +1644,7 @@ function drawOMCharts() {
                   },
                   maintainAspectRatio: false,
                   legend: {
-                    display: false,
+                    display: true,
                     position: "bottom",
                     labels: {
                       boxWidth: 20
