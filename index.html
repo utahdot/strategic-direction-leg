@@ -57,6 +57,15 @@
               </div>
             </div>
           </div>
+          <div class="floating-card-right floating-card-middle no-gutters">
+            <div class="col-lg-12 h-100 hover-modal-show" data-toggle="modal" data-target="#missionModal">
+              <div class="card mb-2 text-center no-border udot-bg-blue">
+                <div class="card-body p-1">
+                  <h6 class="card-title m-0 p-0 text-white font-weight-bold link-pointer">Mission</h6>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="floating-card-right no-gutters">
             <div class="col-lg-12 h-100 hover-modal-show" data-toggle="modal" data-target="#edModal">
               <div class="card mb-2 text-center no-border udot-bg-blue">
@@ -82,6 +91,366 @@
                     <p>For many years, UDOT produced an annual Strategic Direction Report as a way of transparently reporting to the taxpayers of Utah, how we are investing funds allocated to us by the Utah State Legislature. We have taken advantage of the latest in online technology to provide a live, data and performance driven report that is constantly updated to reflect how we are reaching our strategic goals. The data we share here helps us make cost-effective decisions that help us meet the transportation challenges of today and the future. I hope that this live, dynamic report will be both interesting and useful as you continue to hold us accountable of our promise to Keep Utah Moving.</p>
                     <footer class="blockquote-footer">Carlos Braceras, P.E. <cite title="UDOT Director">Executive Director of UDOT</cite></footer>
                   </blockquote>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Mission Modal -->
+          <div class="modal fade" id="missionModal" tabindex="-1" role="dialog" aria-labelledby="missionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="missionModalLabel">MISSION</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <p>Innovating transportation solutions that strengthen Utah’s economy and enhance quality of life</p>
+                </div>
+                <div class="modal-body">
+                  <div class="my-auto w-100">
+                    <!--About UDOT first Part row-->
+                    <hr class="m-2 no-border">
+                    <!--About UDOT Part 2 with Stories as row -->
+                    <div class="row mb-3" id="sd-infographic">
+                      <div class="col-lg-12">
+                        <div class="card no-border">
+                          <div class="card-body text-center p-0 udot-bg-1">
+                            <div class="udotvision" data-toggle="modal" data-target="#udotvision">
+                              <h3>Utah's Transportation Vision <span>Pathway to Quality of Life</span></h3>
+                              <img src="img/good_health.svg" alt="heart with heart rate monitor line logo" title="heart with heart rate monitor line logo" />
+                              <p>Good Health</p>
+                              <img src="img/better_mobility.svg" alt="bike, car, and bus logo" title="bike, car, and bus logo" />
+                              <p>Better Mobility</p>
+                              <img src="img/strong_economy.svg" alt="bar chart going up logo" title="bar chart going up logo" />
+                              <p>Strong Economy</p>
+                              <img src="img/connected_communities.svg" alt="opposite arrows logo" title="opposite arrows logo" />
+                              <p>Connected Communities</p>
+                            </div>
+                            <div id="utahregionmap">
+                            <h3><span>4</span>Regions</h3>
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="utahregionmap" viewBox="3 14 122.9 69.1">
+                                  <a class="img-map-link" data-toggle="modal" data-target="#region2Details">
+                                    <path class="region" id="region-2" d="M15.3 24.9c-.8.2-.9 0-3.1 0l-2.1.1-2.7-.2c-1-.1-1.3-.1-1.5.1-.3.3-.1.7 0 1.9l-.1 2.1c-.2 1.5-.3 1.4-.3 2.2-.1 1.3.2 1.3.1 2.4l-.1 1.7.1.8c.2.2.5.2 1.6.1l1.3-.1c1.5-.2 2.8-.1 3.5 0l2.1.3c1.8.1 2.1-.3 3.3-.1h1l.9-.5.9-.8v-1.4l-.1-1.4c-.1-.8-.3-1-.1-1.3.2-.3.7-.4 1-.2.3.2.3.6.5.7s.4-.2 1-.6l1.2-.6 1-.5.9-.5h1l.9.4.7.4c.6-.1 1-.3 1.2-.5.3-.4.2-.6.6-1l1.1-.4 1-.1 1.3-.1.9-.4 1-.2h1l.9.1c.5-.3.4-1.5-.1-1.9-.3-.2-.5 0-1.2 0l-1.9-.1-2.1.1H30c-.6.1-.9.3-1.1.1-.1-.1-.2-.3 0-1.5.1-.9.2-1.2.1-1.3-.2-.1-.4.5-1.1.9-.5.3-.7.1-1.2.4l-1 .8c-.4.3-.6.5-.8.5l-.1.1c-.1.2.9.8.8 1.4 0 .3-.3.7-.6.7-.4 0-.4-.8-1-.9-.4-.1-.6.3-1.3.4-.1 0-.6 0-1-.3-.3-.3-.2-.7-.4-.8-.3-.1-.8.4-1.1.8l-.4.9-.9-1.4-.5-1c-.4-.6-.5-.9-.7-1-.8-.4-1.2.3-2.4.7z"/>
+                                  </a>
+                                  <a class="img-map-link" data-toggle="modal" data-target="#region3Details">
+                                    <path class="region" id="region-3" d="M5.6 36c-.2.2 0 .4.1 1.3v1.2c-.1.9-.2 1.1-.1 1.3.2.3.7.1 1.6.1.9-.1.7.1 2.7.1h6.7c1.7-.1 2.4-.4 2.9.1.2.1.2.3.4.7.3.8.3 1.6.2 1.6-.1 0-.3-.5-.2-.6.1-.1.5.7 1 .7.3 0 .4-.3.8-.5.7-.3 1.1.2 1.6-.1.4-.3.5-1.1.4-1.6-.1-.6-.4-.7-.3-1.1l.5-.7c.4-.1.8-.2.8-.4.1-.3-.7-.6-.6-.8.1-.2 1.3-.1 2.2.1.5.1.8.2 1 .1.3-.3-.2-.9.1-1.2.3-.3.8.3 1.7.1.5-.1.7-.4 1-.2.3.1.2.5.4.9.2.3.6.5.9.6l2.1.1 1.6-.1 1.6.1c.9 0 1.3-.1 1.3.1.1.2-.3.3-.5 1l-.2 1c-.2 1-.2 1.1-.1 1.2.2.2.7 0 1.6-.1 1.1-.1 1.1.2 2.5.2l1.6-.1c1 .1 1.3.3 1.6.1.4-.3.3-1 .2-2.2-.1-1.6.1-1.1.1-3.4-.1-2.7-.3-2.4-.3-4.2v-4.5c0-.4.1-1.2-.4-1.5-.3-.2-.7-.1-1 0l-2.9-.1c-2.3-.1-2.9-.2-3 .1-.2.4.5 1.1.1 1.6-.2.3-.8.4-.9.4-.5 0-.6-.3-1-.2-.4 0-.4.2-1 .5l-1.2.4c-1 .2-1.2-.1-1.9.1-.2.1-.6.2-1 .6-.3.4-.3.7-.7 1-.3.3-.7.3-.9.4-.8.1-1.4-.2-1.6-.3-.6-.3-.6-.6-1-.6s-.5.4-1.3.8l-1.6.5c-.7.2-.9.3-1.1.5l-.4.6c-.2 0-.3-.2-.7-.5-.1-.1-.6-.4-.8-.3-.1.1 0 .4.1 1.2l.1 1.2v1.4c-.1.4-.1.7-.4 1.1s-.7.6-.8.7c-.4.2-.7.2-1 .2l-2.4-.2h-6l-1.2-.1-1.5.1c-1-.4-1.3-.7-1.5-.5z"/>
+                                  </a>
+                                  <a class="img-map-link" data-toggle="modal" data-target="#region4Details">
+                                    <path class="region" id="region-4" d="M5.4 39.3c.4-.3 1 0 2.1.1.7.1.7 0 2.6-.1h6.8c.3 0 .9-.1 1.7.1.7.2.8.4.9.4.1.2.2.5.2 1.1l.1.9c.2.3.7.2.9.2.4 0 .5-.2 1.2-.4l.9-.2c.3-.1.6-.3.7-.5.2-.4-.2-.6-.2-1.3 0-.4-.1-.7.1-1l.6-.6c.2-.4 0-.6.1-.8.2-.2.6-.1 1.5 0 .7.1.9.2 1.1.1.2-.2.1-.5.4-.9s.7-.6.8-.6c.5-.2 1.1 0 1.5.2.5.3.4.6.9 1l.9.3c.7.1.9-.1 1.8-.1.3 0 .9-.1 1.6 0 .9.1 1.1.3 1.8.3s1.1-.3 1.2-.1c.1.1-.5.4-.8 1l-.1 1.1.1 1c.2.3.6.3 1 .4.6.1.8-.1 1.5-.1.8-.1.9.2 2.1.1l1.3-.1c.7-.1.9-.3 1.3-.1.3.2.4.6.5.9.2.8 0 1.2-.1 2.3v1.8l.1 2.2V50l-.2 2c0 .8.2.8.2 1.7l-.1 1.9-.1 2v2.3l.2 1.6.1 2.1c.1 1.2.5 1.5.2 1.9-.1.2-.4.2-2 .1l-2.1-.1c-1.1-.1-1.9 0-2.4.1-1.8.1-3.2 0-6.4 0-4.3 0-3.8.2-8 .1l-6.9-.1-5-.1H8.3c-.7.1-1.3 0-2.7-.1-.7 0-1-.1-1.3-.4-.3-.4-.1-1 .1-1.8.2-.9 0-.8.1-3.2l.3-4.2c.1-1.6-.1-1.5-.1-4l.1-5.6c.2-1.4.4-2.3.3-3.6L5 41.1c.2-1.5.4-1.7.4-1.8z"/>
+                                  </a>
+                                  <a class="img-map-link" data-toggle="modal" data-target="#region1Details">
+                                    <path class="region" id="region-1" d="M6.3 14.9c-.2.2-.1.5 0 1.1.1.5 0 1.4-.1 3.3l-.1 2.6v2.7c.7.4 1.2.5 1.6.5h1.5l1.2.1 1 .1 1.6.1 1.5-.1.9-.1 1.6-.6c.7-.3.8-.3 1-.2.2.1.2.3.4.8.3.6.5.5.8 1.1l.4.7c0 .5.2.7.3.7.5.2 1.4-1.4 1.4-1.5 0 0-.6.3-.5.5.1.3 1.3.4 1.5.1.1-.2-.2-.6-.1-.7.1 0 .5.9 1 .9.3 0 .4-.3.7-.2l.7.4c.4.2.6.4.7.3l.1-.7-.2-1.4c.1-.5.3-.7.4-.8.2-.2.4-.1.9-.4l.7-.4c.5-.2.7 0 1-.2.4-.2.5-.5.6-.7.2-.4.2-.8.1-1.3l-.2-1.3c-.1-.7.1-.8.1-1.6 0-1-.3-1-.2-1.6.1-.6.4-.8.3-1.3 0-.1-.1-.4-.4-.7-.4-.4-.9-.3-2.2-.2l-1.8.1h-2.6l-5.1-.1-4.2-.1-3.6-.1c-1.3 0-2.3-.3-2.7.2z"/>
+                                  </a>
+                              </svg>
+                            </div>
+                            <div id="asseticons">
+                              <item data-toggle="modal" data-target="#employees">
+                                  <img src="img/employees.svg" alt="group of people" title="group of people" />
+                                  <p><span>1,600+</span>employees</p>
+                              </item>
+                              <item data-toggle="modal" data-target="#roads">
+                                  <img src="img/publicroads.svg" alt="roads" title="roads" />
+                                  <p><span>49,289</span>public road miles</p>
+                              </item>
+                              <item data-toggle="modal" data-target="#bridges">
+                                  <img src="img/bridges.svg" alt="bridge sign" title="bridge sign" />
+                                  <p><span>1,867</span>bridges</p>
+                              </item>
+                              <item data-toggle="modal" data-target="#assets">
+                                  <img src="img/asset.svg" alt="stacked coins" title="stacked coins" />
+                                  <p><span>$43B</span>assets</p>
+                              </item>
+                              <item data-toggle="modal" data-target="#snowplows">
+                                  <img src="img/snowplow.svg" alt="snow plow" title="snow plow" />
+                                  <p><span>520</span>snow plows</p>
+                              </item>
+                              <item data-toggle="modal" data-target="#innovations">
+                                  <!--<a target="_blank" href="https://www.udot.utah.gov/main/f?p=100:pg:0:::1:T,V:3136" target="_blank" rel="noopener">--><img src="img/innovation.svg" alt="light bulb" title="light bulb" /><!--</a>-->
+                                  <p><span>171</span>innovations implemented in 2018</p>
+                              </item>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--Modals for region details-->
+                      <div class="modal fade" id="region2Details" tabindex="-1" role="dialog" aria-labelledby="region2Details" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title text-center" id="region2Details">Region 2</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p class="lead">Counties: Tooele, Salt Lake, Summit</p>
+                              <p class="lead">Contact: <br >
+                                <i class="fas fa-user"></i> Bryan Adams <br >
+                                <i class="fas fa-envelope"></i> bryanadams@utah.gov<br >
+                                <i class="fas fa-phone-square"></i> 801.975.4844</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="region1Details" tabindex="-1" role="dialog" aria-labelledby="region1Details" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title text-center" id="region1Details">Region 1</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <p class="lead">Counties: Box Elder, Cache, Weber, Morgan, Rich</p>
+                                <p class="lead">Contact: <br >
+                                <i class="fas fa-user"></i> Lisa Wilson <br >
+                                <i class="fas fa-envelope"></i> lwilson@utah.gov  <br >
+                                <i class="fas fa-phone-square"></i> 801.620.1640</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="modal fade" id="region3Details" tabindex="-1" role="dialog" aria-labelledby="region3Details" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title text-center" id="region3Details">Region 3</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                  <p class="lead">Counties: Juab, Utah, Wasatch, Duchesne, Daggett, Uintah </p>
+                                  <p class="lead">Contact: <br >
+                                    <i class="fas fa-user"></i> Rob Clayton <br >
+                                    <i class="fas fa-envelope"></i> robertclayton@utah.gov  <br >
+                                    <i class="fas fa-phone-square"></i> 801.227.8001</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="modal fade" id="region4Details" tabindex="-1" role="dialog" aria-labelledby="region4Details" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title text-center" id="region4Details">Region 4</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                  <p class="lead">Counties: Millard, Sanpete, Carbon, Grand, Emery, Sevier, Beaver, Piute, Wayne, Iron, Garfield, San Juan, Washington, Kane</p>
+                                  <p class="lead">Contact: <br >
+                                    <i class="fas fa-user"></i> Rick Torgerson <br >
+                                    <i class="fas fa-envelope"></i> rtorgerson@utah.gov  <br >
+                                    <i class="fas fa-phone-square"></i> 435.201.1844</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <!--END Modals for region details-->
+                      <div class="modal fade" id="udotvision" tabindex="-1" role="dialog" aria-labelledby="udotvision" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="udotvisioncat goodhealth">
+                                    <img src="img/good_health_red.svg" alt="heart with heart rate monitor line logo" title="heart with heart rate monitor line logo" />
+                                    <h5>Good Health</h5>
+                                    <ul>
+                                      <li>Safety</li>
+                                      <li>Public Health</li>
+                                      <li>Environment</li>
+                                    </ul>
+                                  </div>
+                                  <div class="udotvisioncat strongeconomy">
+                                    <img src="img/strong_economy_ltblue.svg" alt="bar chart going up logo" title="bar chart going up logo" />
+                                    <h5>Strong Economy</h5>
+                                    <ul>
+                                      <li>Connectivity</li>
+                                      <li>Transport Costs</li>
+                                      <li>Economic Development</li>
+                                    </ul>
+                                  </div>
+                                  <div class="udotvisioncat bettermobility">
+                                    <img src="img/better_mobility_orange.svg" alt="bike, car, and bus logo" title="bike, car, and bus logo" />
+                                    <h5>Better Mobility</h5>
+                                    <ul>
+                                      <li>Travel Time</li>
+                                      <li>Throughput</li>
+                                      <li>Risk and Resiliency</li>
+                                    </ul>
+                                  </div>
+                                  <div class="udotvisioncat connectedcommunities">
+                                    <img src="img/connected_communities_green.svg" alt="opposite arrows logo" title="opposite arrows logo" />
+                                    <h5>Connected Communities</h5>
+                                    <ul>
+                                      <li>Accessibility</li>
+                                      <li>Land Use and Community</li>
+                                      <li>Integrated Systems</li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="modal fade" id="employees" tabindex="-1" role="dialog" aria-labelledby="employees" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title text-center">1,600+ Employees</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p class="lead">Contact: <br >
+                              <i class="fas fa-user"></i> Lorri Economy <br >
+                              <i class="fas fa-envelope"></i> leconomy@utah.gov  <br >
+                              <i class="fas fa-phone-square"></i> 801.965.3898</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="roads" tabindex="-1" role="dialog" aria-labelledby="roads" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title text-center">49,289 Public Road Miles</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p class="lead">Contact: <br >
+                              <i class="fas fa-user"></i> Teri Newell <br >
+                              <i class="fas fa-envelope"></i> tnewell@utah.gov <br >
+                              <i class="fas fa-phone-square"></i> 801.965.4030 <br></br>
+                              <i class="fas fa-user"></i> Jason Davis <br >
+                              <i class="fas fa-envelope"></i> jasondavis@utah.gov <br >
+                              <i class="fas fa-phone-square"></i> 801.965.4030</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="bridges" tabindex="-1" role="dialog" aria-labelledby="bridges" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title text-center">1,867 Bridges</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p class="lead">Contact: <br >
+                              <i class="fas fa-user"></i> Kris Peterson <br >
+                              <i class="fas fa-envelope"></i> krispeterson@utah.gov  <br >
+                              <i class="fas fa-phone-square"></i> 801.965.4022</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="assets" tabindex="-1" role="dialog" aria-labelledby="assets" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title text-center">$43B Assets</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p class="lead">Contact: <br >
+                              <i class="fas fa-user"></i> Ben Huot <br >
+                              <i class="fas fa-envelope"></i> bhuot@utah.gov  <br >
+                              <i class="fas fa-phone-square"></i> 801-965-4190 <br></br>
+                              <i class="fas fa-user"></i> Becky Bradshaw <br >
+                              <i class="fas fa-envelope"></i> bbradshaw@utah.gov <br >
+                              <i class="fas fa-phone-square"></i> 801.965.4358</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="snowplows" tabindex="-1" role="dialog" aria-labelledby="snowplows" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title text-center">520 Snow Plows</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p class="lead">Contact: <br >
+                              <i class="fas fa-user"></i> Rob Wight <br >
+                              <i class="fas fa-envelope"></i> rwight@utah.gov <br >
+                              <i class="fas fa-phone-square"></i> 801.965.4895</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="innovations" tabindex="-1" role="dialog" aria-labelledby="innovations" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title text-center">171 Innovations Implemented in 2018</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p class="lead">Contact: <br >
+                              <i class="fas fa-user"></i> Nathan Lee <br >
+                              <i class="fas fa-envelope"></i> nlee@utah.gov <br >
+                              <i class="fas fa-phone-square"></i> 801.965.4082</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <!--About UDOT Part 2 with Stories end as row -->
+                  </div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

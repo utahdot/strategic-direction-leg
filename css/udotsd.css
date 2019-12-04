@@ -468,35 +468,42 @@ section.udotsd-section .udotsd-item .udotsd-date {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  display: flex;
   min-height: 450px;
+  display: flex;
+  flex-wrap: wrap;
 }
 #sd-infographic .card .card-body .udotvision{
   display: flex;
-  max-width: 420px;
-  min-width: 410px;
   flex-wrap: wrap;
   background-color: #fff;
   align-items: center;
   padding: 20px;
-  margin-right: 20px;
-  background-image: url("../img/rucutah-legislature.png");
-  background-size: 50px;
-  background-position: left 0 top 0;
-  background-repeat: no-repeat; 
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 200px;
+}
+#sd-infographic .card .card-body .udotvision p {
+  margin-right: 0;
+  margin-left:0;
+}
+#sd-infographic .card .card-body #asseticons {
+  width: 100%;
+  max-width: 100%;
 }
 #sd-infographic .card .card-body .udotvision:hover{
   cursor: pointer;
 }
 #sd-infographic .card .card-body .udotvision img{
-  width:20% /*28%*/;
-  margin: 5px;
+  max-width: 50px;
+  margin-right: 0;
+  margin-left:0;
 }
 #sd-infographic .card .card-body .udotvision h3{
   color:#2b266dff;
   font-weight: 900;
   font-size: 1.2em;
   margin: 0 auto;
+  width:100%;
 }
 #sd-infographic .card .card-body .udotvision h3 span{
   font-size: .8em;
@@ -509,7 +516,6 @@ section.udotsd-section .udotsd-item .udotsd-date {
 #sd-infographic .card .card-body .udotvision p{
   color:#2b266dff;
   font-weight: 600;
-  margin:10px;
   flex-basis: 18%;
 }
 #sd-infographic .card .card-body #utahregionmap{
@@ -519,7 +525,7 @@ section.udotsd-section .udotsd-item .udotsd-date {
 }
 #sd-infographic .card .card-body #utahregionmap h3{
   color: #fff;
-  margin-left:20px;
+  margin-left: 22%;
   font-size: 1.3em;
 }
 #sd-infographic .card .card-body #utahregionmap h3 span{
@@ -531,7 +537,8 @@ section.udotsd-section .udotsd-item .udotsd-date {
   background: url("../img/utahregionmap.png") 1% 1% no-repeat;
   background-size: 34%;
   height: 400px;
-  position: absolute;
+  position: static;
+  margin-left: 20%;
 }
 #sd-infographic .card .card-body #utahregionmap svg path {
   fill: transparent;
@@ -582,6 +589,7 @@ section.udotsd-section .udotsd-item .udotsd-date {
   background-position: left 0 top 0;
   background-repeat: no-repeat;
   padding-left: 50px;
+  flex-wrap: wrap;
 }
 .modal img{
   max-width: 100%;
@@ -880,6 +888,9 @@ img[src="img/rucutah.jpg"]{
   z-index: 2;
   display: inline-block;
   width: 30%;
+}
+.floating-card-middle{
+  right: 38%;
 }
 .link-pointer {
   cursor: pointer
@@ -1200,15 +1211,6 @@ transition-delay:.2s;
     display: none;
   }
 }
-@media only screen and (max-width: 1310px) {
-  #sd-infographic .card .card-body .udotvision {
-    min-width: 210px;
-    max-width: 220px;
-  }
-  #sd-infographic .card .card-body .udotvision img {
-    width: 25%;
-  }
-}
 @media only screen and  (max-width: 1200px) {
   .goal-page-header-title {
     font-size: 3em;
@@ -1225,34 +1227,6 @@ transition-delay:.2s;
 @media only screen and (max-width: 1117px) {
   #sd-infographic .card .udot-bg-1 {
     display: block;
-  }
-  #sd-infographic .card .card-body .udotvision {
-    min-width: 100%;
-    max-width: 100%;
-    max-height: 200px;
-  }
-  #sd-infographic .card .card-body .udotvision img {
-    max-width: 50px;
-    margin-right: 0;
-    margin-left:0;
-  }
-  #sd-infographic .card .card-body .udotvision p {
-    margin-right: 0;
-    margin-left:0;
-  }
-  #sd-infographic .card .card-body .udotvision h3 {
-    width:100%;
-  }
-  #sd-infographic .card .card-body #utahregionmap svg {
-    position: static;
-    margin-left: 20%;
-  }
-  #sd-infographic .card .card-body #utahregionmap h3 {
-    margin-left: 22%;
-  }
-  #sd-infographic .card .card-body #asseticons {
-    width: 100%;
-    max-width: 100%;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -1309,6 +1283,20 @@ transition-delay:.2s;
   }
   #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
     display: block;
+  }
+  #sd-infographic .card .card-body #utahregionmap{
+    position: absolute;
+    top: 140px;
+  }
+  #sd-infographic .card .card-body #utahregionmap h3{
+    margin-left: 20px;
+  }
+  #sd-infographic .card .card-body #utahregionmap svg{
+    margin-left: 5px;
+  }
+  #sd-infographic .card .card-body #asseticons{
+    margin-left: 30%;
+    width:70%;
   }
 }
 @media only screen and (max-width: 800px) {
