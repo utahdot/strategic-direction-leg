@@ -483,8 +483,7 @@ section.udotsd-section .udotsd-item .udotsd-date {
   max-height: 200px;
 }
 #sd-infographic .card .card-body .udotvision p {
-  margin-right: 0;
-  margin-left:0;
+  margin:0;
 }
 #sd-infographic .card .card-body #asseticons {
   width: 100%;

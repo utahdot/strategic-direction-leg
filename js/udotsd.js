@@ -31,6 +31,10 @@
     $(modalId).modal('show');
   })
 
+  //Activate Popovers
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
 })(jQuery); // End of use strict
 
 //function to slide through modals
