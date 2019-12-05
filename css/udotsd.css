@@ -177,7 +177,7 @@ p.lead {
 }
 #sideNav .navbar-collapse .navbar-nav li.nav-item{
   font-size: 1.5em;
-  height: 16.66vh;
+  height: 19.999vh;
   font-weight: 900;
   text-transform: uppercase;
   color: #ccc;
@@ -225,17 +225,6 @@ p.lead {
 .overlay-container {
   position: relative;
   width: 100%;
-}
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 100%;
-  right: 0;
-  background-color: #5a87c5;
-  overflow: hidden;
-  width: 0;
-  height: 16.66vh;
-  transition: .5s ease;
 }
 .overlay-container:hover .overlay {
   width: 100%;
@@ -472,7 +461,7 @@ section.udotsd-section .udotsd-item .udotsd-date {
   display: flex;
   flex-wrap: wrap;
 }
-#sd-infographic .card .card-body .udotvision{
+#sd-infographic .card .card-body .udotvision a{
   display: flex;
   flex-wrap: wrap;
   background-color: #fff;
@@ -482,29 +471,29 @@ section.udotsd-section .udotsd-item .udotsd-date {
   max-width: 100%;
   max-height: 200px;
 }
-#sd-infographic .card .card-body .udotvision p {
+#sd-infographic .card .card-body .udotvision a p {
   margin:0;
 }
 #sd-infographic .card .card-body #asseticons {
   width: 100%;
   max-width: 100%;
 }
-#sd-infographic .card .card-body .udotvision:hover{
+#sd-infographic .card .card-body .udotvision a:hover{
   cursor: pointer;
 }
-#sd-infographic .card .card-body .udotvision img{
+#sd-infographic .card .card-body .udotvision a img{
   max-width: 50px;
   margin-right: 0;
   margin-left:0;
 }
-#sd-infographic .card .card-body .udotvision h3{
+#sd-infographic .card .card-body .udotvision a h3{
   color:#2b266dff;
   font-weight: 900;
   font-size: 1.2em;
   margin: 0 auto;
   width:100%;
 }
-#sd-infographic .card .card-body .udotvision h3 span{
+#sd-infographic .card .card-body .udotvision a h3 span{
   font-size: .8em;
   text-transform: capitalize;
   font-style: italic;
@@ -512,7 +501,7 @@ section.udotsd-section .udotsd-item .udotsd-date {
   font-weight: 300;
   display: block;
 }
-#sd-infographic .card .card-body .udotvision p{
+#sd-infographic .card .card-body .udotvision a p{
   color:#2b266dff;
   font-weight: 600;
   flex-basis: 18%;
@@ -693,18 +682,22 @@ section.udotsd-section .udotsd-item .udotsd-date {
 #udotvision.modal .modal-dialog{
   max-width: 700px;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat{
+.popover .udotvisioncat{
   margin: 5px;
   width: 25%;
 }
-#udotvision.modal .modal-dialog .modal-body{
-  display:flex;
+/*.popover */
+.popover.udotvisionpopover{
+  min-width: 700px;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat img{
+.popover.udotvisionpopover .popover-body{
+  display: flex;
+}
+.popover.udotvisionpopover .popover-body .udotvisioncat img{
   width: 50px;
   float: left;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat h5{
+.popover.udotvisionpopover .popover-body .udotvisioncat h5{
   color: #fff;
   text-transform: capitalize;
   font-size: 1.1em;
@@ -715,11 +708,11 @@ section.udotsd-section .udotsd-item .udotsd-date {
   justify-content: center;
   flex-direction: column;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat ul{
+.popover.udotvisionpopover .popover-body .udotvisioncat ul{
   list-style-type: none;
   padding: 0;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat ul li{
+.popover.udotvisionpopover .popover-body .udotvisioncat ul li{
   border-bottom: none;
   height: 90px;  
   display: flex;
@@ -728,48 +721,48 @@ section.udotsd-section .udotsd-item .udotsd-date {
   text-align: center;
   padding: 20px;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat.goodhealth h5, #udotvision.modal .modal-dialog .modal-body .udotvisioncat.goodhealth img{
+.popover.udotvisionpopover .popover-body .udotvisioncat.goodhealth h5, .popover.udotvisionpopover .popover-body .udotvisioncat.goodhealth img{
   background-color: #c00000;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat.goodhealth ul li{
+.popover.udotvisionpopover .popover-body .udotvisioncat.goodhealth ul li{
   border: 7px solid #c00000;
   border-bottom: none;
   color:#c00000;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat.goodhealth ul li:last-child{
+.popover.udotvisionpopover .popover-body .udotvisioncat.goodhealth ul li:last-child{
   border: 7px solid #c00000;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat.strongeconomy h5, #udotvision.modal .modal-dialog .modal-body .udotvisioncat.strongeconomy img{
+.popover.udotvisionpopover .popover-body .udotvisioncat.strongeconomy h5, .popover.udotvisionpopover .popover-body .udotvisioncat.strongeconomy img{
   background-color: #0070c0;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat.strongeconomy ul li{
+.popover.udotvisionpopover .popover-body .udotvisioncat.strongeconomy ul li{
   border: 7px solid #0070c0;
   border-bottom: none;
   color:#0070c0;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat.strongeconomy ul li:last-child{
+.popover.udotvisionpopover .popover-body .udotvisioncat.strongeconomy ul li:last-child{
   border: 7px solid #0070c0;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat.bettermobility h5, #udotvision.modal .modal-dialog .modal-body .udotvisioncat.bettermobility img{
+.popover.udotvisionpopover .popover-body .udotvisioncat.bettermobility h5, .popover.udotvisionpopover .popover-body .udotvisioncat.bettermobility img{
   background-color: #ff8021;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat.bettermobility ul li{
+.popover.udotvisionpopover .popover-body .udotvisioncat.bettermobility ul li{
   border: 7px solid #ff8021;
   border-bottom: none;
   color:#ff8021;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat.bettermobility ul li:last-child{
+.popover.udotvisionpopover .popover-body .udotvisioncat.bettermobility ul li:last-child{
   border: 7px solid #ff8021;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat.connectedcommunities h5, #udotvision.modal .modal-dialog .modal-body .udotvisioncat.connectedcommunities img{
+.popover.udotvisionpopover .popover-body .udotvisioncat.connectedcommunities h5, .popover.udotvisionpopover .popover-body .udotvisioncat.connectedcommunities img{
   background-color: #5ba9c0;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat.connectedcommunities ul li{
+.popover.udotvisionpopover .popover-body .udotvisioncat.connectedcommunities ul li{
   border: 7px solid #5ba9c0;
   border-bottom: none;
   color:#5ba9c0;
 }
-#udotvision.modal .modal-dialog .modal-body .udotvisioncat.connectedcommunities ul li:last-child{
+.popover.udotvisionpopover .popover-body .udotvisioncat.connectedcommunities ul li:last-child{
   border: 7px solid #5ba9c0;
 }
 .finance td {
