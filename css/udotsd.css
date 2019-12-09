@@ -185,6 +185,9 @@ p.lead {
   justify-content: center;
   flex-direction: column;
 }
+#sideNav .navbar-collapse .navbar-nav.nonmain li.nav-item{
+  height: 16.666vh;
+}
 #sideNav .navbar-collapse .navbar-nav li.nav-item:after{
   font-family: 'icomoon' !important;
   position: absolute;
@@ -218,6 +221,12 @@ p.lead {
 }
 #sideNav .navbar-collapse .navbar-nav li.tactical:after{
   content: "\e920";
+}
+#sideNav .navbar-collapse .navbar-nav li.optimize-mobility:after{
+  content: "\e91c";
+}
+#sideNav .navbar-collapse .navbar-nav li.infrastructure:after{
+  content: "\e91d";
 }
 #sideNav .navbar-collapse .navbar-nav li.nav-item:hover:after, #sideNav .navbar-collapse .navbar-nav .active li.nav-item:after{
   content:none;
