@@ -1223,7 +1223,7 @@ function drawZFCharts() {
 //zero fatalities performance measure chart
 function zeroFatalitiesPM(region) {
   fetch(
-    "https://dashboard.udot.utah.gov/resource/4yir-8226.json?$order=year&$where=region='" +
+    "https://maps.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_04_actual_and_target_fatalities.json" +
       region +
       "'"
   )
