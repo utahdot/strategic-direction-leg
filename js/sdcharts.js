@@ -1012,13 +1012,13 @@ function signalsPlotlyChart() {
 //Zero Fatalities
 function drawZFCharts() {
   var url =
-    "https://dashboard.udot.utah.gov/resource/rqv9-ry2j.json?entity=Statewide";
+    "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_02_donut_chart_overall_statewide_safety_index.json";
   fetch(url)
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-      var dataIndex = data[0].safety;
+      var dataIndex = data[0].safetyindexytd;
       var indexLabel = ["", "Safety Index"];
       var config = {
         type: "doughnut",
@@ -1058,7 +1058,7 @@ function drawZFCharts() {
       var myChart = new Chart(ctx, config);
       //Second fetch for historical line charts
       url =
-        "https://dashboard.udot.utah.gov/resource/b8iq-pg44.json?$select=year,avg(safety),avg(mobility),avg(infrastructure)&$group=year&$order=year";
+        "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_03_line_chart_historic_statewide_safety_index_by_year.json";
       fetch(url)
         .then(function(response) {
           return response.json();
@@ -1067,7 +1067,7 @@ function drawZFCharts() {
           var piData = [];
           var years = [];
           for (var i = 0; i < j.length; i++) {
-            piData.push(parseInt(j[i]["avg_safety"]));
+            piData.push(parseInt(j[i]["safetyindex"]));
             years.push(j[i]["year"]);
           }
           var zfLineChart = document.getElementById("zf-line-chart");
@@ -1131,36 +1131,36 @@ function drawZFCharts() {
           });
           //Third fetch for stacked KPI Charts charts
           url =
-            "https://dashboard.udot.utah.gov/resource/rqv9-ry2j.json?$select=tf_index,tsi_index,tc_index,if_index,ii_index,ed_index&entity=Statewide";
+            "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_01_stacked_bar_chart_statewide_safety_score_as_pct_of_weighting.json";
           fetch(url)
             .then(function(response) {
               return response.json();
             })
             .then(function(j) {
               var targetMet = [
-                parseFloat(j[0]["ed_index"]),
-                parseFloat(j[0]["if_index"]),
-                parseFloat(j[0]["ii_index"]),
-                parseFloat(j[0]["tc_index"]),
-                parseFloat(j[0]["tf_index"]),
-                parseFloat(j[0]["tsi_index"])
+                parseFloat(j[0]["percenttargetmet"]),
+                parseFloat(j[1]["percenttargetmet"]),
+                parseFloat(j[2]["percenttargetmet"]),
+                parseFloat(j[3]["percenttargetmet"]),
+                parseFloat(j[4]["percenttargetmet"]),
+                parseFloat(j[5]["percenttargetmet"])
               ];
               var targetRem = [
-                100 - parseFloat(j[0]["ed_index"]),
-                100 - parseFloat(j[0]["if_index"]),
-                100 - parseFloat(j[0]["ii_index"]),
-                100 - parseFloat(j[0]["tc_index"]),
-                100 - parseFloat(j[0]["tf_index"]),
-                100 - parseFloat(j[0]["tsi_index"])
+                100 - parseFloat(j[0]["percenttargetmet"]),
+                100 - parseFloat(j[1]["percenttargetmet"]),
+                100 - parseFloat(j[2]["percenttargetmet"]),
+                100 - parseFloat(j[3]["percenttargetmet"]),
+                100 - parseFloat(j[4]["percenttargetmet"]),
+                100 - parseFloat(j[5]["percenttargetmet"])
               ];
               var kpiChartData = {
                 labels: [
-                  "UDOT Equip Dam: 5%",
-                  "UDOT Fatalities: 28%",
-                  "UDOT Injuries: 10%",
-                  "Traffic Crashes: 8%",
-                  "Traffic Fatalities: 29%",
-                  "Traffic Injuries: 20%"
+                  j[0]["safetyareaandweighting"],
+                  j[1]["safetyareaandweighting"],
+                  j[2]["safetyareaandweighting"],
+                  j[3]["safetyareaandweighting"],
+                  j[4]["safetyareaandweighting"],
+                  j[5]["safetyareaandweighting"]
                 ],
                 datasets: [
                   {
@@ -1220,96 +1220,24 @@ function drawZFCharts() {
       );
     });
 }
-//zero fatalities performance measure chart
 function zeroFatalitiesPM(region) {
   fetch(
-    "https://maps.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_04_actual_and_target_fatalities.json" +
-      region +
-      "'"
+    "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_08_actual_and_target_crashes.json"
   )
     .then(function(response) {
       return response.json();
     })
     .then(function(j) {
       var x = new Array(); //This will contain years in chart
-      var fat = new Array(); //This will house data but will be reset after each loop
-      var fatT = new Array(); //This will house data but will be reset after each loop
-      var inj = new Array(); //This will house data but will be reset after each loop
-      var injT = new Array(); //This will house data but will be reset after each loop
       var cra = new Array(); //This will house data but will be reset after each loop
       var craT = new Array(); //This will house data but will be reset after each loop
       for (var i = 0; i < j.length; i++) {
-        if (
-          j[i]["category"] === "Fatalities" &&
-          parseInt(j[i]["year"]) > 2010
-        ) {
-          x.push(parseInt(j[i]["year"]));
-          fat.push(parseInt(j[i]["actual"]));
-          fatT.push(parseInt(j[i]["target"]));
-        } else if (
-          j[i]["category"] === "Injuries" &&
-          parseInt(j[i]["year"]) > 2010
-        ) {
-          inj.push(parseInt(j[i]["actual"]));
-          injT.push(parseInt(j[i]["target"]));
-        } else if (
-          j[i]["category"] === "Crashes" &&
-          parseInt(j[i]["year"]) > 2010
-        ) {
-          cra.push(parseInt(j[i]["actual"]));
-          craT.push(parseInt(j[i]["target"]));
+        if (parseInt(j[i]["Year"]) > 2010) {
+          x.push(parseInt(j[i]["Year"]));
+          cra.push(parseInt(j[i]["ActualCrashes"]));
+          craT.push(parseInt(j[i]["TargetCrashes"]));
         }
       }
-      var actual = {
-        x: x, //xbr = Year
-        y: fat, //yvar =data
-        mode: "lines+markers",
-        name: "Actual Fatalities",
-        type: "scatter",
-        line: { shape: "spline" }
-      };
-      var target = {
-        x: x, //xbr = Year
-        y: fatT, //yvar =data
-        mode: "lines+markers",
-        name: "Target Fatalities",
-        type: "scatter",
-        line: { shape: "spline" }
-      };
-      var data = [actual, target];
-      var layout = {
-        legend: {
-          orientation: "h",
-          y: -0.5,
-          x: 0.3
-        },
-        xaxis: {
-          autotick: false,
-          tickfont: { size: 10, family: "proxima-nova, sans-serif" }
-        }
-      };
-      Plotly.newPlot("trafficFatalities", data, layout);
-      actual = [];
-      actual = {
-        x: x, //xbr = Year
-        y: inj, //yvar =data
-        mode: "lines+markers",
-        name: "Actual Injuries",
-        type: "scatter",
-        line: { shape: "spline" }
-      };
-      target = [];
-      target = {
-        x: x, //xbr = Year
-        y: injT, //yvar =data
-        mode: "lines+markers",
-        name: "Target Injuries",
-        type: "scatter",
-        line: { shape: "spline" }
-      };
-      data = [];
-      data = [actual, target];
-      Plotly.newPlot("trafficInjuries", data, layout);
       //Set data for crashes and plot
       actual = [];
       actual = {
@@ -1331,10 +1259,120 @@ function zeroFatalitiesPM(region) {
       };
       data = [];
       data = [actual, target];
+      layout = {
+        legend: {
+          orientation: "h",
+          y: -0.5,
+          x: 0.3
+        },
+        yaxis: { range: [0, 65000] },
+        xaxis: {
+          autotick: false,
+          tickfont: { size: 10, family: "proxima-nova, sans-serif" }
+        }
+      };
       Plotly.newPlot("trafficCrashes", data, layout);
+      fetch(
+        "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_06_actual_and_target_serious_injuries.json"
+      )
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(j) {
+          var x = new Array(); //This will contain years in chart
+          var inj = new Array(); //This will house data but will be reset after each loop
+          var injT = new Array(); //This will house data but will be reset after each loop
+          for (var i = 0; i < j.length; i++) {
+            if (parseInt(j[i]["Year"]) > 2010) {
+              x.push(parseInt(j[i]["Year"]));
+              inj.push(parseInt(j[i]["ActualSeriousInjuries"]));
+              injT.push(parseInt(j[i]["TargetSeriousInjuries"]));
+            }
+          }
+          actual = [];
+          actual = {
+            x: x, //xbr = Year
+            y: inj, //yvar =data
+            mode: "lines+markers",
+            name: "Actual Injuries",
+            type: "scatter",
+            line: { shape: "spline" }
+          };
+          target = [];
+          target = {
+            x: x, //xbr = Year
+            y: injT, //yvar =data
+            mode: "lines+markers",
+            name: "Target Injuries",
+            type: "scatter",
+            line: { shape: "spline" }
+          };
+          data = [];
+          data = [actual, target];
+          layout = {
+            legend: {
+              orientation: "h",
+              y: -0.5,
+              x: 0.3
+            },
+            yaxis: { range: [0, 1600] },
+            xaxis: {
+              autotick: false,
+              tickfont: { size: 10, family: "proxima-nova, sans-serif" }
+            }
+          };
+          Plotly.newPlot("trafficInjuries", data, layout);
+
+          fetch(
+            "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_04_actual_and_target_fatalities.json"
+          )
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(j) {
+              var x = new Array(); //This will contain years in chart
+              var fat = new Array(); //This will house data but will be reset after each loop
+              var fatT = new Array(); //This will house data but will be reset after each loop
+              for (var i = 0; i < j.length; i++) {
+                if (parseInt(j[i]["Year"]) > 2010) {
+                  x.push(parseInt(j[i]["Year"]));
+                  fat.push(parseInt(j[i]["ActualFatalities"]));
+                  fatT.push(parseInt(j[i]["TargetFatalities"]));
+                }
+              }
+              var actual = {
+                x: x, //xbr = Year
+                y: fat, //yvar =data
+                mode: "lines+markers",
+                name: "Actual Fatalities",
+                type: "scatter",
+                line: { shape: "spline" }
+              };
+              var target = {
+                x: x, //xbr = Year
+                y: fatT, //yvar =data
+                mode: "lines+markers",
+                name: "Target Fatalities",
+                type: "scatter",
+                line: { shape: "spline" }
+              };
+              var data = [actual, target];
+              var layout = {
+                legend: {
+                  orientation: "h",
+                  y: -0.5,
+                  x: 0.3
+                },
+                xaxis: {
+                  autotick: false,
+                  tickfont: { size: 10, family: "proxima-nova, sans-serif" }
+                }
+              };
+              Plotly.newPlot("trafficFatalities", data, layout);
+            });
       //refetch different query and hope that it works and plot internal fatalities
       fetch(
-        "https://dashboard.udot.utah.gov/resource/cd7e-zhau.json?$select=statewide,year"
+        "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_05_actual_internal_fatalities.json"
       )
         .then(function(response) {
           return response.json();
@@ -1343,8 +1381,8 @@ function zeroFatalitiesPM(region) {
           x = [];
           fat = []; //recyle variables as much as possible
           for (var i = 0; i < j.length; i++) {
-            x.push(parseInt(j[i]["year"]));
-            fat.push(parseInt(j[i]["statewide"]));
+            x.push(parseInt(j[i]["Year"]));
+            fat.push(parseInt(j[i]["ActualInternalFatalities"]));
           }
           actual = [];
           actual = {
@@ -1370,35 +1408,24 @@ function zeroFatalitiesPM(region) {
             }
           };
           Plotly.newPlot("internalFatalities", data, layout);
-          //refetch different query and hope that it works and plot internal injuries and equipment damage
-          var url = "https://dashboard.udot.utah.gov/resource/jvx4-hyvf.json";
-          fetch(
-            url +
-              "?$select=sorting_order,damage_rate,damage_target,injury_rate,injury_target&$where=sorting_order>201710&$order=sorting_order asc"
-          )
-            .then(function(response) {
+
+          fetch("https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_09_actual_and_target_equipment_damage.json")
+            .then(function(response){
               return response.json();
             })
             .then(function(j) {
               x = [];
               fat = []; //recycle variables, use for rate
               fatT = []; //use for target
-              inj = [];
-              injT = [];
               for (var i = 0; i < j.length; i++) {
-                //Damage and injury rates are not available after the 15th of each month for the past month if both are zero for loop skips.
-                //This is temporary measure till more fixed soluing is investigated.
                 if (
-                  parseFloat(j[i]["damage_rate"]) == 0 &&
-                  parseFloat(j[i]["injury_rate"]) == 0
+                  parseFloat(j[i]["ActualEquipmentDamageRate"]) == 0
                 ) {
                   continue;
                 }
-                x.push(j[i]["sorting_order"]);
-                fat.push(parseFloat(j[i]["damage_rate"]));
-                fatT.push(parseFloat(j[i]["damage_target"]));
-                inj.push(parseFloat(j[i]["injury_rate"]));
-                injT.push(parseFloat(j[i]["injury_target"]));
+                x.push(j[i]["YearMonth"]);
+                fat.push(parseFloat(j[i]["ActualEquipmentDamageRate"]));
+                fatT.push(parseFloat(j[i]["TargetEquipmentDamageRate"]));
               }
               actual = [];
               actual = {
@@ -1434,7 +1461,40 @@ function zeroFatalitiesPM(region) {
               data = [];
               data = [actual, target];
               Plotly.newPlot("equipmentDamage", data, layout);
-              //Draw Damage Rate Plat
+            });
+
+            fetch("https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_07_actual_and_target_internal_injuries.json")
+            .then(function(response){
+              return response.json();
+            })
+            .then(function(j) {
+              x = [];
+              inj = [];
+              injT = [];
+              for (var i = 0; i < j.length; i++) {
+                if (
+                  parseFloat(j[i]["InternalInjuryRate"]) == 0
+                ) {
+                  continue;
+                }
+                x.push(j[i]["YearMonth"]);
+                inj.push(parseFloat(j[i]["InternalInjuryRate"]));
+                injT.push(parseFloat(j[i]["InternalInjuryTarget"]));
+              }
+              layout = [];
+              layout = {
+                xaxis: {
+                  type: "category",
+                  autotick: false,
+                  tickfont: { size: 10, family: "proxima-nova, sans-serif" }
+                },
+                legend: {
+                  orientation: "h",
+                  y: -0.5,
+                  x: 0.3
+                }
+              };
+              //Draw Damage Rate Plot
               actual = [];
               actual = {
                 x: x, //xbr = Year
@@ -1459,6 +1519,7 @@ function zeroFatalitiesPM(region) {
             });
         });
     });
+  });
 }
 //Chart for individual goal pages
 //Optimize Mobility
