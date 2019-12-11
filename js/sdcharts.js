@@ -1012,7 +1012,7 @@ function signalsPlotlyChart() {
 //Zero Fatalities
 function drawZFCharts() {
   var url =
-    "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_02_donut_chart_overall_statewide_safety_index.json";
+    "/wadocuments/data/strategic_direction/zero_fatalities/graph_02_donut_chart_overall_statewide_safety_index.json";
   fetch(url)
     .then(function(response) {
       return response.json();
@@ -1058,7 +1058,7 @@ function drawZFCharts() {
       var myChart = new Chart(ctx, config);
       //Second fetch for historical line charts
       url =
-        "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_03_line_chart_historic_statewide_safety_index_by_year.json";
+        "/wadocuments/data/strategic_direction/zero_fatalities/graph_03_line_chart_historic_statewide_safety_index_by_year.json";
       fetch(url)
         .then(function(response) {
           return response.json();
@@ -1131,7 +1131,7 @@ function drawZFCharts() {
           });
           //Third fetch for stacked KPI Charts charts
           url =
-            "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_01_stacked_bar_chart_statewide_safety_score_as_pct_of_weighting.json";
+            "/wadocuments/data/strategic_direction/zero_fatalities/graph_01_stacked_bar_chart_statewide_safety_score_as_pct_of_weighting.json";
           fetch(url)
             .then(function(response) {
               return response.json();
@@ -1222,7 +1222,7 @@ function drawZFCharts() {
 }
 function zeroFatalitiesPM(region) {
   fetch(
-    "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_08_actual_and_target_crashes.json"
+    "/wadocuments/data/strategic_direction/zero_fatalities/graph_08_actual_and_target_crashes.json"
   )
     .then(function(response) {
       return response.json();
@@ -1273,7 +1273,7 @@ function zeroFatalitiesPM(region) {
       };
       Plotly.newPlot("trafficCrashes", data, layout);
       fetch(
-        "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_06_actual_and_target_serious_injuries.json"
+        "/wadocuments/data/strategic_direction/zero_fatalities/graph_06_actual_and_target_serious_injuries.json"
       )
         .then(function(response) {
           return response.json();
@@ -1324,7 +1324,7 @@ function zeroFatalitiesPM(region) {
           Plotly.newPlot("trafficInjuries", data, layout);
 
           fetch(
-            "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_04_actual_and_target_fatalities.json"
+            "/wadocuments/data/strategic_direction/zero_fatalities/graph_04_actual_and_target_fatalities.json"
           )
             .then(function(response) {
               return response.json();
@@ -1372,7 +1372,7 @@ function zeroFatalitiesPM(region) {
             });
       //refetch different query and hope that it works and plot internal fatalities
       fetch(
-        "https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_05_actual_internal_fatalities.json"
+        "/wadocuments/data/strategic_direction/zero_fatalities/graph_05_actual_internal_fatalities.json"
       )
         .then(function(response) {
           return response.json();
@@ -1409,7 +1409,7 @@ function zeroFatalitiesPM(region) {
           };
           Plotly.newPlot("internalFatalities", data, layout);
 
-          fetch("https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_09_actual_and_target_equipment_damage.json")
+          fetch("/wadocuments/data/strategic_direction/zero_fatalities/graph_09_actual_and_target_equipment_damage.json")
             .then(function(response){
               return response.json();
             })
@@ -1463,7 +1463,7 @@ function zeroFatalitiesPM(region) {
               Plotly.newPlot("equipmentDamage", data, layout);
             });
 
-            fetch("https://test.udot.utah.gov/wadocuments/data/strategic_direction/zero_fatalities/graph_07_actual_and_target_internal_injuries.json")
+            fetch("/wadocuments/data/strategic_direction/zero_fatalities/graph_07_actual_and_target_internal_injuries.json")
             .then(function(response){
               return response.json();
             })
