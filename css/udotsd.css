@@ -811,6 +811,10 @@ section.udotsd-section table{
 section.udotsd-section table:last-child{
   border:none;
 }
+section.udotsd-section table:first-child{
+  border-left: #fff solid 1px;
+  border-bottom: #fff solid 1px;
+}
 section.udotsd-section table thead{
   font-weight: 600;
 }
@@ -833,6 +837,9 @@ section.udotsd-section table tr.highlight-positive{
 }
 section.udotsd-section table tr.highlight-negative{
   background-color:#d14334;
+}
+.popover table tr:nth-child(odd){
+  background: #CCC;
 }
 div.row.initiatives{
   padding: 50px 0;
