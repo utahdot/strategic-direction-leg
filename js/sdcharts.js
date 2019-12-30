@@ -462,25 +462,28 @@ function drawPICharts() {
 
           //Third fetch for stacked KPI Charts charts
           url =
-            "https://dashboard.udot.utah.gov/resource/rqv9-ry2j.json?$select=pavement,bridges,atms,signals&entity=Statewide";
+            "/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_1_Infrastructure_Performance_Measures.json";
           fetch(url)
             .then(function(response) {
               return response.json();
             })
             .then(function(j) {
-              // var targetMet = [
-              //   parseFloat(j[0]["atms"]),
-              //   parseFloat(j[0]["bridges"]),
-              //   parseFloat(j[0]["pavement"]),
-              //   parseFloat(j[0]["signals"])
-              // ];
-
-              var targetMet = [96, 82.3, 93.12, 100];
-              //console.log(targetMet);
+              var targetMet = [
+                parseFloat(j[0]["ATMS"]),
+                parseFloat(j[0]["BRIDGES"]),
+                parseFloat(j[0]["PAVEMENT"]),
+                parseFloat(j[0]["SIGNALS"])
+              ];
+              var targetRem = [
+                100 - parseFloat(j[0]["ATMS"]),
+                100 - parseFloat(j[0]["BRIDGES"]),
+                100 - parseFloat(j[0]["PAVEMENT"]),
+                100 - parseFloat(j[0]["SIGNALS"])
+              ];
 
               var kpiChartData = {
                 labels: [
-                  [["ATMS"],[" 9%"]],
+                  [["ATMS"],["9%"]],
                   [["Bridges"],["38%"]],
                   [["Pavements"],["36%"]],
                   [["Signals"],["17%"]]
@@ -490,6 +493,11 @@ function drawPICharts() {
                     label: "Target Met",
                     data: targetMet,
                     backgroundColor: "#5b87c6"
+                  },
+                  {
+                    label: "Target Remaining",
+                    data: targetRem,
+                    backgroundColor: "#eb7523"
                   }
                 ]
               };
@@ -905,7 +913,7 @@ function bridgeConditionChart() {
 //Operational ATMS charts
 function atmsOperationalChart() {
   // fetch("UDOT_Reliability_HERE_2018_TOC_Routes.csv.json?$order=year")
-  fetch("https://dashboard.udot.utah.gov/resource/59ex-6nx9.json?$order=year")
+  fetch("/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_9_ATMS.json")
     .then(function(response) {
       return response.json();
     })
@@ -913,8 +921,8 @@ function atmsOperationalChart() {
       var x = new Array(); //This will contain years in chart
       var y = new Array(); //This will house data but will be reset after each loop
       for (var i = 0; i < j.length; i++) {
-        x.push(parseInt(j[i]["year"]));
-        y.push(parseFloat(j[i]["percent_operational"]));
+        x.push(parseInt(j[i]["MY_YEAR"]));
+        y.push(parseFloat(j[i]["PCT_OPERATIONAL"]));
       }
       var operational = {
         x: x,
@@ -1649,23 +1657,23 @@ function drawOMCharts() {
           });
           //Third fetch for stacked KPI Charts charts
           url =
-            "https://dashboard.udot.utah.gov/resource/rqv9-ry2j.json?$select=delay,reliability,mode_split,snow&entity=Statewide";
+            "/wadocuments/data/strategic_direction/Optimize_Mobility/Graph_1_Mobility_Performance_Measures.json";
           fetch(url)
             .then(function(response) {
               return response.json();
             })
             .then(function(j) {
               var targetMet = [
-                parseFloat(j[0]["delay"]),
-                parseFloat(j[0]["reliability"]),
-                parseFloat(j[0]["mode_split"]),
-                parseFloat(j[0]["snow"])
+                parseFloat(j[0]["DELAY"]),
+                parseFloat(j[0]["RELIABILITY"]),
+                parseFloat(j[0]["MODE_SPLIT"]),
+                parseFloat(j[0]["SNOW"])
               ];
               var targetRem = [
-                100 - parseFloat(j[0]["delay"]),
-                100 - parseFloat(j[0]["reliability"]),
-                100 - parseFloat(j[0]["mode_split"]),
-                100 - parseFloat(j[0]["snow"])
+                100 - parseFloat(j[0]["DELAY"]),
+                100 - parseFloat(j[0]["RELIABILITY"]),
+                100 - parseFloat(j[0]["MODE_SPLIT"]),
+                100 - parseFloat(j[0]["SNOW"])
               ];
               var kpiChartData = {
                 labels: [
@@ -1736,9 +1744,8 @@ function drawOMCharts() {
 //Optimize mobility Peformance Charts
 function optimizeMobilityCharts() {
   //fetach and draw delay
-  //var delayUrl = "https://dashboard.udot.utah.gov/resource/whr3-7dxf.json?$select=i_15_delay,total,date&$where=not(month=%22Year%22)and%20not(sequence=55)&$order=sequence";
   var delayUrl =
-    "https://dashboard.udot.utah.gov/resource/thgc-uvda.json?$select=date,delay_hours,month_target&$where=entity=%27Statewide%27and%20year%20%3E=2016";
+    "/wadocuments/data/strategic_direction/Optimize_Mobility/Graph_4_Target_Delay.json";
   fetch(delayUrl)
     .then(function(response) {
       return response.json();
@@ -1748,9 +1755,9 @@ function optimizeMobilityCharts() {
       var y = new Array(); //This will house data but will be reset after each loop
       var z = new Array();
       for (var i = 0; i < j.length; i++) {
-        x.push(dateBreaker(j[i]["date"]));
-        y.push(parseInt(j[i]["delay_hours"]));
-        z.push(parseInt(j[i]["month_target"]));
+        x.push(dateBreaker(j[i]["Date"]));
+        y.push(parseInt(j[i]["Delay Hours"]));
+        z.push(parseInt(j[i]["Month Target"]));
       }
       var trace1 = {
         x: x,
@@ -1776,9 +1783,8 @@ function optimizeMobilityCharts() {
       };
       Plotly.newPlot("delaygraph", data, layout);
       //Fetch and draw reliability graph
-      //var relUrl = "https://dashboard.udot.utah.gov/resource/mfvh-usiw.json?$select=reliability_score,season,target&$where=year%20%3E%202014&$order=sequence";
       var relUrl =
-        "https://dashboard.udot.utah.gov/resource/kxg8-qy3e.json?$select=date,reliability_measure,target&$where=entity=%27Statewide%27and%20year%3E=2016";
+        "/wadocuments/data/strategic_direction/Optimize_Mobility/Graph_5_Mobility_Performance_Measures_Reliability.json";
       fetch(relUrl)
         .then(function(response) {
           return response.json();
@@ -1788,9 +1794,9 @@ function optimizeMobilityCharts() {
           y = [];
           z = [];
           for (var i = 0; i < j.length; i++) {
-            x.push(dateBreaker(j[i]["date"]));
-            y.push(parseInt(j[i]["reliability_measure"]));
-            z.push(parseInt(j[i]["target"]));
+            x.push(dateBreaker(j[i]["DATA_DATE"]));
+            y.push(parseInt(j[i]["RELIABILITY_MEASURE"]));
+            z.push(parseInt(j[i]["TARGET"]));
           }
           trace1 = [];
           trace1 = {
@@ -1819,7 +1825,7 @@ function optimizeMobilityCharts() {
           data = [trace1, trace2];
           Plotly.newPlot("reliabilitygraph", data, layout);
           //fetch and draw mode slit graph
-          fetch("https://dashboard.udot.utah.gov/resource/nc2g-cvvu.json")
+          fetch("/wadocuments/data/strategic_direction/Optimize_Mobility/Graph_6_Mobility_Performance_Mode_Split.json")
             .then(function(response) {
               return response.json();
             })
@@ -1828,9 +1834,9 @@ function optimizeMobilityCharts() {
               y = [];
               z = [];
               for (var i = 0; i < j.length; i++) {
-                x.push(j[i]["year"]);
-                y.push(parseInt(j[i]["auto_trips_state"]));
-                z.push(parseInt(j[i]["transit_trips_state"]));
+                x.push(j[i]["Year"]);
+                y.push(parseInt(j[i]["Auto Trips State"]));
+                z.push(parseInt(j[i]["Transit Trips State"]));
               }
               trace1 = [];
               trace1 = {
