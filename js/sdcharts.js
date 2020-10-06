@@ -73,12 +73,11 @@ Chart.pluginService.register({
 });
 //Strategic Goal Charts
 function drawGoalCharts() {
-  var url =
-    "https://dashboard.udot.utah.gov/resource/rqv9-ry2j.json?entity=Statewide";
+  var url = "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_rqv9-ry2j_filter_3.json";
   fetch(url)
     .then(function(response) {
       return response.json();
-    })
+    }) 
     .then(function(data) {
       var dataIndex = data[0].safety;
       var indexLabel = ["", "Safety Index"];
@@ -198,7 +197,7 @@ function drawGoalCharts() {
 
       //From here on down draw historical charts.
       url =
-        "https://dashboard.udot.utah.gov/resource/b8iq-pg44.json?$select=year,avg(safety),avg(mobility),avg(infrastructure)&$group=year&$order=year";
+        "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_b8iq-pg44_filter_1.json";
       fetch(url)
         .then(function(response) {
           return response.json();
@@ -333,7 +332,7 @@ function drawGoalCharts() {
 //Preserve Infrastructure Charts
 function drawPICharts() {
   var url =
-    "https://dashboard.udot.utah.gov/resource/rqv9-ry2j.json?entity=Statewide";
+    "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_rqv9-ry2j_filter_3.json";
   fetch(url)
     .then(function(response) {
       return response.json();
@@ -384,7 +383,7 @@ function drawPICharts() {
 
       //Second fetch for historical line charts
       url =
-        "https://dashboard.udot.utah.gov/resource/b8iq-pg44.json?$select=year,avg(safety),avg(mobility),avg(infrastructure)&$group=year&$order=year";
+        "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_b8iq-pg44_filter_1.json";
       fetch(url)
         .then(function(response) {
           return response.json();
@@ -557,8 +556,7 @@ function pavementPlotlyChartLV2() {
   var todaydate = new Date();
   var year = todaydate.getFullYear();
   fetch(
-    "https://dashboard.udot.utah.gov/resource/hyep-ccu9.json?$where=year<=" +
-      year
+    "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_hyep-ccu9_filter_1.json"
   )
     .then(function(response) {
       return response.json();
@@ -655,8 +653,7 @@ function pavementPlotlyChartHV2() {
   var todaydate = new Date();
   var year = todaydate.getFullYear();
   fetch(
-    "https://dashboard.udot.utah.gov/resource/hyep-ccu9.json?$where=year<=" +
-      year
+    "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_hyep-ccu9_filter_1.json"
   )
     .then(function(response) {
       return response.json();
@@ -752,7 +749,7 @@ function pavementPlotlyChartHV2() {
 //Bridge Plotly Charts
 function bridgeConditionChart() {
   fetch(
-    "https://dashboard.udot.utah.gov/resource/ujbw-qqsi.json?$order=bhi_year"
+    "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_ujbw-qqsi_filter_1.json"
   )
     .then(function(response) {
       return response.json();
@@ -921,7 +918,7 @@ function atmsOperationalChart() {
       var x = new Array(); //This will contain years in chart
       var y = new Array(); //This will house data but will be reset after each loop
       for (var i = 0; i < j.length; i++) {
-        x.push(parseInt(j[i]["MY_YEAR"]));
+        x.push(parseInt(j[i]["YEAR"]));
         y.push(parseFloat(j[i]["PCT_OPERATIONAL"]));
       }
       var operational = {
@@ -951,7 +948,7 @@ function atmsOperationalChart() {
 //Signal Condition Bar Stacked Chart
 function signalsPlotlyChart() {
   fetch(
-    "https://dashboard.udot.utah.gov/resource/cqny-q9v6.json?$select=percent_average_all,percent_good_all,percent_poor_all,year&$order=year"
+    "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_cqny-q9v6_filter_1.json"
   )
     .then(function(response) {
       return response.json();
@@ -1273,7 +1270,7 @@ function zeroFatalitiesPM(region) {
           y: -0.5,
           x: 0.3
         },
-        yaxis: { range: [0, 65000] },
+        //yaxis: { range: [0, "normal"] },
         xaxis: {
           autotick: false,
           tickfont: { size: 10, family: "proxima-nova, sans-serif" }
@@ -1533,7 +1530,7 @@ function zeroFatalitiesPM(region) {
 //Optimize Mobility
 function drawOMCharts() {
   var url =
-    "https://dashboard.udot.utah.gov/resource/rqv9-ry2j.json?entity=Statewide";
+    "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_rqv9-ry2j_filter_3.json";
   fetch(url)
     .then(function(response) {
       return response.json();
@@ -1579,7 +1576,7 @@ function drawOMCharts() {
       var myChart = new Chart(ctx, config);
       //Second fetch for historical line charts
       url =
-        "https://dashboard.udot.utah.gov/resource/b8iq-pg44.json?$select=year,avg(safety),avg(mobility),avg(infrastructure)&$group=year&$order=year";
+        "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_b8iq-pg44_filter_1.json";
       fetch(url)
         .then(function(response) {
           return response.json();
@@ -1756,8 +1753,8 @@ function optimizeMobilityCharts() {
       var z = new Array();
       for (var i = 0; i < j.length; i++) {
         x.push(dateBreaker(j[i]["Date"]));
-        y.push(parseInt(j[i]["Delay Hours"]));
-        z.push(parseInt(j[i]["Month Target"]));
+        y.push(parseInt(j[i]["DelayHours"]));
+        z.push(parseInt(j[i]["MonthTarget"]));
       }
       var trace1 = {
         x: x,
@@ -1835,8 +1832,8 @@ function optimizeMobilityCharts() {
               z = [];
               for (var i = 0; i < j.length; i++) {
                 x.push(j[i]["Year"]);
-                y.push(parseInt(j[i]["Auto Trips State"]));
-                z.push(parseInt(j[i]["Transit Trips State"]));
+                y.push(parseInt(j[i]["Auto_Trips_State"]));
+                z.push(parseInt(j[i]["Transit_Trips_State"]));
               }
               trace1 = [];
               trace1 = {
@@ -1863,7 +1860,7 @@ function optimizeMobilityCharts() {
               Plotly.newPlot("modeSplit", data, layout);
               //fetch and draw snow and ice carts
               fetch(
-                "https://dashboard.udot.utah.gov/resource/mk2b-pz6f.json?$select=performance_1,whichwinter,performance_2,axislabel&$order=customsort"
+                "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_mk2b-pz6f_filter_1.json"
               )
                 .then(function(response) {
                   return response.json();
@@ -1935,7 +1932,7 @@ function optimizeMobilityCharts() {
 //Morris chart for optimize mobility incident management
 function incidentManagement() {
   //Possible alternative api https://dashboard.udot.utah.gov/resource/p9qp-qyqk.json
-  fetch("https://dashboard.udot.utah.gov/resource/j4uf-jvxd.json")
+  fetch("/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_j4uf-jvxd_filter_1.json")
     .then(function(response) {
       return response.json();
     })
