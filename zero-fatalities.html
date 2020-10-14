@@ -73,6 +73,28 @@
                       </div>
                     </div>
                   </div>
+                  
+                  <div class="col-sm-12 h-50">
+                    <div class="card udot-bg-gray h-100">
+                      <div class="card-body h-100 p-0">
+                        <h6>Billion VMT Statewide</h6>
+                        <div class="goal-chart-container">
+                            <canvas id="billionvmt"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-12 h-50">
+                    <div class="card udot-bg-gray h-100">
+                      <div class="card-body h-100 p-0">
+                        <h6>Total Fatalities Per 100M VMT</h6>
+                        <div class="goal-chart-container">
+                            <canvas id="fatalities100m"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="col-sm-6 text-center pl-0">
                   <div class="card udot-bg-gray p-0">
@@ -331,6 +353,26 @@
                         </div>
                     </div>
                 </div>
+                <!-- <div class="col-lg-6 my-3">
+                    <div class="card h-100" data-aos="fade-up" data-aos-duration="3000">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Billion VMT Statewide</h4>
+                            <p class="lead">a more detailed description of the the chart is still needed</p>
+                            <p class="text-danger">Target: target needed</p>
+                            <div id="billionVMT" style="height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 my-3">
+                    <div class="card h-100" data-aos="fade-up" data-aos-duration="3000">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Total Fatalities Per 100m VMT</h4>
+                            <p class="lead">a more detailed description of the the chart is still needed</p>
+                            <p class="text-danger">Target: target needed</p>
+                            <div id="fatalities100VMT" style="height: 400px;"></div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
             <!--./Explain Measures -->
         </div>
@@ -357,6 +399,8 @@
       drawZFCharts();
       //Performance Masure charts
       zeroFatalitiesPM("Statewide");
+      // billionVMT();
+      // fatalities100VMT();
       // var waypoint = new Waypoint({
       //     element: document.getElementById('strategicGoals'),
       //     handler: function(direction) {
