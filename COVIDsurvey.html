@@ -1,0 +1,2608 @@
+<!DOCTYPE html>
+<html
+  class="js touchevents csstransforms supports csstransforms3d csstransitions preserve3d passiveeventlisteners"
+  lang="en-US"
+>
+  <head>
+    <style>
+      .admin-bar #utahGovHeaderWrapper {
+        top: 32px;
+      }
+      #utahGovHeaderWrapper {
+        font-family: sans-serif;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        position: absolute;
+        z-index: 10000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 32px;
+        background: #222222;
+        font-size: 16px;
+      }
+      #utahGovHeaderWrapper > div {
+        line-height: 32px;
+      }
+      #utahGovHeaderWrapper a,
+      #utahGovHeaderWrapper div {
+        text-decoration: none;
+        color: #ffffff;
+        transition: all 400ms;
+        display: block;
+      }
+      #utahGovSection,
+      #settingsSection {
+        display: block;
+        float: left;
+        height: 100%;
+        min-width: 150px;
+      }
+      #skipNavLink {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        clip-path: inset(50%);
+        border: 0;
+      }
+      #skipNavLink:focus {
+        position: fixed;
+        width: auto;
+        height: auto;
+        padding: 0.5rem;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+        clip-path: none;
+        z-index: 23000;
+        background: #fff;
+        color: #000;
+      }
+      #utahGovLink {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        background-size: 39px;
+        padding: 0 10px 0 60px;
+        box-sizing: border-box;
+      }
+      #utahGovLink svg,
+      #settingsLink svg {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        left: 0;
+        height: 80%;
+        max-height: 32px;
+        width: 56px;
+      }
+      #utahGovAgencySection {
+        display: block;
+        height: 100%;
+        text-align: center;
+        overflow: hidden;
+        padding: 0 20px;
+      }
+      #utahGovAgencySection:hover,
+      #utahGovAgencySection a:focus {
+        background: rgba(255, 255, 255, 0.05);
+      }
+      #utahGovAgencySection img {
+        vertical-align: middle;
+      }
+      #settingsSection {
+        position: relative;
+      }
+      #agencyShortName {
+        display: none;
+      }
+      #settingsLink svg {
+        left: auto;
+        right: 10px;
+        height: 60%;
+        max-height: 22px;
+        width: 22px;
+      }
+      #settingsLink {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 0 60px 0 10px;
+        box-sizing: border-box;
+        text-align: right;
+      }
+      #settingsLink:hover,
+      #settingsLink:focus,
+      #utahGovLink:hover,
+      #utahGovLink:focus {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+      #utahGovSection nav ul {
+        display: none;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background: #222222;
+        position: absolute;
+        z-index: 2000;
+        top: 32px;
+      }
+      #utahGovSection nav ul.show {
+        display: block;
+      }
+      #utahGovSection nav ul li a {
+        display: block;
+        padding: 0 35px;
+        background: rgba(255, 255, 255, 0.05);
+      }
+      #utahGovSection nav ul li a:hover,
+      #utahGovSection nav ul li a:focus {
+        background: rgba(255, 255, 255, 0.15);
+      }
+      #siteSettingsPanelWrapper,
+      #siteSettingsBackdrop {
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 20000;
+        background: rgba(0, 0, 0, 0.25);
+        top: 0;
+        left: 0;
+      }
+      #siteSettings {
+        display: inline-block;
+        position: fixed;
+        left: 50%;
+        width: 500px;
+        padding: 50px;
+        background: #ffffff;
+        margin: 100px 0 0 -250px;
+        z-index: 21000;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 16px;
+      }
+      #siteSettings h2 {
+        margin: 0 0 0.8rem 0;
+        font-size: 1.5em;
+        color: #333 !important;
+      }
+      #siteSettings ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      #siteSettings ul li {
+        margin: 15px 0 0 0;
+      }
+      .utahGovHeader_CloseButton {
+        display: block;
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 15px;
+        text-indent: -9999px;
+        overflow: hidden;
+        background: #444444;
+        position: absolute;
+        right: -15px;
+        top: -15px;
+        transition: all 400ms;
+        padding: 0;
+      }
+      .utahGovHeader_CloseButton.red {
+        background: #ff5400;
+      }
+      .utahGovHeader_CloseButton:hover,
+      .utahGovHeader_CloseButton:focus {
+        background: #111111;
+      }
+      .utahGovHeader_CloseButton:before,
+      .utahGovHeader_CloseButton:after {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 22px;
+        background: #ffffff;
+        position: absolute;
+        top: calc(50% - 1px);
+        left: calc(50% - 11px);
+      }
+      .utahGovHeader_CloseButton:before {
+        transform: rotate(45deg);
+      }
+      .utahGovHeader_CloseButton:after {
+        transform: rotate(-45deg);
+      }
+      #siteSettings .button {
+        background: #444444;
+        color: #ffffff;
+        display: inline-block;
+        padding: 14px 20px;
+        text-decoration: none;
+        border: none;
+        border-radius: 3px;
+        transition: all 400ms;
+        font-size: 1em;
+        font-weight: normal;
+        line-height: 1rem;
+      }
+      #siteSettings .button:hover,
+      #siteSettings .button:focus {
+        background: #111111;
+      }
+      #siteSettings .button .button {
+        background: #eeeeee;
+        padding: 5px;
+        color: #444444;
+      }
+      #siteSettings .button.bg-red {
+        background: #ff5400;
+        color: #ffffff;
+      }
+      #siteSettings label {
+        font-weight: normal;
+      }
+      #siteSettings input[type="text"] {
+        border: 1px solid #444;
+        border-radius: 3px;
+        padding: 12px 10px;
+        width: 65%;
+        display: inline-block;
+        line-height: 1rem;
+      }
+      #siteSettings_FontWeightOptions {
+        margin-bottom: 8px;
+        width: 170px;
+      }
+      #siteSettings_search-title {
+        font-size: 1.35rem;
+        display: block;
+        margin-bottom: 0.75rem;
+      }
+      #importantMessageBox {
+        background: #ff8537;
+        color: #fff;
+        position: absolute;
+        top: 32px;
+        z-index: 20000;
+        padding: 0 20px 20px;
+        width: 80%;
+        max-width: 600px;
+        text-align: center;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+      #importantMessageBox .button {
+        background: #fff;
+        color: #ff8537;
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        border: none;
+        border-radius: 3px;
+        transition: all 400ms;
+      }
+	  footer{
+		  width:100%;
+	  }
+	  footer .x-social-global svg{
+		width: 18px;
+	  }
+	  iframe#survey123 {
+    	width: 100%;
+    	height: 1100px;
+		margin-top: 32px;
+	  }
+	  div#x-root.x-root{
+		  display: block;
+	  }
+	  @media only screen and (max-width: 400px){
+		iframe#survey123 {
+			height: 500px;
+		}
+	  }
+      @media only screen and (max-width: 782px) {
+        .admin-bar #utahGovHeaderWrapper {
+          top: 45px;
+        }
+      }
+      @media only screen and (max-width: 640px) {
+        #utahGovSection,
+        #settingsSection {
+          width: auto;
+          min-width: 0;
+        }
+        #utahGovSection span.text,
+        #settingsSection span.text,
+        #agencyFullName {
+          display: none;
+        }
+        #agencyShortName {
+          display: inline;
+        }
+        #settingsLink svg {
+          right: 16px;
+        }
+        #utahGovHeaderWrapper #utahGovAgencySection {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+          -ms-flex-align: center;
+          align-items: center;
+          line-height: normal;
+        }
+        #siteSettings {
+          width: 92%;
+          margin: 60px 0 0 -46%;
+          padding: 10px;
+        }
+      }
+    </style>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="pingback" href="https://coronavirus.utah.gov/xmlrpc.php" />
+    <title></title>
+
+    <!-- Google Tag Manager -->
+    <script
+      type="text/javascript"
+      id="www-widgetapi-script"
+      src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflHkwjNO/www-widgetapi.js"
+      async=""
+    ></script>
+    <script
+      type="text/javascript"
+      async=""
+      src="https://www.youtube.com/iframe_api"
+    ></script>
+    <script
+      src="https://connect.facebook.net/signals/config/1491279874366989?v=2.9.15&amp;r=stable"
+      async=""
+    ></script>
+    <script
+      async=""
+      src="https://connect.facebook.net/en_US/fbevents.js"
+    ></script>
+    <script async="" src="//static.ads-twitter.com/uwt.js"></script>
+    <script async="" src="https://tags.srv.stackadapt.com/events.js"></script>
+    <script
+      type="text/javascript"
+      async=""
+      src="https://www.google-analytics.com/analytics.js"
+    ></script>
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtm.js?id=GTM-M6VGMSS"
+    ></script>
+    <script>
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-M6VGMSS");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="dns-prefetch" href="//s.w.org" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="coronavirus » Feed"
+      href="https://coronavirus.utah.gov/feed/"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="coronavirus » Comments Feed"
+      href="https://coronavirus.utah.gov/comments/feed/"
+    />
+    <link
+      rel="stylesheet"
+      id="wp-block-library-css"
+      href="https://coronavirus.utah.gov/wp-includes/css/dist/block-library/style.min.css"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="wp-block-library-theme-css"
+      href="https://coronavirus.utah.gov/wp-includes/css/dist/block-library/theme.min.css"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="x-stack-css"
+      href="https://coronavirus.utah.gov/wp-content/themes/x/framework/dist/css/site/stacks/icon.css?ver=7.2.3"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="x-cranium-migration-css"
+      href="https://coronavirus.utah.gov/wp-content/themes/x/framework/legacy/cranium/dist/css/site/icon.css?ver=7.2.3"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="x-child-css"
+      href="https://coronavirus.utah.gov/wp-content/themes/x-child/style.css?ver=7.2.3"
+      type="text/css"
+      media="all"
+    />
+    <script
+      type="text/javascript"
+      src="https://coronavirus.utah.gov/wp-content/plugins/dts-wordpress-functions-plugin/inc/utah_gov_header.js?ver=1.8.0"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://coronavirus.utah.gov/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://coronavirus.utah.gov/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"
+    ></script>
+    <link
+      rel="https://api.w.org/"
+      href="https://coronavirus.utah.gov/wp-json/"
+    />
+    <link rel="canonical" href="https://coronavirus.utah.gov/" />
+    <link rel="shortlink" href="https://coronavirus.utah.gov/" />
+    <link
+      rel="alternate"
+      type="application/json+oembed"
+      href="https://coronavirus.utah.gov/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoronavirus.utah.gov%2F"
+    />
+    <link
+      rel="alternate"
+      type="text/xml+oembed"
+      href="https://coronavirus.utah.gov/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoronavirus.utah.gov%2F&amp;format=xml"
+    />
+    <link
+      rel="icon"
+      href="https://coronavirus.utah.gov/wp-content/uploads/cropped-favicon-8-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="https://coronavirus.utah.gov/wp-content/uploads/cropped-favicon-8-192x192.png"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="https://coronavirus.utah.gov/wp-content/uploads/cropped-favicon-8-180x180.png"
+    />
+    <meta
+      name="msapplication-TileImage"
+      content="https://coronavirus.utah.gov/wp-content/uploads/cropped-favicon-8-270x270.png"
+    />
+    <style type="text/css" id="wp-custom-css">
+      @media only screen and (max-width: 480px) {
+        p.heroText {
+          font-size: 0.9em;
+        }
+      }
+    </style>
+    <style id="x-generated-css">
+      a,
+      h1 a:hover,
+      h2 a:hover,
+      h3 a:hover,
+      h4 a:hover,
+      h5 a:hover,
+      h6 a:hover,
+      #respond .required,
+      .x-pagination a:hover,
+      .x-pagination span.current,
+      .widget_tag_cloud .tagcloud a:hover,
+      .widget_product_tag_cloud .tagcloud a:hover,
+      .x-scroll-top:hover,
+      .x-comment-author a:hover,
+      .mejs-button button:hover {
+        color: rgb(253, 117, 99);
+      }
+      a:hover {
+        color: rgb(253, 117, 99);
+      }
+      a.x-img-thumbnail:hover,
+      textarea:focus,
+      input[type="text"]:focus,
+      input[type="password"]:focus,
+      input[type="datetime"]:focus,
+      input[type="datetime-local"]:focus,
+      input[type="date"]:focus,
+      input[type="month"]:focus,
+      input[type="time"]:focus,
+      input[type="week"]:focus,
+      input[type="number"]:focus,
+      input[type="email"]:focus,
+      input[type="url"]:focus,
+      input[type="search"]:focus,
+      input[type="tel"]:focus,
+      input[type="color"]:focus,
+      .uneditable-input:focus,
+      .x-pagination a:hover,
+      .x-pagination span.current,
+      .widget_tag_cloud .tagcloud a:hover,
+      .widget_product_tag_cloud .tagcloud a:hover,
+      .x-scroll-top:hover {
+        border-color: rgb(253, 117, 99);
+      }
+      .flex-direction-nav a,
+      .flex-control-nav a:hover,
+      .flex-control-nav a.flex-active,
+      .x-dropcap,
+      .x-skill-bar .bar,
+      .x-pricing-column.featured h2,
+      .x-portfolio-filters,
+      .x-entry-share .x-share:hover,
+      .widget_price_filter .ui-slider .ui-slider-range,
+      .mejs-time-current {
+        background-color: rgb(253, 117, 99);
+      }
+      .x-portfolio-filters:hover {
+        background-color: rgb(253, 117, 99);
+      }
+      .x-comment-author,
+      .x-comment-time,
+      .comment-form-author label,
+      .comment-form-email label,
+      .comment-form-url label,
+      .comment-form-rating label,
+      .comment-form-comment label {
+        font-family: "Open Sans", sans-serif;
+      }
+      .x-comment-time,
+      .entry-thumb:before,
+      .p-meta {
+        color: rgb(60, 60, 60);
+      }
+      .entry-title a:hover,
+      .x-comment-author,
+      .x-comment-author a,
+      .comment-form-author label,
+      .comment-form-email label,
+      .comment-form-url label,
+      .comment-form-rating label,
+      .comment-form-comment label,
+      .x-accordion-heading .x-accordion-toggle,
+      .x-nav-tabs > li > a:hover,
+      .x-nav-tabs > .active > a,
+      .x-nav-tabs > .active > a:hover,
+      .mejs-button button {
+        color: rgb(0, 0, 0);
+      }
+      .h-comments-title small,
+      .h-feature-headline span i,
+      .x-portfolio-filters-menu,
+      .mejs-time-loaded {
+        background-color: rgb(0, 0, 0) !important;
+      }
+      @media (min-width: 1200px) {
+        .x-sidebar {
+          width: 250px;
+        }
+        body.x-sidebar-content-active,
+        body[class*="page-template-template-blank"].x-sidebar-content-active.x-blank-template-sidebar-active {
+          padding-left: 250px;
+        }
+        body.x-content-sidebar-active,
+        body[class*="page-template-template-blank"].x-content-sidebar-active.x-blank-template-sidebar-active {
+          padding-right: 250px;
+        }
+      }
+      html {
+        font-size: 16px;
+      }
+      @media (min-width: 480px) {
+        html {
+          font-size: 16px;
+        }
+      }
+      @media (min-width: 767px) {
+        html {
+          font-size: 16px;
+        }
+      }
+      @media (min-width: 979px) {
+        html {
+          font-size: 16px;
+        }
+      }
+      @media (min-width: 1200px) {
+        html {
+          font-size: 16px;
+        }
+      }
+      body {
+        font-style: normal;
+        font-weight: 400;
+        color: rgb(60, 60, 60);
+        background-color: rgb(255, 255, 255);
+      }
+      .w-b {
+        font-weight: 400 !important;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .h1,
+      .h2,
+      .h3,
+      .h4,
+      .h5,
+      .h6 {
+        font-family: "Open Sans", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+      }
+      h1,
+      .h1 {
+        letter-spacing: -0.015em;
+      }
+      h2,
+      .h2 {
+        letter-spacing: -0.015em;
+      }
+      h3,
+      .h3 {
+        letter-spacing: -0.015em;
+      }
+      h4,
+      .h4 {
+        letter-spacing: -0.015em;
+      }
+      h5,
+      .h5 {
+        letter-spacing: -0.015em;
+      }
+      h6,
+      .h6 {
+        letter-spacing: -0.015em;
+      }
+      .w-h {
+        font-weight: 400 !important;
+      }
+      .x-container.width {
+        width: 86%;
+      }
+      .x-container.max {
+        max-width: 1100px;
+      }
+      .x-main.full {
+        float: none;
+        display: block;
+        width: auto;
+      }
+      @media (max-width: 979px) {
+        .x-main.full,
+        .x-main.left,
+        .x-main.right,
+        .x-sidebar.left,
+        .x-sidebar.right {
+          float: none;
+          display: block;
+          width: auto !important;
+        }
+      }
+      .entry-header,
+      .entry-content {
+        font-size: 1rem;
+      }
+      body,
+      input,
+      button,
+      select,
+      textarea {
+        font-family: "Open Sans", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .h1,
+      .h2,
+      .h3,
+      .h4,
+      .h5,
+      .h6,
+      h1 a,
+      h2 a,
+      h3 a,
+      h4 a,
+      h5 a,
+      h6 a,
+      .h1 a,
+      .h2 a,
+      .h3 a,
+      .h4 a,
+      .h5 a,
+      .h6 a,
+      blockquote {
+        color: rgb(0, 0, 0);
+      }
+      .cfc-h-tx {
+        color: rgb(0, 0, 0) !important;
+      }
+      .cfc-h-bd {
+        border-color: rgb(0, 0, 0) !important;
+      }
+      .cfc-h-bg {
+        background-color: rgb(0, 0, 0) !important;
+      }
+      .cfc-b-tx {
+        color: rgb(60, 60, 60) !important;
+      }
+      .cfc-b-bd {
+        border-color: rgb(60, 60, 60) !important;
+      }
+      .cfc-b-bg {
+        background-color: rgb(60, 60, 60) !important;
+      }
+      .x-btn,
+      .button,
+      [type="submit"] {
+        color: #ffffff;
+        border-color: rgb(78, 162, 130);
+        background-color: rgb(78, 162, 130);
+        text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.5);
+        border-radius: 100em;
+        padding: 0.579em 1.105em 0.842em;
+        font-size: 19px;
+      }
+      .x-btn:hover,
+      .button:hover,
+      [type="submit"]:hover {
+        color: rgb(255, 255, 255);
+        border-color: rgb(0, 165, 128);
+        background-color: rgba(0, 165, 128, 0.75);
+        text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.5);
+      }
+      .x-btn.x-btn-real,
+      .x-btn.x-btn-real:hover {
+        margin-bottom: 0.25em;
+        text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.65);
+      }
+      .x-btn.x-btn-real {
+        box-shadow: 0 0.25em 0 0 #a71000, 0 4px 9px rgba(0, 0, 0, 0.75);
+      }
+      .x-btn.x-btn-real:hover {
+        box-shadow: 0 0.25em 0 0 #a71000, 0 4px 9px rgba(0, 0, 0, 0.75);
+      }
+      .x-btn.x-btn-flat,
+      .x-btn.x-btn-flat:hover {
+        margin-bottom: 0;
+        text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.65);
+        box-shadow: none;
+      }
+      .x-btn.x-btn-transparent,
+      .x-btn.x-btn-transparent:hover {
+        margin-bottom: 0;
+        border-width: 3px;
+        text-shadow: none;
+        text-transform: uppercase;
+        background-color: transparent;
+        box-shadow: none;
+      }
+      .x-navbar .desktop .x-nav > li > a,
+      .x-navbar .desktop .sub-menu a,
+      .x-navbar .mobile .x-nav li a {
+        color: rgb(42, 42, 42);
+      }
+      .x-navbar .desktop .x-nav > li > a:hover,
+      .x-navbar .desktop .x-nav > .x-active > a,
+      .x-navbar .desktop .x-nav > .current-menu-item > a,
+      .x-navbar .desktop .sub-menu a:hover,
+      .x-navbar .desktop .sub-menu .x-active > a,
+      .x-navbar .desktop .sub-menu .current-menu-item > a,
+      .x-navbar .desktop .x-nav .x-megamenu > .sub-menu > li > a,
+      .x-navbar .mobile .x-nav li > a:hover,
+      .x-navbar .mobile .x-nav .x-active > a,
+      .x-navbar .mobile .x-nav .current-menu-item > a {
+        color: rgb(0, 0, 0);
+      }
+      .x-navbar .desktop .x-nav > li > a {
+        height: 80px;
+        padding-top: 34px;
+      }
+      .x-navbar .desktop .x-nav > li ul {
+        top: 80px;
+      }
+      @media (min-width: 1200px) {
+        body.x-sidebar-content-active .x-widgetbar,
+        body.x-sidebar-content-active .x-navbar-fixed-top,
+        body[class*="page-template-template-blank"].x-sidebar-content-active.x-blank-template-sidebar-active
+          .x-widgetbar,
+        body[class*="page-template-template-blank"].x-sidebar-content-active.x-blank-template-sidebar-active
+          .x-navbar-fixed-top {
+          left: 250px;
+        }
+        body.x-content-sidebar-active .x-widgetbar,
+        body.x-content-sidebar-active .x-navbar-fixed-top,
+        body[class*="page-template-template-blank"].x-content-sidebar-active.x-blank-template-sidebar-active
+          .x-widgetbar,
+        body[class*="page-template-template-blank"].x-content-sidebar-active.x-blank-template-sidebar-active
+          .x-navbar-fixed-top {
+          right: 250px;
+        }
+      }
+      @media (max-width: 979px) {
+      }
+      .x-navbar-inner {
+        min-height: 80px;
+      }
+      .x-brand {
+        margin-top: 20px;
+        font-family: "Open Sans", sans-serif;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: -0.015em;
+        color: #272727;
+      }
+      .x-brand:hover,
+      .x-brand:focus {
+        color: #272727;
+      }
+      .x-brand img {
+        width: 250px;
+      }
+      .x-navbar .x-nav-wrap .x-nav > li > a {
+        font-family: "Open Sans", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.085em;
+        text-transform: uppercase;
+      }
+      .x-navbar .desktop .x-nav > li > a {
+        font-size: 12px;
+      }
+      .x-navbar .desktop .x-nav > li > a:not(.x-btn-navbar-woocommerce) {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      .x-navbar .desktop .x-nav > li > a > span {
+        padding-right: calc(1.25em - 0.085em);
+      }
+      .x-btn-navbar {
+        margin-top: 24px;
+      }
+      .x-btn-navbar,
+      .x-btn-navbar.collapsed {
+        font-size: 32px;
+      }
+      @media (max-width: 979px) {
+        .x-widgetbar {
+          left: 0;
+          right: 0;
+        }
+      }
+      @font-face {
+        font-family: "FontAwesomePro";
+        font-style: normal;
+        font-weight: 900;
+        font-display: block;
+        /* src: url("https://coronavirus.utah.gov/wp-content/plugins/cornerstone/assets/dist/fonts/fa-solid-900.woff2")
+            format("woff2"),
+          url("https://coronavirus.utah.gov/wp-content/plugins/cornerstone/assets/dist/fonts/fa-solid-900.woff")
+            format("woff"),
+          url("https://coronavirus.utah.gov/wp-content/plugins/cornerstone/assets/dist/fonts/fa-solid-900.ttf")
+            format("truetype"); */
+      }
+      [data-x-fa-pro-icon] {
+        font-family: "FontAwesomePro" !important;
+      }
+      [data-x-fa-pro-icon]:before {
+        content: attr(data-x-fa-pro-icon);
+      }
+      [data-x-icon],
+      [data-x-icon-o],
+      [data-x-icon-l],
+      [data-x-icon-s],
+      [data-x-icon-b],
+      [data-x-fa-pro-icon],
+      [class*="cs-fa-"] {
+        display: inline-block;
+        font-style: normal;
+        font-weight: 400;
+        text-decoration: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      [data-x-icon].left,
+      [data-x-icon-o].left,
+      [data-x-icon-l].left,
+      [data-x-icon-s].left,
+      [data-x-icon-b].left,
+      [data-x-fa-pro-icon].left,
+      [class*="cs-fa-"].left {
+        margin-right: 0.5em;
+      }
+      [data-x-icon].right,
+      [data-x-icon-o].right,
+      [data-x-icon-l].right,
+      [data-x-icon-s].right,
+      [data-x-icon-b].right,
+      [data-x-fa-pro-icon].right,
+      [class*="cs-fa-"].right {
+        margin-left: 0.5em;
+      }
+      [data-x-icon]:before,
+      [data-x-icon-o]:before,
+      [data-x-icon-l]:before,
+      [data-x-icon-s]:before,
+      [data-x-icon-b]:before,
+      [data-x-fa-pro-icon]:before,
+      [class*="cs-fa-"]:before {
+        line-height: 1;
+      }
+      @font-face {
+        font-family: "FontAwesome";
+        font-style: normal;
+        font-weight: 900;
+        font-display: block;
+        /* src: url("https://coronavirus.utah.gov/wp-content/plugins/cornerstone/assets/dist/fonts/fa-solid-900.woff2")
+            format("woff2"),
+          url("https://coronavirus.utah.gov/wp-content/plugins/cornerstone/assets/dist/fonts/fa-solid-900.woff")
+            format("woff"),
+          url("https://coronavirus.utah.gov/wp-content/plugins/cornerstone/assets/dist/fonts/fa-solid-900.ttf")
+            format("truetype"); */
+      }
+      [data-x-icon],
+      [data-x-icon-s],
+      [data-x-icon][class*="cs-fa-"] {
+        font-family: "FontAwesome" !important;
+        font-weight: 900;
+      }
+      [data-x-icon]:before,
+      [data-x-icon][class*="cs-fa-"]:before {
+        content: attr(data-x-icon);
+      }
+      [data-x-icon-s]:before {
+        content: attr(data-x-icon-s);
+      }
+      @font-face {
+        font-family: "FontAwesomeBrands";
+        font-style: normal;
+        font-weight: normal;
+        font-display: block;
+        /* src: url("https://coronavirus.utah.gov/wp-content/plugins/cornerstone/assets/dist/fonts/fa-brands-400.woff2")
+            format("woff2"),
+          url("https://coronavirus.utah.gov/wp-content/plugins/cornerstone/assets/dist/fonts/fa-brands-400.woff")
+            format("woff"),
+          url("https://coronavirus.utah.gov/wp-content/plugins/cornerstone/assets/dist/fonts/fa-brands-400.ttf")
+            format("truetype"); */
+      }
+      [data-x-icon-b] {
+        font-family: "FontAwesomeBrands" !important;
+      }
+      [data-x-icon-b]:before {
+        content: attr(data-x-icon-b);
+      }
+      .e45-40.x-anchor {
+        margin: 0.2em 0.2em 0.2em 0.2em;
+        border-radius: 2em 2em 2em 2em;
+        font-size: 1em;
+        background-color: #1a806d;
+      }
+      .e45-41.x-anchor {
+        margin: 0.2em 0.2em 0.2em 0.2em;
+        border-radius: 2em 2em 2em 2em;
+        font-size: 1em;
+        background-color: #1a806d;
+      }
+      .e45-42.x-anchor {
+        margin: 0.2em 0.2em 0.2em 0.2em;
+        border-radius: 2em 2em 2em 2em;
+        font-size: 1em;
+        background-color: #1a806d;
+      }
+      .e45-43.x-anchor {
+        margin: 0.2em 0.2em 0.2em 0.2em;
+        border-radius: 2em 2em 2em 2em;
+        font-size: 1em;
+        background-color: #1a806d;
+      }
+      .e45-44.x-anchor {
+        margin: 0.2em 0.2em 0.2em 0.2em;
+        border-radius: 2em 2em 2em 2em;
+        font-size: 1em;
+        background-color: #1a806d;
+      }
+      .e45-45.x-anchor {
+        margin: 0.2em 0.2em 0.2em 0.2em;
+        border-radius: 2em 2em 2em 2em;
+        font-size: 1em;
+        background-color: #1a806d;
+      }
+      .e45-40.x-anchor .x-anchor-content {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0.4em 0.6em 0.4em 0.6em;
+      }
+      .e45-41.x-anchor .x-anchor-content {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0.4em 0.6em 0.4em 0.6em;
+      }
+      .e45-42.x-anchor .x-anchor-content {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0.4em 0.6em 0.4em 0.6em;
+      }
+      .e45-43.x-anchor .x-anchor-content {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0.4em 0.6em 0.4em 0.6em;
+      }
+      .e45-44.x-anchor .x-anchor-content {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0.4em 0.6em 0.4em 0.6em;
+      }
+      .e45-45.x-anchor .x-anchor-content {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0.4em 0.6em 0.4em 0.6em;
+      }
+      .e45-40.x-anchor[class*="active"] {
+        background-color: rgb(55, 157, 138);
+      }
+      .e45-41.x-anchor[class*="active"] {
+        background-color: rgb(55, 157, 138);
+      }
+      .e45-42.x-anchor[class*="active"] {
+        background-color: rgb(55, 157, 138);
+      }
+      .e45-43.x-anchor[class*="active"] {
+        background-color: rgb(55, 157, 138);
+      }
+      .e45-44.x-anchor[class*="active"] {
+        background-color: rgb(55, 157, 138);
+      }
+      .e45-45.x-anchor[class*="active"] {
+        background-color: rgb(55, 157, 138);
+      }
+      .e45-40.x-anchor .x-anchor-text {
+        margin: 0.3em 0.6em 0.3em 0.6em;
+      }
+      .e45-41.x-anchor .x-anchor-text {
+        margin: 0.3em 0.6em 0.3em 0.6em;
+      }
+      .e45-42.x-anchor .x-anchor-text {
+        margin: 0.3em 0.6em 0.3em 0.6em;
+      }
+      .e45-43.x-anchor .x-anchor-text {
+        margin: 0.3em 0.6em 0.3em 0.6em;
+      }
+      .e45-44.x-anchor .x-anchor-text {
+        margin: 0.3em 0.6em 0.3em 0.6em;
+      }
+      .e45-45.x-anchor .x-anchor-text {
+        margin: 0.3em 0.6em 0.3em 0.6em;
+      }
+      .e45-40.x-anchor .x-anchor-text-primary {
+        font-family: inherit;
+        font-size: 0.85em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        color: #ffffff;
+      }
+      .e45-41.x-anchor .x-anchor-text-primary {
+        font-family: inherit;
+        font-size: 0.85em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        color: #ffffff;
+      }
+      .e45-42.x-anchor .x-anchor-text-primary {
+        font-family: inherit;
+        font-size: 0.85em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        color: #ffffff;
+      }
+      .e45-43.x-anchor .x-anchor-text-primary {
+        font-family: inherit;
+        font-size: 0.85em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        color: #ffffff;
+      }
+      .e45-44.x-anchor .x-anchor-text-primary {
+        font-family: inherit;
+        font-size: 0.85em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        color: #ffffff;
+      }
+      .e45-45.x-anchor .x-anchor-text-primary {
+        font-family: inherit;
+        font-size: 0.85em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        color: #ffffff;
+      }
+      .e45-40.x-anchor[class*="active"] .x-anchor-text-primary {
+        color: #ffffff;
+      }
+      .e45-41.x-anchor[class*="active"] .x-anchor-text-primary {
+        color: #ffffff;
+      }
+      .e45-42.x-anchor[class*="active"] .x-anchor-text-primary {
+        color: #ffffff;
+      }
+      .e45-43.x-anchor[class*="active"] .x-anchor-text-primary {
+        color: #ffffff;
+      }
+      .e45-44.x-anchor[class*="active"] .x-anchor-text-primary {
+        color: #ffffff;
+      }
+      .e45-45.x-anchor[class*="active"] .x-anchor-text-primary {
+        color: #ffffff;
+      }
+      .e45-40.x-anchor .x-anchor-text-secondary {
+        margin-top: 0.35em;
+        font-family: inherit;
+        font-size: 0.75em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        color: rgba(0, 0, 0, 1);
+      }
+      .e45-41.x-anchor .x-anchor-text-secondary {
+        margin-top: 0.35em;
+        font-family: inherit;
+        font-size: 0.75em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        color: rgba(0, 0, 0, 1);
+      }
+      .e45-42.x-anchor .x-anchor-text-secondary {
+        margin-top: 0.35em;
+        font-family: inherit;
+        font-size: 0.75em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        color: rgba(0, 0, 0, 1);
+      }
+      .e45-43.x-anchor .x-anchor-text-secondary {
+        margin-top: 0.35em;
+        font-family: inherit;
+        font-size: 0.75em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        color: rgba(0, 0, 0, 1);
+      }
+      .e45-44.x-anchor .x-anchor-text-secondary {
+        margin-top: 0.35em;
+        font-family: inherit;
+        font-size: 0.75em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        color: rgba(0, 0, 0, 1);
+      }
+      .e45-45.x-anchor .x-anchor-text-secondary {
+        margin-top: 0.35em;
+        font-family: inherit;
+        font-size: 0.75em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        color: rgba(0, 0, 0, 1);
+      }
+      .e45-40.x-anchor[class*="active"] .x-anchor-text-secondary {
+        color: rgba(0, 0, 0, 0.5);
+      }
+      .e45-41.x-anchor[class*="active"] .x-anchor-text-secondary {
+        color: rgba(0, 0, 0, 0.5);
+      }
+      .e45-42.x-anchor[class*="active"] .x-anchor-text-secondary {
+        color: rgba(0, 0, 0, 0.5);
+      }
+      .e45-43.x-anchor[class*="active"] .x-anchor-text-secondary {
+        color: rgba(0, 0, 0, 0.5);
+      }
+      .e45-44.x-anchor[class*="active"] .x-anchor-text-secondary {
+        color: rgba(0, 0, 0, 0.5);
+      }
+      .e45-45.x-anchor[class*="active"] .x-anchor-text-secondary {
+        color: rgba(0, 0, 0, 0.5);
+      }
+      .e45-7.x-column {
+        text-align: left;
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-16.x-column {
+        text-align: center;
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-52.x-column {
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-56.x-column {
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-62.x-column {
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-68.x-column {
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-71.x-column {
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-76.x-column {
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-12.x-line {
+        padding: 25px 0 0 0;
+        font-size: 1em;
+      }
+      .e45-14.x-line {
+        padding: 25px 0 0 0;
+        font-size: 1em;
+      }
+      .e45-25.x-line {
+        padding: 25px 0 0 0;
+        font-size: 1em;
+      }
+      .e45-31.x-line {
+        padding: 25px 0 0 0;
+        font-size: 1em;
+      }
+      .e45-50.x-line {
+        padding: 25px 0 0 0;
+        font-size: 1em;
+      }
+      .e45-54.x-line {
+        padding: 25px 0 0 0;
+        font-size: 1em;
+      }
+      .e45-57.x-line {
+        padding: 25px 0 0 0;
+        font-size: 1em;
+      }
+      .e45-59.x-line {
+        padding: 25px 0 0 0;
+        font-size: 1em;
+      }
+      .e45-61.x-line {
+        padding: 25px 0 0 0;
+        font-size: 1em;
+      }
+      .e45-64.x-line {
+        padding: 25px 0 0 0;
+        font-size: 1em;
+      }
+      .e45-4.x-text {
+        margin: 0em;
+        padding: 0em;
+        font-size: 1.3em;
+        background-color: transparent;
+      }
+      .e45-9.x-text {
+        margin: 0em;
+        padding: 0em;
+        font-size: 1em;
+        background-color: rgba(153, 255, 204, 0);
+        box-shadow: 0em 0em 0.252em 0em rgba(255, 255, 255, 0);
+      }
+      .e45-20.x-text {
+        margin: 0em;
+        padding: 0em;
+        font-size: 1.2em;
+        background-color: transparent;
+      }
+      .e45-4.x-text .x-text-content-text-primary {
+        margin: 0 calc(0em * -1) 0 0;
+        font-family: inherit;
+        font-size: 1em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: 0em;
+        text-align: center;
+        text-transform: none;
+        color: #ffffff;
+      }
+      .e45-9.x-text .x-text-content-text-primary {
+        margin: 0 calc(0em * -1) 0 0;
+        font-family: inherit;
+        font-size: 2.3em;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: 0em;
+        text-align: left;
+        text-shadow: 0px 0px 13px rgba(255, 255, 255, 0.72);
+        text-transform: uppercase;
+        color: rgb(51, 90, 109);
+      }
+      .e45-20.x-text .x-text-content-text-primary {
+        margin: 0 calc(0em * -1) 0 0;
+        font-family: inherit;
+        font-size: 1em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: 0em;
+        text-align: center;
+        text-transform: none;
+        color: #ffffff;
+      }
+      .e45-53.x-image {
+        background-color: transparent;
+      }
+      .e45-58.x-image {
+        background-color: transparent;
+      }
+      .e45-63.x-image {
+        background-color: transparent;
+      }
+      .e45-87.x-image {
+        background-color: transparent;
+      }
+      .e45-89.x-image {
+        background-color: transparent;
+      }
+      .e45-91.x-image {
+        background-color: transparent;
+      }
+      .e45-93.x-image {
+        background-color: transparent;
+      }
+      .e45-96.x-image {
+        background-color: transparent;
+      }
+      .e45-98.x-image {
+        background-color: transparent;
+      }
+      .e45-100.x-image {
+        background-color: transparent;
+      }
+      .e45-102.x-image {
+        background-color: transparent;
+      }
+      a.e45-53.x-image:hover {
+        background-color: transparent;
+      }
+      a.e45-58.x-image:hover {
+        background-color: transparent;
+      }
+      a.e45-63.x-image:hover {
+        background-color: transparent;
+      }
+      .e45-3.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-19.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-23.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-29.x-col {
+        z-index: 1;
+        font-size: 1em;
+        text-align: center;
+        background-color: transparent;
+      }
+      .e45-33.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-35.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-38.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-48.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-83.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-86.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-88.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-90.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-92.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-95.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-97.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-99.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-101.x-col {
+        z-index: 1;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-2.x-row {
+        z-index: 1;
+        margin: 0px auto 0px auto;
+        padding: 1px;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-18.x-row {
+        z-index: 1;
+        margin: 0px auto 0px auto;
+        padding: 1px;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-22.x-row {
+        z-index: 1;
+        margin: 0px auto 0px auto;
+        padding: 1px;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-28.x-row {
+        z-index: 1;
+        margin: 0px auto 0px auto;
+        padding: 1px;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-32.x-row {
+        z-index: 1;
+        margin: 0px auto 0px auto;
+        padding: 1px;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-37.x-row {
+        z-index: 1;
+        margin: 0px auto 0px auto;
+        padding: 1px;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-47.x-row {
+        z-index: 1;
+        margin: 0px auto 0px auto;
+        padding: 1px;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-82.x-row {
+        z-index: 1;
+        margin: 0px auto 0px auto;
+        padding: 0px 0px 10px 0px;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-85.x-row {
+        z-index: 1;
+        margin: 0px auto 0px auto;
+        padding: 1px;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-94.x-row {
+        z-index: 1;
+        margin: 0px auto 0px auto;
+        padding: 1px;
+        font-size: 1em;
+        background-color: transparent;
+      }
+      .e45-2 > .x-row-inner {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        margin: calc(((1rem / 2) + 1px) * -1) calc(((1rem / 2) + 1px) * -1);
+      }
+      .e45-18 > .x-row-inner {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        margin: calc(((1rem / 2) + 1px) * -1) calc(((1rem / 2) + 1px) * -1);
+      }
+      .e45-22 > .x-row-inner {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        margin: calc(((1rem / 2) + 1px) * -1) calc(((1rem / 2) + 1px) * -1);
+      }
+      .e45-28 > .x-row-inner {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        margin: calc(((1rem / 2) + 1px) * -1) calc(((1rem / 2) + 1px) * -1);
+      }
+      .e45-32 > .x-row-inner {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        margin: calc(((1rem / 2) + 1px) * -1) calc(((1rem / 2) + 1px) * -1);
+      }
+      .e45-37 > .x-row-inner {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        margin: calc(((1rem / 2) + 1px) * -1) calc(((1rem / 2) + 1px) * -1);
+      }
+      .e45-47 > .x-row-inner {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        margin: calc(((1rem / 2) + 1px) * -1) calc(((1rem / 2) + 1px) * -1);
+      }
+      .e45-82 > .x-row-inner {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        margin: calc((1rem / 2) * -1) calc((1rem / 2) * -1);
+      }
+      .e45-85 > .x-row-inner {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        margin: calc(((1rem / 2) + 1px) * -1) calc(((1rem / 2) + 1px) * -1);
+      }
+      .e45-94 > .x-row-inner {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        margin: calc(((1rem / 2) + 1px) * -1) calc(((1rem / 2) + 1px) * -1);
+      }
+      .e45-2 > .x-row-inner > * {
+        flex-grow: 1;
+        margin: calc(1rem / 2) calc(1rem / 2);
+      }
+      .e45-18 > .x-row-inner > * {
+        flex-grow: 1;
+        margin: calc(1rem / 2) calc(1rem / 2);
+      }
+      .e45-22 > .x-row-inner > * {
+        flex-grow: 1;
+        margin: calc(1rem / 2) calc(1rem / 2);
+      }
+      .e45-28 > .x-row-inner > * {
+        flex-grow: 1;
+        margin: calc(1rem / 2) calc(1rem / 2);
+      }
+      .e45-37 > .x-row-inner > * {
+        flex-grow: 1;
+        margin: calc(1rem / 2) calc(1rem / 2);
+      }
+      .e45-47 > .x-row-inner > * {
+        flex-grow: 1;
+        margin: calc(1rem / 2) calc(1rem / 2);
+      }
+      .e45-82 > .x-row-inner > * {
+        flex-grow: 1;
+        margin: calc(1rem / 2) calc(1rem / 2);
+      }
+      .e45-32 > .x-row-inner > * {
+        margin: calc(1rem / 2) calc(1rem / 2);
+      }
+      .e45-85 > .x-row-inner > * {
+        margin: calc(1rem / 2) calc(1rem / 2);
+      }
+      .e45-94 > .x-row-inner > * {
+        margin: calc(1rem / 2) calc(1rem / 2);
+      }
+      .e45-6.x-container {
+        margin: 0em auto 0em auto;
+        text-align: left;
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-51.x-container {
+        margin: 0em auto 0em auto;
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-67.x-container {
+        margin: 0em auto 0em auto;
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-70.x-container {
+        margin: 0em auto 0em auto;
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-1.x-section {
+        margin: 0em;
+        padding: 25px 0px 25px 0px;
+        background-color: #225b6f;
+        z-index: 1;
+      }
+      .e45-5.x-section {
+        margin: 0em 0em 0em 0em;
+        padding: 75px 0px 50px 0px;
+        text-align: left;
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-17.x-section {
+        margin: 0em;
+        padding: 25px 0px 25px 0px;
+        background-color: #225b6f;
+        z-index: 1;
+      }
+      .e45-21.x-section {
+        margin: 0em;
+        padding: 0px 0px 0px 0px;
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-27.x-section {
+        margin: 0em;
+        padding: 25px 0px 45px 0px;
+        background-color: rgb(234, 234, 234);
+        z-index: 1;
+      }
+      .e45-46.x-section {
+        margin: 0em;
+        padding: 0px 0px 46px 0px;
+        text-align: center;
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-66.x-section {
+        margin: 0em;
+        padding: 20px 0px 45px 0px;
+        background-color: rgb(234, 234, 234);
+        z-index: 1;
+      }
+      .e45-81.x-section {
+        margin: 0em 0em 0em 0em;
+        padding: 30px 30px 30px 30px;
+        text-align: center;
+        background-color: transparent;
+        z-index: 1;
+      }
+      .e45-39.x-text {
+        margin: 0em;
+        padding: 0em;
+        font-family: inherit;
+        font-size: 0.9em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: 0em;
+        text-transform: none;
+        color: rgba(0, 0, 0, 1);
+        background-color: transparent;
+      }
+      .e45-39.x-text > :first-child {
+        margin-top: 0;
+      }
+      .e45-39.x-text > :last-child {
+        margin-bottom: 0;
+      }
+      @media (max-width: 479.98px) {
+        .e45-2 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-18 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-22 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-28 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-32 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-37 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-47 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-82 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 3) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 3) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 2) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 2) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 1) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 1) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 0) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 0) {
+          flex-basis: calc(25% - 1rem);
+        }
+      }
+      @media (min-width: 480px) and (max-width: 766.98px) {
+        .e45-2 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-18 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-22 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-28 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-32 > .x-row-inner > *:nth-child(2n - 1) {
+          flex-basis: calc(50% - 1rem);
+        }
+        .e45-37 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-47 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-82 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(2n - 1) {
+          flex-basis: calc(50% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(2n - 1) {
+          flex-basis: calc(50% - 1rem);
+        }
+        .e45-32 > .x-row-inner > *:nth-child(2n - 0) {
+          flex-basis: calc(50% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(2n - 0) {
+          flex-basis: calc(50% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(2n - 0) {
+          flex-basis: calc(50% - 1rem);
+        }
+      }
+      @media (min-width: 767px) and (max-width: 978.98px) {
+        .e45-2 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-18 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-22 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-28 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-32 > .x-row-inner > *:nth-child(2n - 1) {
+          flex-basis: calc(50% - 1rem);
+        }
+        .e45-37 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-47 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-82 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 3) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 3) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-32 > .x-row-inner > *:nth-child(2n - 0) {
+          flex-basis: calc(50% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 2) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 2) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 1) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 1) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 0) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 0) {
+          flex-basis: calc(25% - 1rem);
+        }
+      }
+      @media (min-width: 979px) and (max-width: 1199.98px) {
+        .e45-2 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-18 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-22 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-28 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-32 > .x-row-inner > *:nth-child(2n - 1) {
+          flex-basis: calc(50% - 1rem);
+        }
+        .e45-37 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-47 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-82 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 3) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 3) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-32 > .x-row-inner > *:nth-child(2n - 0) {
+          flex-basis: calc(50% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 2) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 2) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 1) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 1) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 0) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 0) {
+          flex-basis: calc(25% - 1rem);
+        }
+      }
+      @media (min-width: 1200px) {
+        .e45-2 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-18 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-22 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-28 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-32 > .x-row-inner > *:nth-child(2n - 1) {
+          flex-basis: calc(50% - 1rem);
+        }
+        .e45-37 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-47 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-82 > .x-row-inner > *:nth-child(1n - 0) {
+          flex-basis: calc(100% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 3) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 3) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-32 > .x-row-inner > *:nth-child(2n - 0) {
+          flex-basis: calc(50% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 2) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 2) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 1) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 1) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-85 > .x-row-inner > *:nth-child(4n - 0) {
+          flex-basis: calc(25% - 1rem);
+        }
+        .e45-94 > .x-row-inner > *:nth-child(4n - 0) {
+          flex-basis: calc(25% - 1rem);
+        }
+      }
+      @media screen and (max-width: 1280px) {
+        .e45-38 .x-anchor-button {
+          width: 100%;
+        }
+      }
+      .e45-39 {
+        display: inline-block;
+      }
+      @media screen and (max-width: 1280px) {
+        .e45-39 {
+          display: block;
+          text-align: center;
+        }
+      }
+      .x-boxed-layout-active .site {
+        border: 0;
+        box-shadow: 0 0.15em 4em rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .h1,
+      .h2,
+      .h3,
+      .h4,
+      .h5,
+      .h6 {
+        line-height: 1.2 !important;
+      }
+      h1,
+      .h1,
+      .entry-title {
+        font-size: 2rem;
+      }
+      .entry-title {
+        padding: 0;
+      }
+      h2,
+      .h2 {
+        font-size: 1.8rem;
+      }
+      h3,
+      .h3 {
+        font-size: 1.6rem;
+      }
+      h4,
+      .h4 {
+        font-size: 1.4rem;
+      }
+      h5,
+      .h5 {
+        font-size: 1.2rem;
+      }
+      h6,
+      .h6 {
+        font-size: 1.1rem;
+      }
+      .h-resp-main {
+        max-width: 15em;
+        margin: 0;
+      }
+      .h-resp-main.cs-ta-center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .h-sup {
+        display: block;
+        margin-right: -0.15em;
+        margin-bottom: 1em;
+        font-family: "Open Sans", sans-serif;
+        font-size: 0.375em;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        line-height: 1 !important;
+        text-transform: uppercase;
+        color: inherit;
+      }
+      .h-custom-headline hr {
+        width: 50%;
+        height: 2px;
+        max-width: 180px;
+        margin: 1em 0 0;
+        font-size: 0.375em;
+        background-color: #fd7563;
+      }
+      .h-custom-headline.cs-ta-center hr {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .h-custom-headline hr.accent-1 {
+        background-color: #fd7563;
+      }
+      .h-custom-headline hr.accent-2 {
+        background-color: #f5a623;
+      }
+      .h-custom-headline hr.accent-3 {
+        background-color: #f8e71c;
+      }
+      .h-custom-headline hr.accent-4 {
+        background-color: #b3d430;
+      }
+      .h-custom-headline hr.accent-5 {
+        background-color: #00a380;
+      }
+      .h-custom-headline p,
+      .h-custom-headline br {
+        display: none;
+      }
+      .styled-quote {
+        border: 0;
+        padding: 2.5em;
+        font-size: 1.25em;
+        color: #ffffff;
+        background-color: #fd7563;
+      }
+      .styled-quote cite {
+        color: inherit;
+        opacity: 0.5;
+      }
+      .x-btn {
+        padding: 10px 30px !important;
+        text-shadow: none !important;
+      }
+      .x-slider-container.above,
+      .x-slider-container.below {
+        border: 0;
+      }
+      .x-navbar {
+        border-color: transparent;
+        background-color: #00a580;
+      }
+      .x-navbar .desktop .x-nav > li > a:hover > span,
+      .x-navbar .desktop .x-nav > .x-active > a > span,
+      .x-navbar .desktop .x-nav > .current-menu-item > a > span {
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+      .x-navbar .desktop .x-nav > li.menu-item-fill > a > span {
+        color: #00a580;
+        border-color: transparent;
+        background-color: #ffffff;
+      }
+      .x-navbar .desktop .x-nav > li > a,
+      .x-navbar .desktop .x-nav > li > a:hover,
+      .x-navbar .desktop .x-nav > li.active > a,
+      .x-navbar .desktop .x-nav > .current-menu-item > a,
+      .x-navbar .mobile .x-nav > li > a {
+        color: #ffffff !important;
+      }
+      .x-navbar .mobile .x-nav > .current-menu-item > a {
+        color: #00a580 !important;
+        background: #fff;
+      }
+      .x-navbar .desktop .sub-menu a {
+        color: #2a2a2a;
+      }
+      .x-navbar .desktop .sub-menu a:hover {
+        color: #00a580;
+      }
+      .x-navbar .mobile .x-nav li a,
+      .x-navbar .mobile .x-nav li a:hover {
+        color: #ffffff;
+      }
+      .x-btn-navbar {
+        text-shadow: none;
+      }
+      .x-navbar .mobile .x-nav li > a {
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+      .x-colophon.top,
+      .x-colophon.bottom {
+        background: #000000;
+      }
+      .wpcf7-form-control {
+        border: 0;
+      }
+      .wpcf7-submit {
+        border: 0;
+        padding: 0.75em 2em;
+        text-shadow: none;
+        color: #000000;
+        background-color: #ffffff;
+      }
+      .about-first-col-border {
+        border-right: 3px solid #cccccc !important;
+      }
+      @media (max-width: 767px) {
+        .about-first-col-border {
+          border-right: 0 !important;
+          border-bottom: 3px solid #cccccc !important;
+        }
+      }
+      .vat {
+        vertical-align: top !important;
+      }
+      .vam {
+        vertical-align: middle !important;
+      }
+      .vab {
+        vertical-align: bottom !important;
+      }
+      [class*="section-bg-overlay"] {
+        position: relative;
+        z-index: 1;
+      }
+      [class*="section-bg-overlay"]:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #000000;
+        opacity: 0.5;
+        z-index: -1;
+      }
+      header.masthead {
+        margin-top: 30px;
+      }
+      .admin-bar #utahGovHeaderWrapper {
+        top: 32px;
+      }
+      .admin-bar .x-navbar-fixed-top,
+      .admin-bar .x-navbar-fixed-left,
+      .admin-bar .x-navbar-fixed-right {
+        top: 0px !important;
+      }
+      ul.stateLinks {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      ul.stateLinks a {
+        padding: 5px 15px;
+        display: inline-block;
+      }
+      ul.stateLinks a:hover {
+        text-decoration: underline;
+      }
+      .no-break {
+        white-space: nowrap;
+      }
+      .x-recent-posts a {
+        padding: 0;
+        border: none;
+      }
+      a[href^="tel"] {
+        color: inherit;
+        text-decoration: underline;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      a.white-link {
+        color: white;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+      .cs-preview #utahGovHeaderWrapper {
+        display: none;
+      }
+      .top-bar-alert a {
+        color: white;
+        text-decoration: underline;
+      }
+      .top-bar-alert a:hover {
+        color: white;
+      }
+      .top-bar-alert .x-flexslider-shortcode-container {
+        margin-bottom: 0;
+      }
+      ul.flex-direction-nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 75px;
+        height: 64px;
+      }
+      .top-bar-alert ul.flex-direction-nav a {
+        text-decoration: none;
+        background-color: white;
+        width: 25px;
+        color: rgb(253, 117, 99) !important;
+      }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=UA-15590520-8"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-15590520-8");
+    </script>
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&amp;subset=latin,latin-ext&amp;display=auto"
+      type="text/css"
+      media="all"
+      data-x-google-fonts=""
+    />
+  </head>
+
+  <body
+    class="home page-template page-template-template-blank-4 page-template-template-blank-4-php page page-id-45 x-stack-icon x-full-width-layout-active x-full-width-active x-child-theme-active x-navbar-static-active x-v7_2_3 cornerstone-v4_2_3"
+  >
+    <header id="utahGovHeaderWrapper">
+      <div id="utahGovSection">
+        <a href="http://www.utah.gov" id="utahGovLink">
+          <svg
+            viewBox="0 0 56 56"
+            x="0px"
+            y="0px"
+            width="56px"
+            height="56px"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <path
+              d="M0 35.5c0-4.8 3.9-8.7 8.7-8.7 4.8 0 8.7 3.9 8.7 8.7 0 4.8-3.9 8.7-8.7 8.7S0 40.3 0 35.5z"
+              fill="#E6B42A"
+            ></path>
+            <path
+              d="M3 12v10.9c0 2.6 1.1 3.9 3.4 3.9 1 0 1.9-0.3 2.7-0.9 0.8-0.6 1.4-1.2 1.6-2v-12h3v17h-3v-2.4c-0.3 0.7-1 1.3-2 1.8 -1 0.6-2 0.8-3 0.8 -1.9 0-3.3-0.5-4.3-1.6S0 24.9 0 22.9V11.7H3L3 12 3 12zM17.2 14.4h-2V12h2V8.4l3-1.2v4.7h4.7v2.4h-4.7v8.5c0 1.4 0.2 2.4 0.7 3.1 0.5 0.6 1.3 0.9 2.3 0.9 0.8 0 1.6-0.2 2.4-0.6l0.4 2.7c-1.3 0.3-2.6 0.5-4.1 0.5 -1.3 0-2.5-0.5-3.4-1.5 -0.9-1-1.4-2.3-1.4-3.8L17.2 14.4 17.2 14.4zM36.8 27.1c-1.2 1.5-3.1 2.3-5.6 2.3 -1.3 0-2.5-0.5-3.5-1.5 -1-1-1.5-2.2-1.5-3.6 0-1.7 0.8-3.2 2.3-4.4 1.5-1.2 3.4-1.8 5.8-1.8 0.6 0 1.4 0.1 2.2 0.4 0-2.8-1.2-4.1-3.7-4.1 -1.9 0-3.3 0.5-4.4 1.5l-1.3-2.5c0.6-0.5 1.4-0.9 2.4-1.2 1-0.3 2-0.5 2.9-0.5 2.5 0 4.3 0.6 5.4 1.7 1.1 1.1 1.7 2.9 1.7 5.4v6.1c0 1.5 0.4 2.5 1.3 3v1.5c-1.2 0-2.2-0.2-2.8-0.5C37.5 28.5 37.1 27.9 36.8 27.1zM36.5 20.7c-1-0.2-1.6-0.3-2-0.3 -1.5 0-2.8 0.4-3.7 1.2 -1 0.8-1.4 1.7-1.4 2.8 0 1.8 1 2.7 3.1 2.7 1.5 0 2.9-0.7 4.1-2.2L36.5 20.7 36.5 20.7zM53 29.1V18.4c0-1.3-0.3-2.3-0.9-3 -0.6-0.7-1.5-1.1-2.6-1.1 -0.7 0-1.5 0.2-2.2 0.6 -0.7 0.4-1.3 0.9-1.7 1.5v12.7h-3v-23l3-1V14c0.4-0.6 1.1-1.1 1.9-1.6 0.9-0.4 1.8-0.6 2.8-0.6 1.8 0 3.2 0.6 4.2 1.8 1 1.2 1.5 2.8 1.5 4.9v10.7L53 29.1 53 29.1z"
+              fill="#ffffff"
+            ></path>
+            <path
+              d="M16.9 49l1.4-2.1c1.5 1 3 1.5 4.3 1.5 1.2 0 2.1-0.2 2.8-0.6s1-0.9 1-1.5c0-1.2-0.9-1.8-2.6-1.8 -0.3 0-0.8 0.1-1.6 0.2 -0.8 0.1-1.4 0.2-1.8 0.2 -2.1 0-3.2-0.8-3.2-2.4 0-0.5 0.2-0.9 0.7-1.3 0.5-0.4 1.1-0.7 1.8-0.9 -2.1-1-3.1-2.7-3.1-5.1 0-1.6 0.5-2.9 1.6-3.9 1.1-1 2.4-1.6 4-1.6 1.5 0 2.6 0.3 3.4 0.9l1.3-1.6 1.7 1.6L27 31.8c0.7 0.9 1 2 1 3.5 0 1.5-0.5 2.8-1.4 3.8 -0.9 1-2.2 1.6-3.7 1.8l-2.2 0.2c-0.3 0-0.6 0.1-1 0.3 -0.4 0.2-0.7 0.4-0.7 0.7 0 0.4 0.5 0.6 1.4 0.6 0.4 0 1-0.1 1.9-0.2 0.8-0.1 1.5-0.2 1.9-0.2 1.5 0 2.6 0.4 3.4 1.1 0.8 0.7 1.2 1.7 1.2 2.9 0 1.4-0.6 2.5-1.8 3.3 -1.2 0.8-2.8 1.3-4.7 1.3 -1 0-2-0.2-3-0.5C18.4 49.9 17.6 49.5 16.9 49zM22.5 31.8c-0.9 0-1.7 0.3-2.2 1 -0.6 0.6-0.9 1.4-0.9 2.4 0 1 0.3 1.9 0.8 2.6 0.6 0.7 1.3 1 2.3 1 0.9 0 1.7-0.3 2.2-1 0.5-0.7 0.8-1.5 0.8-2.6 0-0.9-0.3-1.7-0.9-2.4C24.1 32.2 23.4 31.8 22.5 31.8zM28.8 37.4c0-2.3 0.6-4.2 1.9-5.6 1.2-1.4 2.9-2.1 4.9-2.1 2.1 0 3.8 0.7 5 2 1.2 1.4 1.8 3.2 1.8 5.7 0 2.4-0.6 4.3-1.8 5.7 -1.2 1.4-2.8 2.1-4.9 2.1 -2.1 0-3.8-0.7-5-2.1C29.4 41.7 28.8 39.8 28.8 37.4zM31.5 37.4c0 3.7 1.3 5.6 4 5.6 1.2 0 2.2-0.5 2.9-1.5s1.1-2.4 1.1-4.1c0-3.7-1.3-5.5-4-5.5 -1.2 0-2.2 0.5-2.9 1.5C31.9 34.3 31.5 35.7 31.5 37.4zM49.5 45.2h-0.7L42.4 30h2.9l3.9 10.4 4-10.4H56L49.5 45.2z"
+              fill="#ffffff"
+            ></path>
+          </svg>
+          <span class="text">Utah.gov</span></a
+        >
+        <nav>
+          <ul>
+            <li><a href="http://www.utah.gov">Visit Utah.gov</a></li>
+            <li><a href="http://www.utah.gov/services/">Services</a></li>
+            <li>
+              <a href="http://www.utah.gov/government/agencylist.html"
+                >Agencies</a
+              >
+            </li>
+            <li><a href="http://www.utah.gov">Search Utah.gov</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div id="utahGovAgencySection"></div>
+      <div id="settingsSection">
+        <a href="#settings" id="settingsLink">
+		  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
+            <title>Settings</title>
+            <path
+              d="M27.24,11.81l-2.07-.52a1,1,0,0,1-.71-.66A10.89,10.89,0,0,0,23.78,9a1,1,0,0,1,0-1l1.1-1.83A1,1,0,0,0,24.76,5L23,3.24a1,1,0,0,0-1.22-.15L20,4.18a1,1,0,0,1-1,0,10.85,10.85,0,0,0-1.64-.68,1,1,0,0,1-.66-.71L16.19.76a1,1,0,0,0-1-.76H12.78a1,1,0,0,0-1,.76l-.52,2.07a1,1,0,0,1-.67.71A10.92,10.92,0,0,0,9,4.22a1,1,0,0,1-1,0L6.18,3.09A1,1,0,0,0,5,3.24L3.24,5a1,1,0,0,0-.15,1.22L4.19,8a1,1,0,0,1,0,1,10.89,10.89,0,0,0-.68,1.64,1,1,0,0,1-.71.66l-2.07.52a1,1,0,0,0-.76,1v2.44a1,1,0,0,0,.76,1l2.07.52a1,1,0,0,1,.71.66A10.92,10.92,0,0,0,4.22,19a1,1,0,0,1,0,1l-1.1,1.83A1,1,0,0,0,3.24,23L5,24.76a1,1,0,0,0,1.22.15L8,23.81a1,1,0,0,1,1,0,11,11,0,0,0,1.64.68,1,1,0,0,1,.66.71l.52,2.07a1,1,0,0,0,1,.76h2.44a1,1,0,0,0,1-.76l.52-2.07a1,1,0,0,1,.67-.71A10.92,10.92,0,0,0,19,23.78a1,1,0,0,1,1,0l1.83,1.1A1,1,0,0,0,23,24.76L24.76,23a1,1,0,0,0,.15-1.22L23.81,20a1,1,0,0,1,0-1,10.94,10.94,0,0,0,.68-1.64,1,1,0,0,1,.71-.67l2.07-.52a1,1,0,0,0,.76-1V12.78A1,1,0,0,0,27.24,11.81ZM14,19a5,5,0,1,1,5-5A5,5,0,0,1,14,19Z"
+              style="fill:#fff"></path>
+		  </svg>
+		  <span class="text">Settings</span>
+		</a>
+      </div>
+    </header>
+
+    <div id="x-root" class="x-root">
+
+		
+		<iframe id="survey123" name="survey123webform" frameborder="0" title="COVID-19 Declaration Form" src="https://survey123.arcgis.com/share/715a4941735f463bb7282a18923a693c?portalUrl=https://uplan.maps.arcgis.com" allow="geolocation https://survey123.arcgis.com; camera https://survey123.arcgis.com"></iframe>
+		
+		<script>
+			let survey123webform = document.getElementsByName('survey123webform')[0];
+			window.addEventListener("message",e=>{if(e.data){var t=JSON.parse(e.data);
+			"survey123:onFormLoaded"===t.event&&t.contentHeight&&(survey123webform.parentNode.style.height=t.contentHeight+"px")&&(survey123webform.parentNode.style["padding-bottom"]="unset")}});
+		</script>
+
+		<footer class="x-colophon bottom" role="contentinfo">
+			<div class="x-container max width">
+			
+				<div class="x-colophon-content">
+					<ul class="stateLinks">
+						<li><a href="https://www.utah.gov/index.html">Utah.gov</a></li>
+						<li><a href="https://www.utah.gov/disclaimer.html">Utah.gov Terms of Use</a></li>
+						<li><a href="https://www.utah.gov/privacypolicy.html">Utah.gov Privacy Policy</a></li>
+						<li><a href="https://www.utah.gov/accessibility.html">Utah.gov Accessibility Policy</a></li>
+						<li><a href="https://www.utah.gov/translate.html">Translate Utah.gov</a></li>
+					</ul>          
+				</div>
+					
+				<div class="x-social-global">
+					<a href="https://www.facebook.com/utahcoronavirus/ " class="facebook" title="Facebook" target="blank" rel="">
+						<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-square" class="svg-inline--fa fa-facebook-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+							<path fill="#fd7563" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path>
+						</svg>
+					</a>
+					<a href="https://twitter.com/UtahCoronavirus" class="twitter" title="Twitter" target="blank" rel="">
+						<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter-square" class="svg-inline--fa fa-twitter-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+							<path fill="#fd7563" d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path>
+						</svg>
+					</a>
+					<a href="https://www.youtube.com/channel/UCGcNNBwIUq6lErlVM7EVYXQ" class="youtube" title="YouTube" target="blank" rel="">
+						<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube-square" class="svg-inline--fa fa-youtube-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+							<path fill="#fd7563" d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z"></path>
+						</svg>
+					</a>
+				</div>        
+					
+			</div>
+		</footer>
+			
+			  
+		<div class="x-searchform-overlay">
+			<div class="x-searchform-overlay-inner">
+				<div class="x-container max width">
+					<form method="get" id="searchform" class="form-search center-text" action="https://coronavirus.utah.gov/">
+						  <label for="s" class="cfc-h-tx tt-upper">Type and Press “enter” to Search</label>
+						  <input type="text" id="s" class="search-query cfc-h-tx center-text tt-upper" name="s">
+					</form>
+				</div>
+			</div>
+		</div>
+			
+				  
+	</div>
+	<!-- END .x-site -->
+			
+				
+	<a class="x-scroll-top right fade" title="Back to Top">
+		<i class="x-icon-angle-up" data-x-icon-s=""></i>
+	</a>
+			
+	<script>
+			
+		jQuery(document).ready(function($) {
+			
+			var $window            = $(window);
+			var body                 = $('body');
+			var bodyOffsetBottom     = $window.scrollBottom();             // 1
+			var bodyHeightAdjustment = body.height() - bodyOffsetBottom;     // 2
+			var bodyHeightAdjusted   = body.height() - bodyHeightAdjustment; // 3
+			var $scrollTopAnchor      = $('.x-scroll-top');
+			
+				function sizingUpdate(){
+					var bodyOffsetTop = $window.scrollTop();
+					if ( bodyOffsetTop > ( bodyHeightAdjusted * 0.75 ) ) {
+						$scrollTopAnchor.addClass('in');
+					} else {
+						$scrollTopAnchor.removeClass('in');
+					}
+				}
+			
+				$window.on('scroll', sizingUpdate).resize(sizingUpdate);
+				sizingUpdate();
+			
+				$scrollTopAnchor.on( 'click', function(){
+					$('html, body').animate({ scrollTop: 0 }, 850, 'xEaseInOutExpo');
+					  return false;
+				});
+			
+		});
+			
+	</script>
+			
+				
+	</div>
+    <!-- END .x-root -->
+
+    <div style="display: none; visibility: hidden" data-canary="CANARY_TEST_OK"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        loadUtahHeader({
+          backgroundColor: "#222222",
+          foregroundColor: "#FFFFFF",
+          darkColorScheme: true,
+          height: "32px",
+          agencyName: "",
+          agencyShortName: "",
+          agencyLogoUrl: "",
+          agencyLink: "",
+          fontWeights: [400],
+          defaultFontWeight: 400,
+          defaultFontSize: 16,
+          defaultRootEl: "body",
+          skipNav: false,
+          mainContentId: "maincontent"
+        });
+      });
+    </script>
+    <script type="text/javascript" src="https://coronavirus.utah.gov/wp-content/plugins/cornerstone/assets/dist/js/site/cs.0ce70e6.js"></script>
+	<script type="text/javascript" src="https://coronavirus.utah.gov/wp-content/themes/x/framework/dist/js/site/x.js?ver=7.2.3" ></script>
+	<script type="text/javascript" id="">
+      !(function(b, e, f, g, a, c, d) {
+        b.saq ||
+          ((a = b.saq = function() {
+            a.callMethod
+              ? a.callMethod.apply(a, arguments)
+              : a.queue.push(arguments);
+          }),
+          b._saq || (b._saq = a),
+          (a.push = a),
+          (a.loaded = !0),
+          (a.version = "1.0"),
+          (a.queue = []),
+          (c = e.createElement(f)),
+          (c.async = !0),
+          (c.src = g),
+          (d = e.getElementsByTagName(f)[0]),
+          d.parentNode.insertBefore(c, d));
+      })(
+        window,
+        document,
+        "script",
+        "https://tags.srv.stackadapt.com/events.js"
+      );
+      saq("ts", "dAE7y4zkNWXwyqKD4pcxog");
+    </script>
+
+    <script type="text/javascript" id="">
+      !(function(d, e, f, a, b, c) {
+        d.twq ||
+          ((a = d.twq = function() {
+            a.exe ? a.exe.apply(a, arguments) : a.queue.push(arguments);
+          }),
+          (a.version = "1.1"),
+          (a.queue = []),
+          (b = e.createElement(f)),
+          (b.async = !0),
+          (b.src = "//static.ads-twitter.com/uwt.js"),
+          (c = e.getElementsByTagName(f)[0]),
+          c.parentNode.insertBefore(b, c));
+      })(window, document, "script");
+      twq("init", "o3do6");
+      twq("track", "PageView");
+    </script>
+
+    <script type="text/javascript" id="">
+      !(function(b, e, f, g, a, c, d) {
+        b.fbq ||
+          ((a = b.fbq = function() {
+            a.callMethod
+              ? a.callMethod.apply(a, arguments)
+              : a.queue.push(arguments);
+          }),
+          b._fbq || (b._fbq = a),
+          (a.push = a),
+          (a.loaded = !0),
+          (a.version = "2.0"),
+          (a.queue = []),
+          (c = e.createElement(f)),
+          (c.async = !0),
+          (c.src = g),
+          (d = e.getElementsByTagName(f)[0]),
+          d.parentNode.insertBefore(c, d));
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "1491279874366989");
+      fbq("track", "PageView");
+    </script>
+    <noscript>
+		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1491279874366989&amp;ev=PageView&amp;noscript=1"/>
+	</noscript>
+
+    <script type="text/javascript" src="https://coronavirus.utah.gov/wp-includes/js/comment-reply.min.js"></script>
+    <script type="text/javascript" src="https://coronavirus.utah.gov/wp-includes/js/wp-embed.min.js"></script>
+	<script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=o3do6&amp;events=%5B%5B%22pageview%22%2Cnull%5D%5D&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels&amp;tw_document_href=https%3A%2F%2Fcoronavirus.utah.gov%2F" type="text/javascript"></script>
+  </body>
+</html>
