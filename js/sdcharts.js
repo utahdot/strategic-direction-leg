@@ -331,8 +331,8 @@ function drawGoalCharts() {
 //Chart for individual goal pages
 //Preserve Infrastructure Charts
 function drawPICharts() {
-  var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_2.json";
-  // var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_2.json";
+  // var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_2.json";
+  var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_2.json";
   fetch(url)
     .then(function(response) {
       return response.json();
@@ -382,8 +382,8 @@ function drawPICharts() {
 
 
       //Second fetch for historical line charts
-      var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
-      // var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
+      // var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
+      var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
       fetch(url)
         .then(function(response) {
           return response.json();
@@ -459,8 +459,8 @@ function drawPICharts() {
           });
 
           //Third fetch for stacked KPI Charts charts
-          var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_1_Infrastructure_Performance_Measures.json";
-          // var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_1_Infrastructure_Performance_Measures.json";
+          // var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_1_Infrastructure_Performance_Measures.json";
+          var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_1_Infrastructure_Performance_Measures.json";
           fetch(url)
             .then(function(response) {
               return response.json();
@@ -554,8 +554,8 @@ function drawPICharts() {
 function pavementPlotlyChartLV2() {
   var todaydate = new Date();
   var year = todaydate.getFullYear();
-  url = "http://www.udot.utah.gov/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_hyep-ccu9_filter_1.json";
-  // url = "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_hyep-ccu9_filter_1.json";
+  // url = "http://www.udot.utah.gov/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_hyep-ccu9_filter_1.json";
+  url = "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_hyep-ccu9_filter_1.json";
   fetch(url)
     .then(function(response) {
       return response.json();
@@ -668,8 +668,8 @@ function pavementPlotlyChartLV2() {
 function pavementPlotlyChartHV2() {
   var todaydate = new Date();
   var year = todaydate.getFullYear();
-  var url = "http://www.udot.utah.gov/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_hyep-ccu9_filter_1.json"
-  // var url = "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_hyep-ccu9_filter_1.json"
+  // var url = "http://www.udot.utah.gov/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_hyep-ccu9_filter_1.json"
+  var url = "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_hyep-ccu9_filter_1.json"
   fetch(url)
     .then(function(response) {
       return response.json();
@@ -782,8 +782,8 @@ function pavementPlotlyChartHV2() {
 
 //Bridge Plotly Charts
 function bridgeConditionChart() {
-  var url = "http://www.udot.utah.gov/wadocuments/Data/strategic_direction/Preserve_Infrastructure/Graph_6_thru_8_Bridge_Condition_PreserveInfrastructure.json";
-  // var url = "/wadocuments/Data/strategic_direction/Preserve_Infrastructure/Graph_6_thru_8_Bridge_Condition_PreserveInfrastructure.json";
+  // var url = "http://www.udot.utah.gov/wadocuments/Data/strategic_direction/Preserve_Infrastructure/Graph_6_thru_8_Bridge_Condition_PreserveInfrastructure.json";
+  var url = "/wadocuments/Data/strategic_direction/Preserve_Infrastructure/Graph_6_thru_8_Bridge_Condition_PreserveInfrastructure.json";
   fetch(url)
     .then(function(response) {
       return response.json();
@@ -978,8 +978,8 @@ function bridgeConditionChart() {
 function atmsOperationalChart() {
   // fetch("UDOT_Reliability_HERE_2018_TOC_Routes.csv.json?$order=year")
 
-  var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_9_ATMS.json"
-  // var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_9_ATMS.json"
+  // var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_9_ATMS.json"
+  var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_9_ATMS.json"
   fetch(url)
     .then(function(response) {
       return response.json();
@@ -1029,8 +1029,8 @@ function atmsOperationalChart() {
 
 //Signal Condition Bar Stacked Chart
 function signalsPlotlyChart() {
-  var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_10_Signal_Condition.json";
-  // var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_10_Signal_Condition.json";
+  // var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_10_Signal_Condition.json";
+  var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_10_Signal_Condition.json";
   fetch(url)
     .then(function(response) {
       return response.json();
