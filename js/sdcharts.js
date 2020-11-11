@@ -332,7 +332,7 @@ function drawGoalCharts() {
 //Preserve Infrastructure Charts
 function drawPICharts() {
   var url =
-    "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_rqv9-ry2j_filter_3.json";
+    "/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_2.json";
   fetch(url)
     .then(function(response) {
       return response.json();
@@ -340,7 +340,7 @@ function drawPICharts() {
     .then(function(data) {
       //********** hard coded data, change when table available **********
       // var dataIndex = data[0].infrastructure
-      var dataIndex = 90.5 ;
+      var dataIndex = data[0].INFRASTRUCTURE;
 
       var indexLabel = ["", "Infrastructure Index"];
       var config = {
@@ -383,20 +383,19 @@ function drawPICharts() {
 
       //Second fetch for historical line charts
       url =
-        "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_b8iq-pg44_filter_1.json";
+        "/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
       fetch(url)
         .then(function(response) {
           return response.json();
         })
         .then(function(j) {
-          //********** hard coded data, change when table available **********
-          // var piData = [];
-          var piData = [89.4, 89.4, 89.8, 90, 90.1, 90.4, 90.5];
+          var piData = [];
+          //var piData = [89.4, 89.4, 89.8, 90, 90.1, 90.4, 90.5];
 
           var years = [];
           for (var i = 0; i < j.length; i++) {
-            piData.push(parseInt(j[i]["avg_infrastructure"]));
-            years.push(j[i]["year"]);
+            piData.push(parseInt(j[i]["INFRASTRUCTURE"]));
+            years.push(j[i]["MY_YEAR"]);
           }
           var piLineChart = document.getElementById("pi-line-chart");
           Chart.defaults.global.defaultFontFamily = "proxima-nova, sans-serif";
@@ -468,16 +467,16 @@ function drawPICharts() {
             })
             .then(function(j) {
               var targetMet = [
-                parseFloat(j[0]["ATMS"]),
-                parseFloat(j[0]["BRIDGES"]),
-                parseFloat(j[0]["PAVEMENT"]),
-                parseFloat(j[0]["SIGNALS"])
+                Math.round(parseFloat(j[0]["ATMS"])),
+                Math.round(parseFloat(j[0]["BRIDGES"])),
+                Math.round(parseFloat(j[0]["PAVEMENT"])),
+                Math.round(parseFloat(j[0]["SIGNALS"]))
               ];
               var targetRem = [
-                100 - parseFloat(j[0]["ATMS"]),
-                100 - parseFloat(j[0]["BRIDGES"]),
-                100 - parseFloat(j[0]["PAVEMENT"]),
-                100 - parseFloat(j[0]["SIGNALS"])
+                Math.round(100 - parseFloat(j[0]["ATMS"])),
+                Math.round(100 - parseFloat(j[0]["BRIDGES"])),
+                Math.round(100 - parseFloat(j[0]["PAVEMENT"])),
+                Math.round(100 - parseFloat(j[0]["SIGNALS"]))
               ];
 
               var kpiChartData = {
@@ -621,17 +620,17 @@ function pavementPlotlyChartLV2() {
       var layout = {
         title: "Low Volume Pavement",
         barmode: "stack",
-        shapes: [
-          {
-            type: "line",
-            xref: "paper",
-            x0: 0,
-            y0: 80,
-            x1: 1,
-            y1: 80,
-            line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
-          }
-        ],
+        // shapes: [
+        //   {
+        //     type: "line",
+        //     xref: "paper",
+        //     x0: 0,
+        //     y0: 80,
+        //     x1: 1,
+        //     y1: 80,
+        //     line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
+        //   }
+        // ],
         legend: {
           showlegend: true,
           legend: { orientation: "h" },
@@ -717,17 +716,17 @@ function pavementPlotlyChartHV2() {
       var layout = {
         title: "High Volume Pavement",
         barmode: "stack",
-        shapes: [
-          {
-            type: "line",
-            xref: "paper",
-            x0: 0,
-            y0: 95,
-            x1: 1,
-            y1: 95,
-            line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
-          }
-        ],
+        // shapes: [
+        //   {
+        //     type: "line",
+        //     xref: "paper",
+        //     x0: 0,
+        //     y0: 95,
+        //     x1: 1,
+        //     y1: 95,
+        //     line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
+        //   }
+        // ],
         legend: {
           showlegend: true,
           legend: { orientation: "h" },
@@ -749,7 +748,7 @@ function pavementPlotlyChartHV2() {
 //Bridge Plotly Charts
 function bridgeConditionChart() {
   fetch(
-    "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_ujbw-qqsi_filter_1.json"
+    "/wadocuments/Data/strategic_direction/Preserve_Infrastructure/Graph_6_thru_8_Bridge_Condition_PreserveInfrastructure.json"
   )
     .then(function(response) {
       return response.json();
@@ -758,29 +757,29 @@ function bridgeConditionChart() {
       var x = new Array(); //This will contain years in chart
       var y = new Array(); //This will house data but will be reset after each loop
       for (var i = 0; i < j.length; i++) {
-        x.push(parseInt(j[i]["bhi_year"]));
-        y.push(parseFloat(j[i]["nhs_inv_avg"]));
+        x.push(parseInt(j[i]["YEAR"]));
+        y.push(parseFloat(j[i]["NHS_INV_AVG"]));
       }
       var nhs = {
         x: x,
         y: y,
         type: "bar",
         name: "Average BHI of NHS Bridges",
-        text: [
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100"
-        ],
+        // text: [
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100"
+        // ],
         marker: {
           color: "#f1c232"
         }
@@ -788,17 +787,17 @@ function bridgeConditionChart() {
       var data = [nhs];
       var layout = {
         title: "NHS BHI",
-        shapes: [
-          {
-            type: "line",
-            xref: "paper",
-            x0: 0,
-            y0: 100,
-            x1: 1,
-            y1: 100,
-            line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
-          }
-        ],
+        // shapes: [
+        //   {
+        //     type: "line",
+        //     xref: "paper",
+        //     x0: 0,
+        //     y0: 100,
+        //     x1: 1,
+        //     y1: 100
+        //     line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
+        //   }
+        // ],
         yaxis: { range: [50, 100] },
         xaxis: {
           autotick: false,
@@ -808,27 +807,27 @@ function bridgeConditionChart() {
       Plotly.newPlot("nhsBridgeCondition", data, layout, { responsive: true });
       y = [];
       for (var i = 0; i < j.length; i++) {
-        y.push(parseFloat(j[i]["state_inv_avg"]));
+        y.push(parseFloat(j[i]["STATE_INV_AVG"]));
       }
       var state = {
         x: x,
         y: y,
         name: "Average BHI of State Bridges",
-        text: [
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100"
-        ],
+        // text: [
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100"
+        // ],
         type: "bar",
         marker: {
           color: "#0b5394"
@@ -839,17 +838,17 @@ function bridgeConditionChart() {
       layout = [];
       layout = {
         title: "State BHI",
-        shapes: [
-          {
-            type: "line",
-            xref: "paper",
-            x0: 0,
-            y0: 100,
-            x1: 1,
-            y1: 100,
-            line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
-          }
-        ],
+        // shapes: [
+        //   {
+        //     type: "line",
+        //     xref: "paper",
+        //     x0: 0,
+        //     y0: 100,
+        //     x1: 1,
+        //     y1: 100
+        //     line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
+        //   }
+        // ],
         yaxis: { range: [50, 100] },
         xaxis: { autotick: false, tickfont: { size: 10 } }
       };
@@ -858,27 +857,27 @@ function bridgeConditionChart() {
       });
       y = [];
       for (var i = 0; i < j.length; i++) {
-        y.push(parseFloat(j[i]["loc_combined_avg"]));
+        y.push(parseFloat(j[i]["LOC_COMBINED_AVG"]));
       }
       var local = {
         x: x,
         y: y,
         name: "Average BHI of State Bridges",
-        text: [
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100",
-            "Target: 100"
-        ],
+        // text: [
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100",
+        //     "Target: 100"
+        // ],
         type: "bar",
         marker: {
           color: "#76a5af"
@@ -889,17 +888,17 @@ function bridgeConditionChart() {
       layout = [];
       layout = {
         title: "Local Governments BHI",
-        shapes: [
-          {
-            type: "line",
-            xref: "paper",
-            x0: 0,
-            y0: 100,
-            x1: 1,
-            y1: 100,
-            line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
-          }
-        ],
+        // shapes: [
+        //   {
+        //     type: "line",
+        //     xref: "paper",
+        //     x0: 0,
+        //     y0: 100,
+        //     x1: 1,
+        //     y1: 100
+        //     line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
+        //   }
+        // ],
         yaxis: { range: [50, 100] },
         xaxis: { autotick: false, tickfont: { size: 10 } }
       };
@@ -944,95 +943,11 @@ function atmsOperationalChart() {
       });
     });
 }
-// //BillionVMTStatewide
-// function billionVMT() {
-//   fetch(
-//     "/wadocuments/data/strategic_direction/zero_fatalities/graph_99_fatalities_and_vmt.json"
-//   )
-//     .then(function(response) {
-//       return response.json();
-//     })
-//     .then(function(j) {
-//       x = [];
-//       fat = []; //recyle variables as much as possible
-//       for (var i = 0; i < j.length; i++) {
-//         x.push(parseInt(j[i]["Year"]));
-//         fat.push(parseInt(j[i]["BillionVMTStatewide"]));
-//       }
-//       billionVMT = [];
-//       billionVMT = {
-//         x: x, //xbr = Year
-//         y: fat, //yvar =data
-//         mode: "lines+markers",
-//         name: "Billion VMT Statewide",
-//         type: "scatter",
-//         line: { shape: "spline" }
-//       };
-//       data = [];
-//       data = [billionVMT];
-//       layout = {
-//         legend: {
-//           orientation: "h",
-//           y: -0.5,
-//           x: 0.3
-//         },
-//         xaxis: {
-//           autotick: false,
-//           tickfont: { size: 10, family: "proxima-nova, sans-serif" }
-//         }
-//       };
-//       Plotly.newPlot("billionVMT", data, layout);
-//       })
-// }
-// //FatalitiesPer100MVMT
-// function fatalities100VMT() {
-//   fetch(
-//     "/wadocuments/data/strategic_direction/zero_fatalities/graph_99_fatalities_and_vmt.json"
-//   )
-//     .then(function(response) {
-//       return response.json();
-//     })
-//     .then(function(j) {
-//       x = [];
-//       fat = []; //recyle variables as much as possible
-//       for (var i = 0; i < j.length; i++) {
-//         x.push(parseInt(j[i]["Year"]));
-//         fat.push(parseInt(j[i]["FatalitiesPer100MVMT"]));
-//       }
-//       fatalities100VMT = [];
-//       fatalities100VMT = {
-//         x: x, //xbr = Year
-//         y: fat, //yvar =data
-//         mode: "lines+markers",
-//         name: "Fatalities Per 100 VMT",
-//         type: "scatter",
-//         line: { shape: "spline" }
-//       };
-//       data = [];
-//       data = [fatalities100VMT];
-//       layout = {
-//         legend: {
-//           orientation: "h",
-//           y: -0.5,
-//           x: 0.3
-//         },
-//         xaxis: {
-//           autotick: false,
-//           tickfont: { size: 10, family: "proxima-nova, sans-serif" }
-//         },
-//         yaxis: {
-//           autotick: false,
-//           tick0: 0,
-//           dtick: 0.05
-//         }
-//       };
-//       Plotly.newPlot("fatalities100VMT", data, layout);
-//       })
-// }
+
 //Signal Condition Bar Stacked Chart
 function signalsPlotlyChart() {
   fetch(
-    "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_cqny-q9v6_filter_1.json"
+    "/wadocuments/data/strategic_direction/Preserve_Infrastructure/Graph_10_Signal_Condition.json"
   )
     .then(function(response) {
       return response.json();
@@ -1041,8 +956,8 @@ function signalsPlotlyChart() {
       var x = new Array();
       var y = new Array();
       for (var i = 0; i < j.length; i++) {
-        x.push(parseInt(j[i]["year"]));
-        y.push(parseFloat(j[i]["percent_good_all"]));
+        x.push(parseInt(j[i]["Year"]));
+        y.push(parseFloat(j[i]["% Good"]));
       }
       var good = {
         x: x,
@@ -1053,7 +968,7 @@ function signalsPlotlyChart() {
       };
       y = [];
       for (var i = 0; i < j.length; i++) {
-        y.push(parseFloat(j[i]["percent_average_all"]));
+        y.push(parseFloat(j[i]["% Average"]));
       }
       var avg = {
         x: x,
@@ -1064,7 +979,7 @@ function signalsPlotlyChart() {
       };
       y = [];
       for (var i = 0; i < j.length; i++) {
-        y.push(parseFloat(j[i]["percent_poor_all"]));
+        y.push(parseFloat(j[i]["% Poor"]));
       }
       var poor = {
         x: x,
@@ -1183,14 +1098,14 @@ function drawZFCharts() {
               easing: "easeOutCirc",
               onComplete: function() {
                 var chartInstance = this.chart,
-                  ctx = chartInstance.ctx;
-                ctx.textAlign = "center";
-                ctx.textBaseline = "bottom";
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "bottom";
                 this.data.datasets.forEach(function(dataset, i) {
                   var meta = chartInstance.controller.getDatasetMeta(i);
                   meta.data.forEach(function(bar, index) {
-                    var data = dataset.data[index];
-                    ctx.fillText(data, bar._model.x, bar._model.y + 20);
+                      var data = dataset.data[index];
+                      ctx.fillText(data, bar._model.x, bar._model.y + 20);
                   });
                 });
               }
@@ -1218,138 +1133,183 @@ function drawZFCharts() {
             data: linechartData,
             options: chartOptions
           });
-        //third fetch for billion vmt statewide & total fatalities per 100m vmt
-        url =
-        "/wadocuments/data/strategic_direction/zero_fatalities/graph_99_fatalities_and_vmt.json";
-        fetch(url)
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(j) {
-            var billionVMTData = [];
-            var fatalities100mData = [];
-            var years = [];
-            for (var i = 0; i < j.length; i++) {
-              years.push(j[i]["Year"]);
-              billionVMTData.push(parseInt(j[i]["BillionVMTStatewide"]));
-              fatalities100mData.push(Math.round(j[i]["FatalitiesPer100MVMT"] * 100) / 100);
-            }
-            var billionVMT = document.getElementById("billionvmt");
-            var fatalities100m = document.getElementById("fatalities100m");
-            Chart.defaults.global.defaultFontFamily = "proxima-nova, sans-serif";
-            Chart.defaults.global.defaultFontSize = 14;
-            var billionVMTLineChartData = {
-              labels: years,
-              datasets: [
-                {
-                  data: billionVMTData,
-                  borderColor: "#5a87c5",
-                  fill: false,
-                  backgroundColor: "#000"
-                }
-              ]
-            };
-            var fatalities100mLineChartData = {
-              labels: years,
-              datasets: [
-                {
-                  data: fatalities100mData,
-                  borderColor: "#5a87c5",
-                  fill: false,
-                  backgroundColor: "#000"
-                }
-              ]
-            };
-            var regularChartStyle = {
-              responsive: true,
-              animation: {
-                duration: 3000,
-                animateScale: true,
-                animateRotate: true,
-                easing: "easeOutCirc",
-                onComplete: function() {
-                  var chartInstance = this.chart,
-                  ctx = chartInstance.ctx;
-                  ctx.textAlign = "center";
-                  ctx.textBaseline = "bottom";
-                  this.data.datasets.forEach(function(dataset, i) {
-                    var meta = chartInstance.controller.getDatasetMeta(i);
-                    meta.data.forEach(function(bar, index) {
-                      var data = dataset.data[index];
-                      ctx.fillText(data, bar._model.x, bar._model.y + 20);
-                    });
-                  });
-                }
-              },
-              legend: {
-                display: false
-              },
-              maintainAspectRatio: false,
-              scales: {
-                yAxes: [
+          //third fetch for billion vmt statewide & total fatalities per 100m vmt
+          url =
+          "/wadocuments/data/strategic_direction/zero_fatalities/graph_99_fatalities_and_vmt.json";
+          fetch(url)
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(j) {
+              var billionVMTData = [];
+              var fatalities100mData = [];
+              var fatalitiesData = [];
+              var years = [];
+              for (var i = 0; i < j.length; i++) {
+                years.push(j[i]["Year"]);
+                billionVMTData.push(parseInt(j[i]["BillionVMTStatewide"]));
+                fatalitiesData.push(parseInt(j[i]["Fatalities"]));
+                fatalities100mData.push(Math.round(j[i]["FatalitiesPer100MVMT"] * 100) / 100);
+              }
+              var billionVMT = document.getElementById("billionvmt");
+              var fatalities100m = document.getElementById("fatalities100m");
+              Chart.defaults.global.defaultFontFamily = "proxima-nova, sans-serif";
+              Chart.defaults.global.defaultFontSize = 14;
+              var billionVMTLineChartData = {
+                labels: years,
+                datasets: [
                   {
-                    display: true,
-                    ticks: {
-                      beginAtZero: true,
-                      steps: 10,
-                      stepValue: 5,
-                      max: 100
-                    }
+                    data: billionVMTData,
+                    borderColor: "#5a87c5",
+                    fill: false,
+                    backgroundColor: "#000"
                   }
                 ]
-              }
-            };
-            var decimalChartStyle = {
-              responsive: true,
-              animation: {
-                duration: 3000,
-                animateScale: true,
-                animateRotate: true,
-                easing: "easeOutCirc",
-                onComplete: function() {
-                  var chartInstance = this.chart,
-                  ctx = chartInstance.ctx;
-                  ctx.textAlign = "center";
-                  ctx.textBaseline = "bottom";
-                  this.data.datasets.forEach(function(dataset, i) {
-                    var meta = chartInstance.controller.getDatasetMeta(i);
-                    meta.data.forEach(function(bar, index) {
-                      var data = dataset.data[index];
-                      ctx.fillText(data, bar._model.x, bar._model.y + 20);
+              };
+              // var fatalities100mLineChartData = {
+              //   labels: years,
+              //   datasets: [
+              //     {
+              //       data: fatalities100mData,
+              //       borderColor: "#5a87c5",
+              //       fill: false,
+              //       backgroundColor: "#000"
+              //     }
+              //   ]
+              // };
+              // var fatalitiesBarChartData = {
+              //   labels: years,
+              //   datasets: [
+              //     {
+              //       data: fatalitiesData,
+              //       borderColor: "#5a87c5",
+              //       fill: false,
+              //       backgroundColor: "#000"
+              //     }
+              //   ]
+              // };
+              var regularChartLayout = {
+                responsive: true,
+                animation: {
+                  duration: 3000,
+                  animateScale: true,
+                  animateRotate: true,
+                  easing: "easeOutCirc",
+                  onComplete: function() {
+                    var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "bottom";
+                    this.data.datasets.forEach(function(dataset, i) {
+                      var meta = chartInstance.controller.getDatasetMeta(i);
+                      meta.data.forEach(function(bar, index) {
+                        var data = dataset.data[index];
+                        ctx.fillText(data, bar._model.x, bar._model.y + 20);
+                      });
                     });
-                  });
-                }
-              },
-              legend: {
-                display: false
-              },
-              maintainAspectRatio: false,
-              scales: {
-                yAxes: [
-                  {
-                    display: true,
-                    ticks: {
-                      beginAtZero: true,
-                      steps: 10,
-                      stepSize: .5,
-                      precision:.01,
-                      max: 2
-                    }
                   }
-                ]
-              }
-            };
-            new Chart(billionVMT, {
-              type: "line",
-              data: billionVMTLineChartData,
-              options: regularChartStyle
+                },
+                legend: {
+                  display: false
+                },
+                maintainAspectRatio: false,
+                scales: {
+                  yAxes: [
+                    {
+                      display: true,
+                      ticks: {
+                        beginAtZero: true,
+                        steps: 10,
+                        stepValue: 5,
+                        max: 100
+                      }
+                    }
+                  ]
+                }
+              };
+              var multipleYAxisLayout = {
+                responsive: true,
+                animation: {
+                  duration: 3000,
+                  animateScale: true,
+                  animateRotate: true,
+                  easing: "easeOutCirc",
+                  onComplete: function() {
+                    var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "bottom";
+                    this.data.datasets.forEach(function(dataset, i) {
+                      var meta = chartInstance.controller.getDatasetMeta(i);
+                      meta.data.forEach(function(bar, index) {
+                        var data = dataset.data[index];
+                        ctx.fillText(data, bar._model.x, bar._model.y + 20);
+                      });
+                    });
+                  }
+                },
+                legend: {
+                  display: false
+                },
+                maintainAspectRatio: false,
+                 scales: {
+                   yAxes: [
+                     {
+                       display: true,
+                       position: 'left',
+                       id: 'fatalities',
+                       ticks: {
+                        beginAtZero: true,
+                        max: 400
+                       }
+                     },
+                     {
+                      display: true,
+                      position: 'right',
+                      id: 'fatalities100mVMT',
+                      ticks: {
+                       beginAtZero: true,
+                       steps: 10,
+                       stepSize: .5,
+                       precision:.01,
+                       max: 1
+                      }
+                    }
+                   ]
+                 }
+              };
+              new Chart(billionVMT, {
+                type: "line",
+                data: billionVMTLineChartData,
+                options: regularChartLayout
+              })
+              new Chart(fatalities100m, {
+                type: "bar",
+                options: multipleYAxisLayout,
+                data: {
+                  datasets:[
+                  {
+                    label: 'Fatalities per 100M VMT',
+                    data: fatalities100mData,
+                    type: 'line',
+                    borderColor: "#5a87c5",
+                    fill: false,
+                    backgroundColor: "#000",
+                    yAxisID: 'fatalities100mVMT'
+                  },
+                  {
+                    label:'Fatalities',
+                    data: fatalitiesData,
+                    borderColor: "#5a87c5",
+                    fill: false,
+                    backgroundColor: "#eb7523",
+                    yAxisID: 'fatalities'
+                  }
+                 ],
+                 labels: years
+                }
+              })
             })
-            new Chart(fatalities100m, {
-              type: "line",
-              data: fatalities100mLineChartData,
-              options: decimalChartStyle
-            })
-          })
           //fourth fetch for stacked KPI Charts charts
           url =
             "/wadocuments/data/strategic_direction/zero_fatalities/graph_01_stacked_bar_chart_statewide_safety_score_as_pct_of_weighting.json";
@@ -1359,20 +1319,20 @@ function drawZFCharts() {
             })
             .then(function(j) {
               var targetMet = [
-                parseFloat(j[0]["percenttargetmet"]),
-                parseFloat(j[1]["percenttargetmet"]),
-                parseFloat(j[2]["percenttargetmet"]),
-                parseFloat(j[3]["percenttargetmet"]),
-                parseFloat(j[4]["percenttargetmet"]),
-                parseFloat(j[5]["percenttargetmet"])
+                Math.round(parseFloat(j[0]["percenttargetmet"])),
+                Math.round(parseFloat(j[1]["percenttargetmet"])),
+                Math.round(parseFloat(j[2]["percenttargetmet"])),
+                Math.round(parseFloat(j[3]["percenttargetmet"])),
+                Math.round(parseFloat(j[4]["percenttargetmet"])),
+                Math.round(parseFloat(j[5]["percenttargetmet"]))
               ];
               var targetRem = [
-                100 - parseFloat(j[0]["percenttargetmet"]),
-                100 - parseFloat(j[1]["percenttargetmet"]),
-                100 - parseFloat(j[2]["percenttargetmet"]),
-                100 - parseFloat(j[3]["percenttargetmet"]),
-                100 - parseFloat(j[4]["percenttargetmet"]),
-                100 - parseFloat(j[5]["percenttargetmet"])
+                Math.round(100 - parseFloat(j[0]["percenttargetmet"])),
+                Math.round(100 - parseFloat(j[1]["percenttargetmet"])),
+                Math.round(100 - parseFloat(j[2]["percenttargetmet"])),
+                Math.round(100 - parseFloat(j[3]["percenttargetmet"])),
+                Math.round(100 - parseFloat(j[4]["percenttargetmet"])),
+                Math.round(100 - parseFloat(j[5]["percenttargetmet"]))
               ];
               var kpiChartData = {
                 labels: [
@@ -1402,7 +1362,21 @@ function drawZFCharts() {
                 data: kpiChartData,
                 options: {
                   scales: {
-                    xAxes: [{ stacked: true, ticks: { fontSize: 9 } }],
+                    xAxes: [{ 
+                      stacked: true,
+                      ticks: { 
+                        fontSize: 9,
+                        autoSkip: false, 
+                        maxRotation: 0,
+                        callback: function(label) {
+                          if (/\s/.test(label)) {
+                            return label.split(" ");
+                          }else{
+                            return label;
+                          }              
+                        }
+                      }  
+                    }],
                     yAxes: [{ stacked: true }]
                   },
                   responsive: true,
@@ -1414,6 +1388,7 @@ function drawZFCharts() {
                   },
                   maintainAspectRatio: false,
                   legend: {
+                    display: false,
                     position: "bottom",
                     labels: {
                       boxWidth: 20
@@ -1746,13 +1721,13 @@ function zeroFatalitiesPM(region) {
 //Optimize Mobility
 function drawOMCharts() {
   var url =
-    "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_rqv9-ry2j_filter_3.json";
+    "/wadocuments/data/strategic_direction/Optimize_Mobility/SD_Optimize_Mobility_Graph_2.json";
   fetch(url)
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-      var dataIndex = data[0].mobility;
+      var dataIndex = data[0].MOBILITY;
       var indexLabel = ["", "Mobility Index"];
       var config = {
         type: "doughnut",
@@ -1781,7 +1756,7 @@ function drawOMCharts() {
               text: dataIndex + "%",
               color: "#000000", // Default is #000000
               fontStyle: "proxima-nova, sans-serif", // Default is Arial
-              sidePadding: 20 // Defualt is 20 (as a percentage)
+              sidePadding: 20 // Default is 20 (as a percentage)
             }
           }
         }
@@ -1792,7 +1767,7 @@ function drawOMCharts() {
       var myChart = new Chart(ctx, config);
       //Second fetch for historical line charts
       url =
-        "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_b8iq-pg44_filter_1.json";
+        "/wadocuments/data/strategic_direction/Optimize_Mobility/SD_Optimize_Mobility_Graph_3.json";
       fetch(url)
         .then(function(response) {
           return response.json();
@@ -1801,8 +1776,8 @@ function drawOMCharts() {
           var piData = [];
           var years = [];
           for (var i = 0; i < j.length; i++) {
-            piData.push(parseInt(j[i]["avg_mobility"]));
-            years.push(j[i]["year"]);
+            piData.push(parseInt(j[i]["MOBILITY"]));
+            years.push(j[i]["MY_YEAR"]);
           }
           Chart.defaults.global.defaultFontColor = "#000";
           var omLineChart = document.getElementById("om-line-chart");
@@ -1877,16 +1852,16 @@ function drawOMCharts() {
             })
             .then(function(j) {
               var targetMet = [
-                parseFloat(j[0]["DELAY"]),
-                parseFloat(j[0]["RELIABILITY"]),
-                parseFloat(j[0]["MODE_SPLIT"]),
-                parseFloat(j[0]["SNOW"])
+                Math.round(parseFloat(j[0]["DELAY"])),
+                Math.round(parseFloat(j[0]["RELIABILITY"])),
+                Math.round(parseFloat(j[0]["MODE_SPLIT"])),
+                Math.round(parseFloat(j[0]["SNOW"]))
               ];
               var targetRem = [
-                100 - parseFloat(j[0]["DELAY"]),
-                100 - parseFloat(j[0]["RELIABILITY"]),
-                100 - parseFloat(j[0]["MODE_SPLIT"]),
-                100 - parseFloat(j[0]["SNOW"])
+                Math.round(100 - parseFloat(j[0]["DELAY"])),
+                Math.round(100 - parseFloat(j[0]["RELIABILITY"])),
+                Math.round(100 - parseFloat(j[0]["MODE_SPLIT"])),
+                Math.round(100 - parseFloat(j[0]["SNOW"]))
               ];
               var kpiChartData = {
                 labels: [
@@ -1914,7 +1889,21 @@ function drawOMCharts() {
                 data: kpiChartData,
                 options: {
                   scales: {
-                    xAxes: [{ stacked: true, ticks: { fontSize: 10 } }],
+                    xAxes: [{ 
+                      stacked: true,
+                      ticks: { 
+                        fontSize: 9,
+                        autoSkip: false, 
+                        maxRotation: 0,
+                        callback: function(label) {
+                          if (/\s/.test(label)) {
+                            return label.split(" ");
+                          }else{
+                            return label;
+                          }              
+                        }
+                      }  
+                    }],
                     yAxes: [{ stacked: true }]
                   },
                   responsive: true,
@@ -1926,7 +1915,7 @@ function drawOMCharts() {
                   },
                   maintainAspectRatio: false,
                   legend: {
-                    display: true,
+                    display: false,
                     position: "bottom",
                     labels: {
                       boxWidth: 20
@@ -1976,7 +1965,7 @@ function optimizeMobilityCharts() {
         x: x,
         y: y,
         mode: "lines+markers",
-        line: { shape: "spline" },
+        line: {shape: "spline"},
         type: "scatter",
         name: "Delay"
       };
@@ -1984,7 +1973,7 @@ function optimizeMobilityCharts() {
         x: x,
         y: z,
         mode: "lines+markers",
-        line: { shape: "spline" },
+        line: {shape: "spline"},
         type: "scatter",
         name: "Target"
       };
@@ -2016,7 +2005,7 @@ function optimizeMobilityCharts() {
             x: x,
             y: y,
             mode: "lines+markers",
-            line: { shape: "spline" },
+            line: {shape: "spline"},
             type: "scatter",
             name: "Reliability"
           };
@@ -2025,7 +2014,7 @@ function optimizeMobilityCharts() {
             x: x,
             y: z,
             mode: "lines+markers",
-            line: { shape: "spline" },
+            line: {shape: "spline"},
             type: "scatter",
             name: "Target"
           };
@@ -2076,7 +2065,7 @@ function optimizeMobilityCharts() {
               Plotly.newPlot("modeSplit", data, layout);
               //fetch and draw snow and ice carts
               fetch(
-                "/wadocuments/Data/strategic_direction/current_socrata_data_sets_as_of_2019_12_23/socrata_dataset_as_of_2019_12_23_id_mk2b-pz6f_filter_1.json"
+                "/wadocuments/Data/strategic_direction/Optimize_Mobility/graph_07_and_08_snow_and_ice_removal.json"
               )
                 .then(function(response) {
                   return response.json();
@@ -2119,7 +2108,7 @@ function optimizeMobilityCharts() {
                   layout = [];
                   layout = {
                     xaxis: { type: "category" },
-                    legend: { orientation: "h", y: -0.5, x: 0.3 }
+                    legend: { orientation: "h", y: -0.9, x: 0.3 }
                   };
                   data = [];
                   data = [trace1, trace2];

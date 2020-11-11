@@ -23,6 +23,15 @@
 
       gtag('config', 'UA-16502188-1');
     </script>
+    <style>
+      header.masthead.zf-bg-img{
+        height: auto;
+        padding-bottom: 50px;
+      }
+      div.udot-bg-gray{
+        margin-bottom: 1rem;
+      }
+    </style>
   </head>
   <body id="page-top">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-0" id="sideNav">
@@ -33,7 +42,7 @@
         <ul class="navbar-nav nonmain">
           <a class="nav-link js-scroll-trigger p-0 overlay-container" href="index.html"><li class="nav-item home overlaytext">Home</li></a>
           <a class="nav-link js-scroll-trigger p-0 overlay-container" href="zero-fatalities.html"><li class="nav-item zero-fatalities overlaytext">Zero Fatalities</li></a>
-          <a class="nav-link js-scroll-trigger p-0 overlay-container" href="#page-top"><li class="nav-item optimize-mobility overlaytext">Optimize Mobility</li></a>
+          <a class="nav-link js-scroll-trigger p-0 overlay-container" href="optimize-mobility.html"><li class="nav-item optimize-mobility overlaytext">Optimize Mobility</li></a>
           <a class="nav-link js-scroll-trigger p-0 overlay-container" href="preserve-infrastructure.html"><li class="nav-item infrastructure overlaytext">Preserve Infrastructure</li></a>
           <a class="nav-link js-scroll-trigger p-0 overlay-container" href="#strategies"><li class="nav-item strategies overlaytext">Strategies</li></a>
           <a class="nav-link js-scroll-trigger p-0 overlay-container" href="#performanceMeasures"><li class="nav-item performance-measures overlaytext">Performance Measures</li></a>
@@ -84,17 +93,6 @@
                       </div>
                     </div>
                   </div>
-                  
-                  <div class="col-sm-12 h-50">
-                    <div class="card udot-bg-gray h-100">
-                      <div class="card-body h-100 p-0">
-                        <h6>Total Fatalities Per 100M VMT</h6>
-                        <div class="goal-chart-container">
-                            <canvas id="fatalities100m"></canvas>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <div class="col-sm-6 text-center pl-0">
                   <div class="card udot-bg-gray p-0">
@@ -105,6 +103,16 @@
                       </div>
                     </div>
                   </div>
+                  <div class="col-sm-12 h-50">
+                      <div class="card udot-bg-gray">
+                        <div class="card-body h-100 p-0">
+                          <h6>Total Fatalities Per 100M VMT</h6>
+                          <div class="goal-chart-container">
+                              <canvas id="fatalities100m"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
           </div>
