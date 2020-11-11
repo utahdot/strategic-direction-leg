@@ -1009,9 +1009,21 @@ function atmsOperationalChart() {
         },
         xaxis: { autotick: false, tickfont: { size: 10 } }
       };
-      Plotly.newPlot("atmsOperationalChart", data, layout, {
-        responsive: true
-      });
+
+      // layout for a second copy of the chart with the target
+      var layoutWithTarget = {
+        title: 'ATMS',
+        legend: {
+          orientation: "h",
+          y: -0.5,
+          x: 0.3
+        },
+        xaxis: { autotick: false, tickfont: { size: 10 } }
+      };
+
+
+      Plotly.newPlot("atmsOperationalChart", data, layout, {responsive: true});
+      Plotly.newPlot("atmsOperationalChartWithTarget", data, layoutWithTarget, {responsive: true});
     });
 }
 
@@ -1062,6 +1074,18 @@ function signalsPlotlyChart() {
       var data = [good, avg, poor];
       var layout = {
         barmode: "stack",
+        legend: {
+          orientation: "h",
+          y: -0.5,
+          x: 0.3
+        },
+        xaxis: { autotick: false, tickfont: { size: 10 } }
+      };
+
+      // layout for a second copy of the chart with the target
+      var layoutWithTarget = {
+        title: 'SIGNAL CONDITION',
+        barmode: "stack",
         shapes: [
           {
             type: "line",
@@ -1080,7 +1104,9 @@ function signalsPlotlyChart() {
         },
         xaxis: { autotick: false, tickfont: { size: 10 } }
       };
+
       Plotly.newPlot("signalsPlotlyChart", data, layout, { responsive: true });
+      Plotly.newPlot("signalsPlotlyChartWithTarget", data, layoutWithTarget, { responsive: true });
     });
 }
 //Chart for individual goal pages
