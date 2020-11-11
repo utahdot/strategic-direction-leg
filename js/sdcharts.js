@@ -820,26 +820,40 @@ function bridgeConditionChart() {
         }
       };
       var data = [nhs];
+
       var layout = {
         title: "NHS BHI",
-        // shapes: [
-        //   {
-        //     type: "line",
-        //     xref: "paper",
-        //     x0: 0,
-        //     y0: 100,
-        //     x1: 1,
-        //     y1: 100
-        //     line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
-        //   }
-        // ],
         yaxis: { range: [50, 100] },
         xaxis: {
           autotick: false,
           tickfont: { size: 10 }
         }
       };
+
+      // layout for a second copy of the chart with the target
+      var layoutWithTarget = {
+        title: "NHS BHI",
+        shapes: [
+          {
+            type: "line",
+            xref: "paper",
+            x0: 0,
+            y0: 85,
+            x1: 1,
+            y1: 85,
+            line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
+          }
+        ],
+        yaxis: { range: [50, 100] },
+        xaxis: {
+          autotick: false,
+          tickfont: { size: 10 }
+        }
+      };
+
       Plotly.newPlot("nhsBridgeCondition", data, layout, { responsive: true });
+      Plotly.newPlot("nhsBridgeConditionWithTarget", data, layoutWithTarget, { responsive: true });
+
       y = [];
       for (var i = 0; i < j.length; i++) {
         y.push(parseFloat(j[i]["STATE_INV_AVG"]));
@@ -870,26 +884,35 @@ function bridgeConditionChart() {
       };
       data = [];
       data = [state];
-      layout = [];
+
       layout = {
         title: "State BHI",
-        // shapes: [
-        //   {
-        //     type: "line",
-        //     xref: "paper",
-        //     x0: 0,
-        //     y0: 100,
-        //     x1: 1,
-        //     y1: 100
-        //     line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
-        //   }
-        // ],
         yaxis: { range: [50, 100] },
         xaxis: { autotick: false, tickfont: { size: 10 } }
       };
-      Plotly.newPlot("stateBridgeCondition", data, layout, {
-        responsive: true
-      });
+
+      // layout for a second copy of the chart with the target
+      layoutWithTarget = {
+        title: "State BHI",
+        shapes: [
+          {
+            type: "line",
+            xref: "paper",
+            x0: 0,
+            y0: 80,
+            x1: 1,
+            y1: 80,
+            line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
+          }
+        ],
+        yaxis: { range: [50, 100] },
+        xaxis: { autotick: false, tickfont: { size: 10 } }
+      };
+
+      Plotly.newPlot("stateBridgeCondition", data, layout, {responsive: true});
+      Plotly.newPlot("stateBridgeConditionWithTarget", data, layoutWithTarget, {responsive: true});
+
+
       y = [];
       for (var i = 0; i < j.length; i++) {
         y.push(parseFloat(j[i]["LOC_COMBINED_AVG"]));
@@ -920,24 +943,34 @@ function bridgeConditionChart() {
       };
       data = [];
       data = [local];
-      layout = [];
+
       layout = {
         title: "Local Governments BHI",
-        // shapes: [
-        //   {
-        //     type: "line",
-        //     xref: "paper",
-        //     x0: 0,
-        //     y0: 100,
-        //     x1: 1,
-        //     y1: 100
-        //     line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
-        //   }
-        // ],
         yaxis: { range: [50, 100] },
         xaxis: { autotick: false, tickfont: { size: 10 } }
       };
+
+      // layout for a second copy of the chart with the target
+      layoutWithTarget = {
+        title: "Local Governments BHI",
+        shapes: [
+          {
+            type: "line",
+            xref: "paper",
+            x0: 0,
+            y0: 75,
+            x1: 1,
+            y1: 75,
+            line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
+          }
+        ],
+        yaxis: { range: [50, 100] },
+        xaxis: { autotick: false, tickfont: { size: 10 } }
+      };
+
+
       Plotly.newPlot("lgBridgeCondition", data, layout, { responsive: true });
+      Plotly.newPlot("lgBridgeConditionWithTarget", data, layoutWithTarget, { responsive: true });
     });
 }
 
