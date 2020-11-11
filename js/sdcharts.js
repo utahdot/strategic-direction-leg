@@ -620,17 +620,33 @@ function pavementPlotlyChartLV2() {
       var layout = {
         title: "Low Volume Pavement",
         barmode: "stack",
-        // shapes: [
-        //   {
-        //     type: "line",
-        //     xref: "paper",
-        //     x0: 0,
-        //     y0: 80,
-        //     x1: 1,
-        //     y1: 80,
-        //     line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
-        //   }
-        // ],
+        legend: {
+          showlegend: true,
+          legend: { orientation: "h" },
+          y: -0.5,
+          x: 0.3
+        },
+        xaxis: {
+          autotick: false,
+          tickfont: { size: 10 }
+        }
+      };
+
+      // layout for a second copy of the chart with the target
+      var layoutWithTarget = {
+        title: "Low Volume Pavement",
+        barmode: "stack",
+        shapes: [
+          {
+            type: "line",
+            xref: "paper",
+            x0: 0,
+            y0: 80,
+            x1: 1,
+            y1: 80,
+            line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
+          }
+        ],
         legend: {
           showlegend: true,
           legend: { orientation: "h" },
@@ -643,6 +659,7 @@ function pavementPlotlyChartLV2() {
         }
       };
       Plotly.newPlot("pavementPlotlyChartLV", data, layout, { responsive: true });
+      Plotly.newPlot("pavementPlotlyChartLVwithTarget", data, layoutWithTarget, { responsive: true });
     });
 }
 
@@ -716,17 +733,6 @@ function pavementPlotlyChartHV2() {
       var layout = {
         title: "High Volume Pavement",
         barmode: "stack",
-        // shapes: [
-        //   {
-        //     type: "line",
-        //     xref: "paper",
-        //     x0: 0,
-        //     y0: 95,
-        //     x1: 1,
-        //     y1: 95,
-        //     line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
-        //   }
-        // ],
         legend: {
           showlegend: true,
           legend: { orientation: "h" },
@@ -738,8 +744,37 @@ function pavementPlotlyChartHV2() {
           tickfont: { size: 10 }
         }
       };
+
+      // layout for a second copy of the chart with the target
+      var layoutWithTarget = {
+        title: "High Volume Pavement",
+        barmode: "stack",
+        shapes: [
+          {
+            type: "line",
+            xref: "paper",
+            x0: 0,
+            y0: 95,
+            x1: 1,
+            y1: 95,
+            line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
+          }
+        ],
+        legend: {
+          showlegend: true,
+          legend: { orientation: "h" },
+          y: -0.5,
+          x: 0.3
+        },
+        xaxis: {
+          autotick: false,
+          tickfont: { size: 10 }
+        }
+      };
+
       // console.log(data);
       Plotly.newPlot("pavementPlotlyChartHV", data, layout, { responsive: true });
+      Plotly.newPlot("pavementPlotlyChartHVwithTarget", data, layoutWithTarget, { responsive: true });
     });
 }
 
