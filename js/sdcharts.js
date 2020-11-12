@@ -1013,6 +1013,17 @@ function atmsOperationalChart() {
       // layout for a second copy of the chart with the target
       var layoutWithTarget = {
         title: 'ATMS',
+        shapes: [
+          {
+            type: "line",
+            xref: "paper",
+            x0: 0,
+            y0: 95,
+            x1: 1,
+            y1: 95,
+            line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
+          }
+        ],
         legend: {
           orientation: "h",
           y: -0.5,
@@ -1091,9 +1102,9 @@ function signalsPlotlyChart() {
             type: "line",
             xref: "paper",
             x0: 0,
-            y0: 100,
+            y0: 95,
             x1: 1,
-            y1: 100,
+            y1: 95,
             line: { color: "rgb(255,0,0)", wdith: 4, dash: "dot" }
           }
         ],
