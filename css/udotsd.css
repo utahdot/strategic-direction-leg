@@ -177,7 +177,7 @@ p.lead {
 }
 #sideNav .navbar-collapse .navbar-nav li.nav-item{
   font-size: 1.5em;
-  height: 19.999vh;
+  height: 16.7vh;
   font-weight: 900;
   text-transform: uppercase;
   color: #ccc;
@@ -592,16 +592,11 @@ section.udotsd-section .udotsd-item .udotsd-date {
   max-width:100%;
 }
 .modal.storiesmodal img{
-  max-width: 48%;
-  padding: 0 5%;
-  float: left;
+  width: 100%;
 }
 .modal.storiesmodal ul{
   list-style-type: none;
   max-width: 45%;
-}
-.modal.storiesmodal ul li span{
-  font-weight: 900;
 }
 .modal.storiesmodal div.footerlogos{
   display: flex;
@@ -610,10 +605,6 @@ section.udotsd-section .udotsd-item .udotsd-date {
   float: none;
   width: 20%;
   align-self: center;
-}
-.modal.storiesmodal.facilities img{
-  width:35%;
-  padding:5px;
 }
 .modal.storiesmodal.facilities div.collage{
   display: flex;
@@ -625,25 +616,11 @@ section.udotsd-section .udotsd-item .udotsd-date {
 }
 .modal.storiesmodal.facilities div.collage img{
   align-self:center;
+  width:35%;
+  padding:5px;
 }
 .modal.storiesmodal.facilities div.collage p:last-child{
   width: 100%;
-}
-.modal.storiesmodal.connectedautomonous p{
-  clear: both;
-}
-.modal.storiesmodal.portsofentry img{
-  max-width: none;
-  width: 100%;
-  padding: 10px;
-}
-.modal.storiesmodal.portsofentry ul{
-  list-style-type: disc;
-  max-width: none;
-  width: 100%;
-}
-.modal.storiesmodal.portsofentry div.col-12.text-dark{
-  columns: 2;
 }
 .modal.storiesmodal.intelligenttransport div.lists img{
   height: 110px;
@@ -673,6 +650,30 @@ section.udotsd-section .udotsd-item .udotsd-date {
 .modal.storiesmodal.intelligenttransport div.lists ul{
   float: left;
 }
+/* .modal.storiesmodal img{
+  max-width: 48%;
+  padding: 0 5%;
+  float: left;
+}
+.modal.storiesmodal ul li span{
+  font-weight: 900;
+}
+.modal.storiesmodal.connectedautomonous p{
+  clear: both;
+}
+.modal.storiesmodal.portsofentry img{
+  max-width: none;
+  width: 100%;
+  padding: 10px;
+}
+.modal.storiesmodal.portsofentry ul{
+  list-style-type: disc;
+  max-width: none;
+  width: 100%;
+}
+.modal.storiesmodal.portsofentry div.col-12.text-dark{
+  columns: 2;
+}
 .modal.storiesmodal.roadusage div.col-12.text-dark{
   columns: 3;
 }
@@ -684,7 +685,7 @@ section.udotsd-section .udotsd-item .udotsd-date {
 .modal.storiesmodal.roadusage p{
   display: inline-block;
   padding: 20px 0;
-}
+} */
 #edModal.modal .modal-body img{
   float: right;
   width: 30%;
@@ -943,14 +944,18 @@ div.row.initiatives div.card.udot-bg-black{
   margin: 0 2%;
   background-color: #000;
 }
-div.row.initiatives div.card.udot-bg-black img{
+div.row.initiatives div.card.udot-bg-black img.card-img{
   height: 100%;
   border-radius: 0;
+  opacity: .4;
 }
-div.row.initiatives div.card.udot-bg-black div.card-img-overlay#ructitle{
+div.row.initiatives div.card.udot-bg-black img.card-img[src="img/self-driving-car-01.jpg"]{
+  opacity: 1;
+}
+/* div.row.initiatives div.card.udot-bg-black div.card-img-overlay#ructitle{
   background-image: url("../img/logo-rucutah.svg");
   background-repeat: no-repeat;
-}
+} */
 img[src="img/rucutah.jpg"]{
   opacity: .3;
 }
@@ -1282,6 +1287,10 @@ div.col-lg-6 div.card.h-100 div.hvlvchartdescription{
 }
 div.col-lg-6 div.card.h-100 div.hvlvchartdescription p{
   padding: 20px;
+}
+div.vmtbox div.goal-chart-container{
+  height: 350px;
+  position: relative;
 }
 @-webkit-keyframes sdb03 {
   0% {

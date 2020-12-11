@@ -367,7 +367,7 @@ function drawPICharts() {
           },
           elements: {
             center: {
-              text: dataIndex + "%",
+              text: Math.round(dataIndex) + "%",
               color: "#000000", // Default is #000000
               fontStyle: "proxima-nova, sans-serif", // Default is Arial
               sidePadding: 20 // Defualt is 20 (as a percentage)
@@ -390,11 +390,23 @@ function drawPICharts() {
         })
         .then(function(j) {
           var piData = [];
-          //var piData = [89.4, 89.4, 89.8, 90, 90.1, 90.4, 90.5];
-
+          var piDataNew = [] ;
           var years = [];
+
           for (var i = 0; i < j.length; i++) {
-            piData.push(parseInt(j[i]["INFRASTRUCTURE"]));
+            if(parseInt(j[i]["MY_YEAR"]) <= 2018){
+              piData.push(parseInt(j[i]["INFRASTRUCTURE"]));
+              if(parseInt(j[i]["MY_YEAR"]) == 2018){
+                piDataNew.push(parseInt(j[i]["INFRASTRUCTURE"]));
+              }
+              else{
+                piDataNew.push(null);
+              }
+            }
+            else{
+              piData.push(null);
+              piDataNew.push(parseInt(j[i]["INFRASTRUCTURE"]));
+            }
             years.push(j[i]["MY_YEAR"]);
           }
           var piLineChart = document.getElementById("pi-line-chart");
@@ -409,6 +421,14 @@ function drawPICharts() {
                 borderColor: "#5a87c5",
                 fill: false,
                 backgroundColor: "#000"
+              },
+              {
+                label: "Infrastructure Index",
+                data: piDataNew,
+                borderColor: "#f00",
+                fill: false,
+                backgroundColor: "#000",
+                borderDash: [10,5]
               }
             ]
           };
@@ -1156,7 +1176,7 @@ function drawZFCharts() {
           },
           elements: {
             center: {
-              text: dataIndex + "%",
+              text: Math.round(dataIndex) + "%",
               color: "#000000", // Default is #000000
               fontStyle: "proxima-nova, sans-serif", // Default is Arial
               sidePadding: 20 // Defualt is 20 (as a percentage)
@@ -1861,7 +1881,7 @@ function drawOMCharts() {
           },
           elements: {
             center: {
-              text: dataIndex + "%",
+              text: Math.round(dataIndex) + "%",
               color: "#000000", // Default is #000000
               fontStyle: "proxima-nova, sans-serif", // Default is Arial
               sidePadding: 20 // Default is 20 (as a percentage)

@@ -70,6 +70,7 @@
                         <div class="goal-chart-container">
                             <canvas id="pi-line-chart"></canvas>
                         </div>
+                        <p>In 2019, the methods for this calculation were changed to indicate the condition of the assets instead of how well the asset condition targets were met.</p>
                       </div>
                     </div>
                   </div>
@@ -87,211 +88,6 @@
             </div>
           </div>
         </header>
-      <hr class="m-0">
-      <!--Strategies Section wit Tabs -->
-      <section class="udotsd-section d-flex flex-column udot-bg-2 position-relative" id="strategies">
-        <!--Section wrapper -->
-        <div class="my-auto w-100">
-          <!--Strategies First row-->
-          <div class="container-fluid text-center" id="strategies-tabs">
-            <div class="content-section-heading">
-                <h2 class="mb-1 text-center font-weight-bold">Strategies</h2>
-            </div>
-            <ul class="nav mb-3 nav-fill" id="pills-tab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="pills-pavement-tab" data-toggle="pill" href="#pills-pavement" role="tab" aria-controls="pills-pavement" aria-selected="true">
-                  <h4 class="text-transform-none py-4 text-primary">Pavement Management</h4>
-                  <div class="slide-me-up"><div class="slide-me-text">Pavement Management Strategies</div></div>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="pills-bridge-tab" data-toggle="pill" href="#pills-bridge" role="tab" aria-controls="pills-bridge" aria-selected="false">
-                  <h4 class="text-transform-none py-4 text-primary">Bridge Management</h4>
-                  <div class="slide-me-up"><div class="slide-me-text">Bridge Management Strategies</div></div>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="pills-trafsigs-tab" data-toggle="pill" href="#pills-trafsigs" role="tab" aria-controls="pills-trafsigs" aria-selected="false">
-                  <h4 class="text-transform-none py-3 text-primary">Signals &amp; Advanced<br>Traffic Management Systems</h4>
-                  <div class="slide-me-up"><div class="slide-me-text">Traffic Signals &amp; ATMS Management Strategies</div></div>
-                </a>
-              </li>
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-              <div class="tab-pane fade show active" id="pills-pavement" role="tabpanel" aria-labelledby="pills-pavement-tab">
-                <div class="row">
-                  <div class="col-12">
-                    <h4 class="text-center">Pavement Management</h4>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="card h-100">
-                      <div class="card-body thumb-img-wrapper p-0">
-                        <p class="card-text text-left lead-lg p-2">Under the philosophy, “good roads cost less,” UDOT manages more than 16,000 lane miles of pavement throughout the state. We take a proactive approach to preserve and rehabilitate these vital assets to avoid <a href="" class="position-relative thumb-image" data-toggle="modal" data-target="#goodRoads">costly reconstruction treatments.<img src="img/pavement-mangement.png"></a> Pavement is prioritized in two categories based on the volume of daily vehicle usage and the volume of freight:</p>
-                        <ul class="card-text text-left lead">
-                          <li>High volume system: Interstate (such as I-15 or I-80), most of our National Highway System and other roads experiencing over 1,000 vehicles a day.
-                              These roads carry 98 percent of traffic so our goal is to maintain the current condition levels with over 60 percent in good condition and less than 5 percent in poor condition.
-                              Pavement centerline miles are used to determine the percentages for Good, Fair, and Poor.</li>
-
-
-                          <div id="pavementPlotlyChartHVwithTarget" style="height: 500px;"></div>
-
-                          <li>Low volume system: Includes roads primarily in the rural portions of our state with less than 1,000 vehicles a day.
-                              Our goal is to improve our current condition levels to previous levels with over 30 percent of mileage in good condition and less than 20 percent in poor condition.
-                              Pavement centerline miles are used to determine the percentages for Good, Fair, and Poor.</li>
-
-                          <div id="pavementPlotlyChartLVwithTarget" style="height: 500px;"></div>
-                        </ul>
-                        <!-- Good Roads Modal -->
-                        <div class="modal fade bd-example-modal-lg" id="goodRoads" tabindex="-1" role="dialog" aria-labelledby="GoodRoadsModal" aria-hidden="true">
-                          <div class="modal-dialog modal-lg modal-dialog-centered">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Good Roads Cost Less</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                <div class="container-fluid">
-                                  <div class="row">
-                                    <div class="col-lg-12">
-                                      <div class="card">
-                                        <img class="card-img-top" src="img/pavement-mangement.png">
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="card h-100">
-                        <img class="card-img-top h-100" src="img/high-volume-low-volume-map.jpg">
-                        <div class="hvlvchartdescription">
-                          <p>High Volume:<br />
-                            &gt; 1000 AADT<br />
-                            Centerline miles - 3,925, 67%<br />
-                            Lane miles - 80%<br />
-                            VMT - 98%<br />
-                            Surface areas - 81%<br />
-                          </p>
-                          <p>
-                            Low Volume:<br />
-                            &lt; 1000 AADT<br />
-                            Centerline miles - 1,955, 33%<br />
-                            Lane miles - 20%<br />
-                            VMT - 2%<br />
-                            Surface areas - 19%<br />
-                          </p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="https://uplan.maps.arcgis.com/apps/Embed/index.html?webmap=ecd00bc32796452d89ecdadc66a53aff&extent=-115.9057,37.9204,-107.7923,41.9125&zoom=true&scale=true&disable_scroll=true&theme=dark" class="card-link" target="_blank">View interactive map</a>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="pills-bridge" role="tabpanel" aria-labelledby="pills-bridge-tab">
-                <div class="row">
-                  <div class="col-12">
-                    <h4 class="text-center">Bridge Management</h4>
-                    <p class="text-center lead-lg p-2">The condition of bridges in our inventory is the envy of the country. We strategically invest our funding to proactively preserve, rehabilitate and reconstruct our structures. UDOT uses the Bridge Health Index (BHI) which measures and tracks the overall structural condition of the three categories of bridges in our system.</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-4">
-                    <div class="card">
-                      <div class="card-body position-relative pb-card h-100">
-                        <div class="content-overlay"></div>
-                        <i class="icon-NHS-bridge fa-10x card-img-top"></i>
-                        <h4 class="card-title">National Highway System</h4>
-                        <div class="content-details fadeIn-bottom">
-                          <p class="content-text lead-lg p-2">National Highway System: Bridges along the Interstate Highway System and roads serving airports, rail or truck terminals, and other facilities.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <div class="card">
-                      <div class="card-body position-relative pb-card h-100">
-                        <div class="content-overlay"></div>
-                        <i class="icon-Utah-bridge fa-10x card-img-top"></i>
-                        <h4 class="card-title">State Owned Bridges</h4>
-                        <div class="content-details fadeIn-bottom">
-                          <p class="content-text lead-lg p-2">State Owned Bridges: These bridges are owned by the state and include pedestrian and rail bridges.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <div class="card">
-                      <div class="card-body position-relative pb-card h-100">
-                        <div class="content-overlay"></div>
-                        <i class="icon-local-bridge fa-10x card-img-top"></i>
-                        <h4 class="card-title">Locally Owned Bridges</h4>
-                        <div class="content-details fadeIn-bottom">
-                          <p class="content-text lead-lg p-2">Locally Owned Bridges: All bridges not owned by state and national system that carry traffic on public routes. </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row col-12" style="margin-top:20px;">
-                    <div style="margin-left:auto;margin-right:auto;">
-                        <div id="nhsBridgeConditionWithTarget" style="width:450px;"></div>
-                    </div>
-                    <div style="margin-left:auto;margin-right:auto;">
-                        <div id="stateBridgeConditionWithTarget", style="width:450px;"></div>
-                    </div>
-                    <div style="margin-left:auto;margin-right:auto;">
-                        <div id="lgBridgeConditionWithTarget", style="width:450px;"></div>
-                    </div>
-                </div>
-
-              </div>
-              <div class="tab-pane fade" id="pills-trafsigs" role="tabpanel" aria-labelledby="pills-trafsigs-tab">
-                <div class="row">
-                  <div class="col-12">
-                    <h4 class="text-center">Signals &amp; Advanced Traffic Management Systems</h4>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="card h-100 my-auto">
-                      <div class="card-body p-0">
-                        <p class="card-text text-left lead-lg p-2">Ongoing monitoring of our traffic signals and advanced traffic management systems ensures consistent reliability and extends the life-cycle of these devices. This proactive approach determines if devices are in good working condition or when they need to be replaced, upgraded, or decommissioned.</p>
-
-                        <div id="atmsOperationalChartWithTarget" style="height: 400px;"></div>
-                        <div id="signalsPlotlyChartWithTarget" style="height: 400px;"></div>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="card h-100 my-auto">
-                        <img class="card-img-top" src="img/traffic signals.jpg">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--./Strategies First Row ends -->
-        </div>
-        <hr class="m-5 no-border">
-        <!--/.Section Wrapper -->
-      </section>
-      <!--./Strategies Section with Tabs end -->
       <hr class="m-0">
       <!-- Section on Performance Measures -->
       <section class="udotsd-section p-3 d-flex flex-column udot-bg-3" id="performanceMeasures">
@@ -412,6 +208,211 @@
         <!--./Section Wrapper -->
       </section>
       <!--./Section on Performance Measures ends -->
+      <hr class="m-0">
+      <!--Strategies Section wit Tabs -->
+      <section class="udotsd-section d-flex flex-column udot-bg-2 position-relative" id="strategies">
+        <!--Section wrapper -->
+        <div class="my-auto w-100">
+          <!--Strategies First row-->
+          <div class="container-fluid text-center" id="strategies-tabs">
+            <div class="content-section-heading">
+                <h2 class="mb-1 text-center font-weight-bold">Strategies</h2>
+            </div>
+            <ul class="nav mb-3 nav-fill" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="pills-pavement-tab" data-toggle="pill" href="#pills-pavement" role="tab" aria-controls="pills-pavement" aria-selected="true">
+                  <h4 class="text-transform-none py-4 text-primary">Pavement Management</h4>
+                  <div class="slide-me-up"><div class="slide-me-text">Pavement Management Strategies</div></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="pills-bridge-tab" data-toggle="pill" href="#pills-bridge" role="tab" aria-controls="pills-bridge" aria-selected="false">
+                  <h4 class="text-transform-none py-4 text-primary">Bridge Management</h4>
+                  <div class="slide-me-up"><div class="slide-me-text">Bridge Management Strategies</div></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="pills-trafsigs-tab" data-toggle="pill" href="#pills-trafsigs" role="tab" aria-controls="pills-trafsigs" aria-selected="false">
+                  <h4 class="text-transform-none py-3 text-primary">Signals &amp; Advanced<br>Traffic Management Systems</h4>
+                  <div class="slide-me-up"><div class="slide-me-text">Traffic Signals &amp; ATMS Management Strategies</div></div>
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="pills-pavement" role="tabpanel" aria-labelledby="pills-pavement-tab">
+                <div class="row">
+                  <div class="col-12">
+                    <h4 class="text-center">Pavement Management</h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="card h-100">
+                      <div class="card-body thumb-img-wrapper p-0">
+                        <p class="card-text text-left lead-lg p-2">Under the philosophy, &quot;good roads cost less,&quot; UDOT manages more than 16,000 lane miles of pavement throughout the state. We take a proactive approach to preserve and rehabilitate these vital assets to avoid <a href="" class="position-relative thumb-image" data-toggle="modal" data-target="#goodRoads">costly reconstruction treatments.<img src="img/pavement-mangement.png"></a> Pavement is prioritized in two categories based on the volume of daily vehicle usage and the volume of freight:</p>
+                        <ul class="card-text text-left lead">
+                          <li>High volume system: Interstate (such as I-15 or I-80), most of our National Highway System and other roads experiencing over 1,000 vehicles a day.
+                              These roads carry 98 percent of traffic so our goal is to maintain the current condition levels with over 60 percent in good condition and less than 5 percent in poor condition.
+                              Pavement centerline miles are used to determine the percentages for Good, Fair, and Poor.</li>
+
+
+                          <div id="pavementPlotlyChartHVwithTarget" style="height: 500px;"></div>
+
+                          <li>Low volume system: Includes roads primarily in the rural portions of our state with less than 1,000 vehicles a day.
+                              Our goal is to improve our current condition levels to previous levels with over 30 percent of mileage in good condition and less than 20 percent in poor condition.
+                              Pavement centerline miles are used to determine the percentages for Good, Fair, and Poor.</li>
+
+                          <div id="pavementPlotlyChartLVwithTarget" style="height: 500px;"></div>
+                        </ul>
+                        <!-- Good Roads Modal -->
+                        <div class="modal fade bd-example-modal-lg" id="goodRoads" tabindex="-1" role="dialog" aria-labelledby="GoodRoadsModal" aria-hidden="true">
+                          <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Good Roads Cost Less</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <div class="card">
+                                        <img class="card-img-top" src="img/pavement-mangement.png">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="img/high-volume-low-volume-map.jpg">
+                        <div class="hvlvchartdescription">
+                          <p>High Volume:<br />
+                            &gt; 1000 AADT<br />
+                            Centerline miles - 3,925, 67%<br />
+                            Lane miles - 80%<br />
+                            VMT - 98%<br />
+                            Surface areas - 81%<br />
+                          </p>
+                          <p>
+                            Low Volume:<br />
+                            &lt; 1000 AADT<br />
+                            Centerline miles - 1,955, 33%<br />
+                            Lane miles - 20%<br />
+                            VMT - 2%<br />
+                            Surface areas - 19%<br />
+                          </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://uplan.maps.arcgis.com/apps/Embed/index.html?webmap=ecd00bc32796452d89ecdadc66a53aff&extent=-115.9057,37.9204,-107.7923,41.9125&zoom=true&scale=true&disable_scroll=true&theme=dark" class="card-link" target="_blank">View interactive map</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="pills-bridge" role="tabpanel" aria-labelledby="pills-bridge-tab">
+                <div class="row">
+                  <div class="col-12">
+                    <h4 class="text-center">Bridge Management</h4>
+                    <p class="text-center lead-lg p-2">The condition of bridges in our inventory is the envy of the country. We strategically invest our funding to proactively preserve, rehabilitate and reconstruct our structures. UDOT uses the Bridge Health Index (BHI) which measures and tracks the overall structural condition of the three categories of bridges in our system.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="card">
+                      <div class="card-body position-relative pb-card h-100">
+                        <div class="content-overlay"></div>
+                        <i class="icon-NHS-bridge fa-10x card-img-top"></i>
+                        <h4 class="card-title">National Highway System</h4>
+                        <div class="content-details fadeIn-bottom">
+                          <p class="content-text lead-lg p-2">National Highway System: Bridges along the Interstate Highway System and roads serving airports, rail or truck terminals, and other facilities.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="card">
+                      <div class="card-body position-relative pb-card h-100">
+                        <div class="content-overlay"></div>
+                        <i class="icon-Utah-bridge fa-10x card-img-top"></i>
+                        <h4 class="card-title">State Owned Bridges</h4>
+                        <div class="content-details fadeIn-bottom">
+                          <p class="content-text lead-lg p-2">State Owned Bridges: These bridges are owned by the state and include pedestrian and rail bridges.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="card">
+                      <div class="card-body position-relative pb-card h-100">
+                        <div class="content-overlay"></div>
+                        <i class="icon-local-bridge fa-10x card-img-top"></i>
+                        <h4 class="card-title">Locally Owned Bridges</h4>
+                        <div class="content-details fadeIn-bottom">
+                          <p class="content-text lead-lg p-2">Locally Owned Bridges: All bridges not owned by state and national system that carry traffic on public routes. </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row col-12" style="margin-top:20px;">
+                    <div style="margin-left:auto;margin-right:auto;">
+                        <div id="nhsBridgeConditionWithTarget" style="width:450px;"></div>
+                    </div>
+                    <div style="margin-left:auto;margin-right:auto;">
+                        <div id="stateBridgeConditionWithTarget", style="width:450px;"></div>
+                    </div>
+                    <div style="margin-left:auto;margin-right:auto;">
+                        <div id="lgBridgeConditionWithTarget", style="width:450px;"></div>
+                    </div>
+                </div>
+
+              </div>
+              <div class="tab-pane fade" id="pills-trafsigs" role="tabpanel" aria-labelledby="pills-trafsigs-tab">
+                <div class="row">
+                  <div class="col-12">
+                    <h4 class="text-center">Signals &amp; Advanced Traffic Management Systems</h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="card h-100 my-auto">
+                      <div class="card-body p-0">
+                        <p class="card-text text-left lead-lg p-2">Ongoing monitoring of our traffic signals and advanced traffic management systems ensures consistent reliability and extends the life-cycle of these devices. This proactive approach determines if devices are in good working condition or when they need to be replaced, upgraded, or decommissioned.</p>
+
+                        <div id="atmsOperationalChartWithTarget" style="height: 400px;"></div>
+                        <div id="signalsPlotlyChartWithTarget" style="height: 400px;"></div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="card h-100 my-auto">
+                        <img class="card-img-top" src="img/traffic signals.jpg">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--./Strategies First Row ends -->
+        </div>
+        <hr class="m-5 no-border">
+        <!--/.Section Wrapper -->
+      </section>
+      <!--./Strategies Section with Tabs end -->
     </div>
     <!-- Bootstrap core JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
