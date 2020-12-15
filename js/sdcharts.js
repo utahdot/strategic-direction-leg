@@ -420,15 +420,15 @@ function drawPICharts() {
                 data: piData,
                 borderColor: "#5a87c5",
                 fill: false,
-                backgroundColor: "#000"
+                backgroundColor: "#000",
+                borderDash: [10,5]
               },
               {
                 label: "Infrastructure Index",
                 data: piDataNew,
-                borderColor: "#f00",
+                borderColor: "#5a87c5",
                 fill: false,
-                backgroundColor: "#000",
-                borderDash: [10,5]
+                backgroundColor: "#000"
               }
             ]
           };
