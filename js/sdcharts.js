@@ -382,8 +382,8 @@ function drawPICharts() {
 
 
       //Second fetch for historical line charts
-       var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
-      //var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
+       //var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
+      var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
       fetch(url)
         .then(function(response) {
           return response.json();
@@ -819,7 +819,6 @@ function bridgeConditionChart() {
         x.push(parseInt(j[i]["YEAR"]));
         y.push(parseFloat(j[i]["NHS_INV_AVG"]));
         if (parseInt(j[i]["YEAR"]) >= 2016) {  // for NHS Bridges only show since 2016
-          x.push(parseInt(j[i]["YEAR"]));
             ynhs.push(parseFloat(j[i]["NHS_INV_AVG"]));
         } else {
             ynhs.push(0);
@@ -884,11 +883,6 @@ function bridgeConditionChart() {
 
       Plotly.newPlot("nhsBridgeCondition", data, layout, { responsive: true });
       Plotly.newPlot("nhsBridgeConditionWithTarget", data, layoutWithTarget, { responsive: true });
-
-      // y = [];
-      // for (var i = 0; i < j.length; i++) {
-      //   y.push(parseFloat(j[i]["STATE_INV_AVG"]));
-      // }
       
       for (var i = 0; i < j.length; i++) {
         x.push(parseInt(j[i]["YEAR"]));
@@ -953,11 +947,6 @@ function bridgeConditionChart() {
 
       Plotly.newPlot("stateBridgeCondition", data, layout, {responsive: true});
       Plotly.newPlot("stateBridgeConditionWithTarget", data, layoutWithTarget, {responsive: true});
-
-      // y = [];
-      // for (var i = 0; i < j.length; i++) {
-      //   y.push(parseFloat(j[i]["LOC_COMBINED_AVG"]));
-      // }
 
       for (var i = 0; i < j.length; i++) {
         x.push(parseInt(j[i]["YEAR"]));
