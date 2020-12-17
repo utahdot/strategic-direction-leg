@@ -814,18 +814,15 @@ function bridgeConditionChart() {
       var ynhs = new Array(); // separate dataset for NHS Bridges, only show since 2016
 
       for (var i = 0; i < j.length; i++) {
-        x.push(parseInt(j[i]["YEAR"]));
-        y.push(parseFloat(j[i]["NHS_INV_AVG"]));
-        if (parseInt(j[i]["YEAR"]) >= 2016) {  // for NHS Bridges only show since 2016
-            ynhs.push(parseFloat(j[i]["NHS_INV_AVG"]));
-        } else {
-            ynhs.push(0);
-        }
+          if (parseInt(j[i]["YEAR"]) >= 2016) {
+              x.push(parseInt(j[i]["YEAR"]));
+              y.push(parseFloat(j[i]["NHS_INV_AVG"]));
+          }
       }
 
       var nhs = {
         x: x,
-        y: ynhs,
+        y: y,
         type: "bar",
         name: "Average BHI of NHS Bridges",
         // text: [
@@ -884,7 +881,9 @@ function bridgeConditionChart() {
 
       y = [];
       for (var i = 0; i < j.length; i++) {
-        y.push(parseFloat(j[i]["STATE_INV_AVG"]));
+          if (parseInt(j[i]["YEAR"]) >= 2016) {
+              y.push(parseFloat(j[i]["STATE_INV_AVG"]));
+          }
       }
       var state = {
         x: x,
@@ -943,7 +942,9 @@ function bridgeConditionChart() {
 
       y = [];
       for (var i = 0; i < j.length; i++) {
-        y.push(parseFloat(j[i]["LOC_COMBINED_AVG"]));
+          if (parseInt(j[i]["YEAR"]) >= 2016) {
+              y.push(parseFloat(j[i]["LOC_COMBINED_AVG"]));
+          }
       }
       var local = {
         x: x,
