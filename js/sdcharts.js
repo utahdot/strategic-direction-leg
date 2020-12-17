@@ -396,7 +396,7 @@ function drawPICharts() {
           for (var i = 0; i < j.length; i++) {
             if(parseInt(j[i]["MY_YEAR"]) <= 2018){
               piData.push(parseInt(j[i]["INFRASTRUCTURE"]));
-              if(parseInt(j[i]["MY_YEAR"]) == 2018){
+              if(parseInt(j[i]["MY_YEAR"]) > 2018){
                 piDataNew.push(parseInt(j[i]["INFRASTRUCTURE"]));
               }
               else{
