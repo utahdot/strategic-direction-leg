@@ -802,7 +802,7 @@ function pavementPlotlyChartHV2() {
 
 //Bridge Plotly Charts
 function bridgeConditionChart() {
-  // var url = "http://www.udot.utah.gov/wadocuments/Data/strategic_direction/Preserve_Infrastructure/Graph_6_thru_8_Bridge_Condition_PreserveInfrastructure.json";
+   //var url = "http://www.udot.utah.gov/wadocuments/Data/strategic_direction/Preserve_Infrastructure/Graph_6_thru_8_Bridge_Condition_PreserveInfrastructure.json";
   var url = "/wadocuments/Data/strategic_direction/Preserve_Infrastructure/Graph_6_thru_8_Bridge_Condition_PreserveInfrastructure.json";
   fetch(url)
     .then(function(response) {
@@ -812,6 +812,8 @@ function bridgeConditionChart() {
       var x = new Array(); //This will contain years in chart
       var y = new Array(); //This will house data but will be reset after each loop
       var ynhs = new Array(); // separate dataset for NHS Bridges, only show since 2016
+      var ystate = new Array();
+      var ylocal = new Array();
 
       for (var i = 0; i < j.length; i++) {
         x.push(parseInt(j[i]["YEAR"]));
@@ -882,13 +884,24 @@ function bridgeConditionChart() {
       Plotly.newPlot("nhsBridgeCondition", data, layout, { responsive: true });
       Plotly.newPlot("nhsBridgeConditionWithTarget", data, layoutWithTarget, { responsive: true });
 
-      y = [];
+      // y = [];
+      // for (var i = 0; i < j.length; i++) {
+      //   y.push(parseFloat(j[i]["STATE_INV_AVG"]));
+      // }
+      
       for (var i = 0; i < j.length; i++) {
+        x.push(parseInt(j[i]["YEAR"]));
         y.push(parseFloat(j[i]["STATE_INV_AVG"]));
+        if (parseInt(j[i]["YEAR"]) >= 2016) {  // for NHS Bridges only show since 2016
+            ystate.push(parseFloat(j[i]["STATE_INV_AVG"]));
+        } else {
+            ystate.push(0);
+        }
       }
+
       var state = {
         x: x,
-        y: y,
+        y: ystate,
         name: "Average BHI of State Bridges",
         // text: [
         //     "Target: 100",
@@ -940,14 +953,24 @@ function bridgeConditionChart() {
       Plotly.newPlot("stateBridgeCondition", data, layout, {responsive: true});
       Plotly.newPlot("stateBridgeConditionWithTarget", data, layoutWithTarget, {responsive: true});
 
+      // y = [];
+      // for (var i = 0; i < j.length; i++) {
+      //   y.push(parseFloat(j[i]["LOC_COMBINED_AVG"]));
+      // }
 
-      y = [];
       for (var i = 0; i < j.length; i++) {
+        x.push(parseInt(j[i]["YEAR"]));
         y.push(parseFloat(j[i]["LOC_COMBINED_AVG"]));
+        if (parseInt(j[i]["YEAR"]) >= 2016) {  // for NHS Bridges only show since 2016
+          ylocal.push(parseFloat(j[i]["LOC_COMBINED_AVG"]));
+        } else {
+          ylocal.push(0);
+        }
       }
+
       var local = {
         x: x,
-        y: y,
+        y: ylocal,
         name: "Average BHI of State Bridges",
         // text: [
         //     "Target: 100",
