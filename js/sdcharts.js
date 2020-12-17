@@ -816,15 +816,14 @@ function bridgeConditionChart() {
       var ylocal = new Array();
 
       for (var i = 0; i < j.length; i++) {
-        //x.push(parseInt(j[i]["YEAR"]));
+        x.push(parseInt(j[i]["YEAR"]));
         y.push(parseFloat(j[i]["NHS_INV_AVG"]));
         if (parseInt(j[i]["YEAR"]) >= 2016) {  // for NHS Bridges only show since 2016
-            x.push(parseInt(j[i]["YEAR"]));
+          x.push(parseInt(j[i]["YEAR"]));
             ynhs.push(parseFloat(j[i]["NHS_INV_AVG"]));
-        } 
-        // else {
-        //     ynhs.push(0);
-        // }
+        } else {
+            ynhs.push(0);
+        }
       }
 
       var nhs = {
