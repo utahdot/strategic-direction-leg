@@ -382,8 +382,8 @@ function drawPICharts() {
 
 
       //Second fetch for historical line charts
-      // var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
-      var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
+       var url = "http://www.udot.utah.gov/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
+      //var url = "/wadocuments/data/strategic_direction/Preserve_Infrastructure/SD_Preserve_Infrastructure_Graph_3.json";
       fetch(url)
         .then(function(response) {
           return response.json();
@@ -396,7 +396,7 @@ function drawPICharts() {
           for (var i = 0; i < j.length; i++) {
             if(parseInt(j[i]["MY_YEAR"]) <= 2018){
               piData.push(parseInt(j[i]["INFRASTRUCTURE"]));
-              if(parseInt(j[i]["MY_YEAR"]) == 2018){
+              if(parseInt(j[i]["MY_YEAR"]) == 2019){
                 piDataNew.push(parseInt(j[i]["INFRASTRUCTURE"]));
               }
               else{
